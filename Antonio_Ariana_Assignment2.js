@@ -1,15 +1,18 @@
 //alert("JavaScript works!");
 
-var milesToHike = 3;
+var distance = 5;
+var distanceHiked = 0;
 var hikers = ["Jonathan", "Tim", "Bethany", "Becca"];
 var hikeLeader = "Ariana"; 
 var niceWeather = true;
 
-if (niceWeather === true) {
-	console.log("Let's go for a hike!");
+var startTheDay = function() {
+	if (niceWeather === true) {
+		console.log("Let's go for a hike!");
 }	else {
-	console.log("I'm going back to bed.");
+		console.log("Go back to bed.");
 }
+};
 
 var isItSunny = function(Sunny) {
 	
@@ -19,20 +22,37 @@ var isItSunny = function(Sunny) {
 	return false;
 }
 };
-
+/*
 var todaysHike = function(trail, miles) {
 	var announcement;
 	announcement = hikeLeader + " is leading this hike today. They will hike " + trail +
 	 " trail which is " + miles + " miles long.";
 	return announcement;
 };
+var howFarHiked = function(distanceHiked) {
+	var areWeThereYet = function(
+	
+	while (distanceHiked <= distance) { 
+		var distanceToGo = distance - distanceHiked;
+		console.log("We have gone " + distanceHiked + " miles and we have " + distanceToGo + " left to go.");
+		distanceHiked++;
+}
+};
+*/
+	
+	
 
 
-
+startTheDay();
 var sunnyToday = isItSunny(true);
 console.log("Today it is " + sunnyToday + " that it is sunny so you should wear a hat and sunscreen.");
 console.log("The people going on the hike today are, " + hikers + ".");
-var announceTodaysHike = todaysHike("Arroyo Seco", 5);
-console.log(announceTodaysHike);
+//var announceTodaysHike = todaysHike("Arroyo Seco", distance);
+//console.log(announceTodaysHike);
+//howFarHiked(distanceHiked);
+
+
+
+
 
     
