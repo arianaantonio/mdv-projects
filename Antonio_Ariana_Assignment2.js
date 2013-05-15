@@ -7,8 +7,7 @@
 
 
 var distance = 5;
-//var distanceHiked = 0;
-var hikers = ["Ariana", " Jonathan", " Tim", " Bethany", " Becca"];
+var hikers = ["Ariana", "Jonathan", "Tim", "Bethany", "Becca"];
 var hikeLeader = "Ariana"; 
 
 var startTheDay = function(niceWeather) {
@@ -36,17 +35,23 @@ var todaysHike = function(trail, miles) {
 };
 
 var howFarHiked = function(distanceHiked) {
-	
-	 while (distanceHiked < distance) { 
-			var distanceToGo = distance - distanceHiked;
-			console.log("We have hiked " + distanceHiked + " miles and have " + distanceToGo + " to go.");
-			distanceHiked++;
+	while (distanceHiked < distance) { 
+		var distanceToGo = distance - distanceHiked;
+		console.log("We have hiked " + distanceHiked + " miles and have " + distanceToGo + " to go.");
+		distanceHiked++;
 }
 
 	return distanceHiked;
 };
-
-	
+var rollCall = function(numOfHikers, hikers) {
+	var numOfHikers = 1;
+	for (var i=0; i < hikers.length; i++) {
+		console.log("We still have " + hikers[i] + " with us. That's " + numOfHikers + " hikers.");
+		numOfHikers++;
+		var isEveryoneHere = numOfHikers -1;
+}
+	return isEveryoneHere;
+};		
 	
 
 
@@ -59,7 +64,9 @@ console.log(announceTodaysHike);
 console.log("Let's begin!");
 var announceDistance = howFarHiked(0);
 console.log("We have gone " + announceDistance + " miles and are finished!");
-
+var takeRollCall = rollCall(5, hikers); 
+console.log("All " + takeRollCall + " hikers are present and accounted for.");
+console.log("Great hike today everyone!");
 
 
 
