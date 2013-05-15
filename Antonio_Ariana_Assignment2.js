@@ -35,6 +35,7 @@ var todaysHike = function(trail, miles) {
 };
 
 var howFarHiked = function(distanceHiked) {
+	var distanceHiked = 0;
 	while (distanceHiked < distance) { 
 		var distanceToGo = distance - distanceHiked;
 		console.log("We have hiked " + distanceHiked + " miles and have " + distanceToGo + " to go.");
@@ -62,7 +63,7 @@ console.log("The people going on the hike today are " + hikers + ".");
 var announceTodaysHike = todaysHike("Arroyo Seco", "5");
 console.log(announceTodaysHike);
 console.log("Let's begin!");
-var announceDistance = howFarHiked(0);
+var announceDistance = howFarHiked();
 console.log("We have gone " + announceDistance + " miles and are finished!");
 var takeRollCall = rollCall(5, hikers); 
 console.log("All " + takeRollCall + " hikers are present and accounted for.");
