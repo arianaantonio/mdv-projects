@@ -2,11 +2,10 @@
 
 var distance = 5;
 var distanceHiked = 0;
-var hikers = ["Jonathan", "Tim", "Bethany", "Becca"];
+var hikers = ["Ariana", " Jonathan", " Tim", " Bethany", " Becca"];
 var hikeLeader = "Ariana"; 
-var niceWeather = true;
 
-var startTheDay = function() {
+var startTheDay = function(niceWeather) {
 	if (niceWeather === true) {
 		console.log("Let's go for a hike!");
 }	else {
@@ -14,22 +13,22 @@ var startTheDay = function() {
 }
 };
 
-var isItSunny = function(Sunny) {
+var isItSunny = function(temp, skyOutlook) {
 	
-	if (Sunny === true) {
+	if (temp > 70 && skyOutlook === "Sunny") {
 	return true;
 } else {
 	return false;
 }
 };
-/*
+
 var todaysHike = function(trail, miles) {
 	var announcement;
 	announcement = hikeLeader + " is leading this hike today. They will hike " + trail +
 	 " trail which is " + miles + " miles long.";
 	return announcement;
 };
-var howFarHiked = function(distanceHiked) {
+/*var howFarHiked = function(distanceHiked) {
 	var areWeThereYet = function(
 	
 	while (distanceHiked <= distance) { 
@@ -43,12 +42,12 @@ var howFarHiked = function(distanceHiked) {
 	
 
 
-startTheDay();
-var sunnyToday = isItSunny(true);
-console.log("Today it is " + sunnyToday + " that it is sunny so you should wear a hat and sunscreen.");
-console.log("The people going on the hike today are, " + hikers + ".");
-//var announceTodaysHike = todaysHike("Arroyo Seco", distance);
-//console.log(announceTodaysHike);
+startTheDay(true);
+var sunnyToday = isItSunny(75, "Sunny");
+console.log("Today it is " + sunnyToday + " that it is warm & sunny so you should wear a hat and sunscreen.");
+console.log("The people going on the hike today are " + hikers + ".");
+var announceTodaysHike = todaysHike("Arroyo Seco", "5");
+console.log(announceTodaysHike);
 //howFarHiked(distanceHiked);
 
 
