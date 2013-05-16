@@ -21,11 +21,11 @@ var startTheDay = function(niceWeather) {
 // Boolean function
 var isItSunny = function(temp, skyOutlook) {
 	if (temp > 70 && skyOutlook === "Sunny") {
-	return true;
+		return true;
 }
 	else if (temp > 50 || skyOutlook === "No chance of rain.") {
-	return true; 
-} else {
+		return true; 
+} 	else {
 	return false;
 }
 };
