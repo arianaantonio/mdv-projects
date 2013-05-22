@@ -37,12 +37,13 @@ var hikingTrails = [
     }
 ];
 //procedure fuction
-var startTheDay = function(niceWeather) {
-	if (niceWeather === true) {
-		console.log("Let's go for a hike!");
-}	else {
-		console.log("Go back to bed.");
-}
+var startTheDay = function(niceWeather) { //conditional
+    if (niceWeather === true) {
+	console.log("Let's go for a hike!");
+    }
+    else {
+	console.log("Go back to bed.");
+    }
 };
 
 //object
@@ -50,8 +51,7 @@ var hikeLeader = {
     name: "Ariana",
     age: 31,
     hikingExperience: "intermediate",
-    yearStartedHiking: 1992,
-    currentYear: 2013,
+    favoriteTrails: ["La Tuna", "Chantry Flats", "Mount Wilson"],
     introduceLeader: function() { //method: procedure
         console.log("Your leader today is " + this.name + ", she is " + this.age + ".");
     },
@@ -61,18 +61,58 @@ var hikeLeader = {
 };
 // Boolean function
 var isItSunny = function(temp, skyOutlook) {
-	if (temp > 70 && skyOutlook === "Sunny") {
-		return true;
-}
-	else if (temp > 50 || skyOutlook === "No chance of rain.") {
-		return true; 
-} 	else {
-	return false;
-}
+    if (temp > 70) {
+        if (skyOutlook === "Sunny") { //nested conditional
+            console.log("Better put on some sunscreen today.");
+            return true;
+        }
+        else {
+            console.log("No need for sunscreen today.");
+            return true;
+        }
+    }
+    else if (temp > 50 || skyOutlook === "No chance of rain.") {
+	return true; 
+    }
+    else {
+        return false;
+    }
+};
+var otherHikers = {
+    "Brian" : "beginner",
+    "Samantha": "pro",
+    "Tim": "intermediate"
+};
+var announceOtherHikers = function() { //for in loop
+    for (var key in otherHikers) {
+    console.log("Another hiker is " + key + " and they are " + otherHikers[key] + ".");
+    }
 };
 
-
-
+//number function
+var howFarHiked = function(distanceHiked) {
+        var distanceToGo,
+        distance = 5;
+	while (distanceHiked < distance) { 
+		distanceToGo = distance - distanceHiked;
+		console.log("We have hiked " + distanceHiked + " miles and have " + distanceToGo + " to go.");
+		distanceHiked++;
+}
+	return distanceHiked;
+};
+var whoBringsWhat = {
+    hikers: ["Ariana", "Tim", "Samantha", "Brian"],
+    supplies: ["Water", "Pretzels", "Sandwiches", "First aid kit"],
+    assignSupplies: function() {
+        for (this.hikers = 0; this.hikers > this.hikers.length; this.hikers++) {
+            for (this.supplies = 0; this.supplies > this.supplies.length; this.supplies++) {
+                console.log(this.hikers[key] + "is bringing" + this.supplies[key]);
+            };
+        };
+        
+    }
+};
+whoBringsWhat.assignSupplies();
 
 
 
@@ -87,4 +127,6 @@ console.log("Today you will be hiking the " + hikingTrails[1].medium.name + " tr
 hikeLeader.introduceLeader();
 hikeLeader.changeExperience("pro");
 console.log("Your leader's experience is " + hikeLeader.hikingExperience + ".");
-
+announceOtherHikers();
+var announceDistance = howFarHiked(0);
+console.log("We have gone " + announceDistance + " miles and are finished!");
