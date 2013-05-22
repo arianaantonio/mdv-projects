@@ -6,9 +6,8 @@
 // Hiking with objects
 
 //initial variables
-var distance = 5;
 var hikers = ["Ariana", "Jonathan", "Tim", "Bethany", "Becca"];
-// var hikeLeader = "Ariana";
+
 
 //JSON data
 var hikingTrails = [
@@ -37,25 +36,55 @@ var hikingTrails = [
         }
     }
 ];
-
-console.log("Today you will be hiking the " + hikingTrails[1].medium.name + " trail which is " + hikingTrails[1].medium.distanceInMiles + " miles. The terrain is " + hikingTrails[1].medium.terrain + ".");
-/*string function
-var todaysHike = function(trail, distance, terrain) {
-	var announcement,
-        trail = hikingTrails[].name;
-	announcement = hikeLeader + " is leading this hike today. We will hike " + trail +
-	 " trail which is " + hikingTrails[i].distance + " miles long and is " + hikingTrails[i].terrain;
-	return announcement;
+//procedure fuction
+var startTheDay = function(niceWeather) {
+	if (niceWeather === true) {
+		console.log("Let's go for a hike!");
+}	else {
+		console.log("Go back to bed.");
+}
 };
-*/
 
-//procedure method object
+//object
 var hikeLeader = {
     name: "Ariana",
     age: 31,
-    hikingExperience: "pro",
-    introduceLeader : function() {
-        console.log("Your leader today is " + this.name + ", she is " + this.age + " years old and her experience level is " + this.hikingExperience + ".");
+    hikingExperience: "intermediate",
+    yearStartedHiking: 1992,
+    currentYear: 2013,
+    introduceLeader: function() { //method: procedure
+        console.log("Your leader today is " + this.name + ", she is " + this.age + ".");
+    },
+    changeExperience: function(newExperience) { //method: mutator
+        this.hikingExperience = newExperience;
     }
 };
+// Boolean function
+var isItSunny = function(temp, skyOutlook) {
+	if (temp > 70 && skyOutlook === "Sunny") {
+		return true;
+}
+	else if (temp > 50 || skyOutlook === "No chance of rain.") {
+		return true; 
+} 	else {
+	return false;
+}
+};
+
+
+
+
+
+
+
+
+
+//outputs
+startTheDay(true);
+var sunnyToday = isItSunny(75, "Sunny");
+console.log("Today it is " + sunnyToday + " that the weather is great for a hike! Please dress accordingly.");
+console.log("Today you will be hiking the " + hikingTrails[1].medium.name + " trail which is " + hikingTrails[1].medium.distanceInMiles + " miles. The terrain is " + hikingTrails[1].medium.terrain + ".");
 hikeLeader.introduceLeader();
+hikeLeader.changeExperience("pro");
+console.log("Your leader's experience is " + hikeLeader.hikingExperience + ".");
+
