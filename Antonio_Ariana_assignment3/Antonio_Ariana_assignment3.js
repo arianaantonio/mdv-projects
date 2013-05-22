@@ -100,19 +100,21 @@ var howFarHiked = function(distanceHiked) {
 }
 	return distanceHiked;
 };
+//supplies object
 var whoBringsWhat = {
     hikers: ["Ariana", "Tim", "Samantha", "Brian"],
-    supplies: ["Water", "Pretzels", "Sandwiches", "First aid kit"],
+    supplies: ["water", "pretzels", "sandwiches", "first aid kit"],
     assignSupplies: function() {
-        for (this.hikers = 0; this.hikers > this.hikers.length; this.hikers++) {
-            for (this.supplies = 0; this.supplies > this.supplies.length; this.supplies++) {
-                console.log(this.hikers[key] + "is bringing" + this.supplies[key]);
+        for (var key in this.hikers) {
+            for (var key in this.supplies) { //nested loop
+                
+                console.log(this.hikers[key] + " is bringing " + this.supplies[key]);
             };
         };
         
     }
 };
-whoBringsWhat.assignSupplies();
+
 
 
 
@@ -128,5 +130,6 @@ hikeLeader.introduceLeader();
 hikeLeader.changeExperience("pro");
 console.log("Your leader's experience is " + hikeLeader.hikingExperience + ".");
 announceOtherHikers();
+whoBringsWhat.assignSupplies();
 var announceDistance = howFarHiked(0);
 console.log("We have gone " + announceDistance + " miles and are finished!");
