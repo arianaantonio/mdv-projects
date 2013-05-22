@@ -6,7 +6,7 @@
 // Hiking with objects
 
 //initial variables
-var hikers = ["Ariana", "Jonathan", "Tim", "Bethany", "Becca"];
+
 
 
 //JSON data
@@ -36,6 +36,12 @@ var hikingTrails = [
         }
     }
 ];
+//JSON function
+var jsonHikingTrails = function(hikingTrails) {
+        var trailAnnouncement = "Today you will be hiking the " + hikingTrails[1].medium.name + " trail which is " + hikingTrails[1].medium.distanceInMiles + " miles. The terrain is " + hikingTrails[1].medium.terrain + ".";
+        return trailAnnouncement;
+};
+
 //procedure fuction
 var startTheDay = function(niceWeather) { //conditional
     if (niceWeather === true) {
@@ -78,11 +84,13 @@ var isItSunny = function(temp, skyOutlook) {
         return false;
     }
 };
+//otherHikers object
 var otherHikers = {
     "Brian" : "beginner",
     "Samantha": "pro",
     "Tim": "intermediate"
 };
+//announceOtherHikers function
 var announceOtherHikers = function() { //for in loop
     for (var key in otherHikers) {
     console.log("Another hiker is " + key + " and they are " + otherHikers[key] + ".");
@@ -107,11 +115,9 @@ var whoBringsWhat = {
     assignSupplies: function() {
         for (var key in this.hikers) {
             for (var key in this.supplies) { //nested loop
-                
                 console.log(this.hikers[key] + " is bringing " + this.supplies[key]);
             };
         };
-        
     }
 };
 
@@ -125,7 +131,7 @@ var whoBringsWhat = {
 startTheDay(true);
 var sunnyToday = isItSunny(75, "Sunny");
 console.log("Today it is " + sunnyToday + " that the weather is great for a hike! Please dress accordingly.");
-console.log("Today you will be hiking the " + hikingTrails[1].medium.name + " trail which is " + hikingTrails[1].medium.distanceInMiles + " miles. The terrain is " + hikingTrails[1].medium.terrain + ".");
+console.log(jsonHikingTrails(hikingTrails));
 hikeLeader.introduceLeader();
 hikeLeader.changeExperience("pro");
 console.log("Your leader's experience is " + hikeLeader.hikingExperience + ".");
