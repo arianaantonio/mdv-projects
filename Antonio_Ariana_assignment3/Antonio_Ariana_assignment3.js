@@ -52,7 +52,7 @@ var startTheDay = function(niceWeather) { //conditional
     }
 };
 
-//object
+//hikeLeader object
 var hikeLeader = {
     name: "Ariana",
     age: 31,
@@ -65,6 +65,7 @@ var hikeLeader = {
         this.hikingExperience = newExperience;
     }
 };
+
 // Boolean function
 var isItSunny = function(temp, skyOutlook) {
     if (temp > 70) {
@@ -84,12 +85,14 @@ var isItSunny = function(temp, skyOutlook) {
         return false;
     }
 };
+
 //otherHikers object
 var otherHikers = {
     "Brian" : "beginner",
     "Samantha": "pro",
     "Tim": "intermediate"
 };
+
 //announceOtherHikers function
 var announceOtherHikers = function() { //for in loop
     for (var key in otherHikers) {
@@ -100,7 +103,7 @@ var announceOtherHikers = function() { //for in loop
 //number function
 var howFarHiked = function(distanceHiked) {
         var distanceToGo,
-        distance = 5;
+        distance = 6;
 	while (distanceHiked < distance) { 
 		distanceToGo = distance - distanceHiked;
 		console.log("We have hiked " + distanceHiked + " miles and have " + distanceToGo + " to go.");
@@ -108,6 +111,7 @@ var howFarHiked = function(distanceHiked) {
 }
 	return distanceHiked;
 };
+
 //supplies object
 var whoBringsWhat = {
     hikers: ["Ariana", "Tim", "Samantha", "Brian"],
