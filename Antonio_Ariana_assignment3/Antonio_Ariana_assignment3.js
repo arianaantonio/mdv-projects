@@ -91,10 +91,15 @@ var hikingBoots = function(brand, size, height, weather) {
         brandName: brand,
         bootSize: size,
         bootHeight: height,
+        calculateBootWear: function(milesHiked) {
+            var bootWear = 300 - milesHiked;
+            return bootWear
+        },
         weatherDurable: weather
     };
     return bootSpecs
 };
+
 //otherHikers object
 var otherHikers = {
     "Brian" : "beginner",
@@ -157,10 +162,11 @@ console.log("Today it is " + sunnyToday + " that the weather is great for a hike
 console.log(jsonHikingTrails(hikingTrails));
 hikeLeader.introduceLeader();
 hikeLeader.changeExperience("pro");
-console.log("Your leader's experience is " + hikeLeader.hikingExperience + ".");
+console.log(hikeLeader.name + "'s experience is " + hikeLeader.hikingExperience + ".");
 console.log(hikeLeader.name + "'s favorite trails are: " + hikeLeader.favoriteTrails + ".");
 var leaderHikingBoots = hikingBoots("Keen", 7, "ankle", "waterproof");
-console.log("Your leader is wearing " + leaderHikingBoots.brandName + " boots in size " + leaderHikingBoots.bootSize + ". They are " + leaderHikingBoots.bootHeight + " height and are " + leaderHikingBoots.weatherDurable + ".");
+console.log(hikeLeader.name +" is wearing " + leaderHikingBoots.brandName + " boots in size " + leaderHikingBoots.bootSize + ". They are " + leaderHikingBoots.bootHeight + " height and are " + leaderHikingBoots.weatherDurable + "." + "The boots have " + leaderHikingBoots.calculateBootWear(80) + " miles left of wear in them.");
+//console.log(hikeLeader + " has hiked "  + " in the boots and can hike " + bootWearLeft + " more before needing a new pair.");
 announceOtherHikers();
 whoBringsWhat.assignSupplies();
 var announceDistance = howFarHiked(0);
