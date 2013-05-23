@@ -131,11 +131,14 @@ var whoBringsWhat = {
         firstAid: "first aid kit"
     },
     assignSupplies: function() {
-        for (var key in this.hikers) {
+        var i = 0
+        while (i < this.hikers.length) {
+        
             for (var key in this.supplies) { //nested loop
-                
+                console.log(this.hikers[i] + " is bringing: " + this.supplies[key]);
+            i++    
             };
-        console.log(this.hikers[key] + " is bringing " + this.supplies[key]);
+    
         };
     }
 };
