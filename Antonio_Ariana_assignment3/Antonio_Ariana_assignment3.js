@@ -85,7 +85,16 @@ var isItSunny = function(temp, skyOutlook) {
         return false;
     }
 };
-
+//shoes function with object argument/return
+var hikingBoots = function(brand, size, height, weather) {
+    var bootSpecs = {
+        brandName: brand,
+        bootSize: size,
+        bootHeight: height,
+        weatherDurable: weather
+    };
+    return bootSpecs
+};
 //otherHikers object
 var otherHikers = {
     "Brian" : "beginner",
@@ -115,15 +124,22 @@ var howFarHiked = function(distanceHiked) {
 //supplies object
 var whoBringsWhat = {
     hikers: ["Ariana", "Tim", "Samantha", "Brian"],
-    supplies: ["water", "pretzels", "sandwiches", "first aid kit"],
+    supplies: {
+        needWater: "water",
+        snack: "pretzels",
+        lunch: "sandwiches",
+        firstAid: "first aid kit"
+    },
     assignSupplies: function() {
         for (var key in this.hikers) {
             for (var key in this.supplies) { //nested loop
-                console.log(this.hikers[key] + " is bringing " + this.supplies[key]);
+                
             };
+        console.log(this.hikers[key] + " is bringing " + this.supplies[key]);
         };
     }
 };
+
 
 
 
@@ -139,6 +155,9 @@ console.log(jsonHikingTrails(hikingTrails));
 hikeLeader.introduceLeader();
 hikeLeader.changeExperience("pro");
 console.log("Your leader's experience is " + hikeLeader.hikingExperience + ".");
+console.log(hikeLeader.name + "'s favorite trails are: " + hikeLeader.favoriteTrails + ".");
+var leaderHikingBoots = hikingBoots("Keen", 7, "ankle", "waterproof");
+console.log("Your leader is wearing " + leaderHikingBoots.brandName + " boots in size " + leaderHikingBoots.bootSize + ". They are " + leaderHikingBoots.bootHeight + " height and are " + leaderHikingBoots.weatherDurable + ".");
 announceOtherHikers();
 whoBringsWhat.assignSupplies();
 var announceDistance = howFarHiked(0);
