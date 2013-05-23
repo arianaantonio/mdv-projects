@@ -5,9 +5,13 @@
 // Project 3
 // Hiking with objects
 
-//initial variables
-
-
+//global variables
+var otherHikers = {
+    "Brian" : "beginner",
+    "Samantha": "pro",
+    "Tim": "intermediate"
+};
+var activity = "hiking";
 
 //JSON data
 var hikingTrails = [
@@ -100,13 +104,6 @@ var hikingBoots = function(brand, size, height, weather) {
     return bootSpecs
 };
 
-//otherHikers object
-var otherHikers = {
-    "Brian" : "beginner",
-    "Samantha": "pro",
-    "Tim": "intermediate"
-};
-
 //announceOtherHikers function
 var announceOtherHikers = function() { //for in loop
     for (var key in otherHikers) {
@@ -158,7 +155,7 @@ var whoBringsWhat = {
 //outputs
 startTheDay(true);
 var sunnyToday = isItSunny(75, "Sunny");
-console.log("Today it is " + sunnyToday + " that the weather is great for a hike! Please dress accordingly.");
+console.log("Today it is " + sunnyToday + " that the weather is great for " + activity + ". Please dress accordingly.");
 console.log(jsonHikingTrails(hikingTrails));
 hikeLeader.introduceLeader();
 hikeLeader.changeExperience("pro");
@@ -169,5 +166,7 @@ console.log(hikeLeader.name +" is wearing " + leaderHikingBoots.brandName + " bo
 //console.log(hikeLeader + " has hiked "  + " in the boots and can hike " + bootWearLeft + " more before needing a new pair.");
 announceOtherHikers();
 whoBringsWhat.assignSupplies();
+console.log("Let's begin!");
 var announceDistance = howFarHiked(0);
 console.log("We have gone " + announceDistance + " miles and are finished!");
+console.log("Great job today hikers!");
