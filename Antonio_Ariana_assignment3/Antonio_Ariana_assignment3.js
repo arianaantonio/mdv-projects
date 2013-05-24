@@ -55,6 +55,13 @@ var hikeLeader = {
     }
 };
 
+//array function
+var leadersFavoriteTrails = function(favoriteTrails) {
+    var announceFavoriteTrails = hikeLeader.favoriteTrails;
+    console.log(hikeLeader.name + "'s favorite trails are " + announceFavoriteTrails + ".");
+    return announceFavoriteTrails;
+};
+
 //supplies object
 var whoBringsWhat = {
     hikers: ["Ariana", "Tim", "Samantha", "Brian"],
@@ -156,7 +163,7 @@ console.log(jsonHikingTrails(hikingTrails));
 hikeLeader.introduceLeader();
 hikeLeader.changeExperience("pro");
 console.log(hikeLeader.name + "'s experience is: " + hikeLeader.hikingExperience + ".");
-console.log(hikeLeader.name + "'s favorite trails are: " + hikeLeader.favoriteTrails + ".");
+leadersFavoriteTrails();
 var leaderHikingBoots = hikingBoots("Keen", 7, "ankle", "waterproof");
 console.log(hikeLeader.name +" is wearing " + leaderHikingBoots.brandName + " boots in size " + leaderHikingBoots.bootSize + ". They are " + leaderHikingBoots.bootHeight + " height and are " + leaderHikingBoots.weatherDurable + "." + "The boots have " + leaderHikingBoots.calculateBootWear(80) + " miles left of wear in them.");
 announceOtherHikers();
