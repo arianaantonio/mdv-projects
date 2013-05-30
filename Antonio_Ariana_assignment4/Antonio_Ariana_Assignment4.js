@@ -35,16 +35,16 @@ var myLibrary = function() {
     // Format number of decimals function
     var formatDecimals = function(numberToChange, decimalPlaces) {
         numberToChange = numberToChange.toFixed(decimalPlaces);
-        return numberToChange
+        return numberToChange;
     }; // end formatDecimals
     
     // Convert string number to number function
-    var convertToNumber = function(string) {
-        if (typeof(string) === "string") {
-            var newString = parseFloat(string);
-            return newString;
+    var convertToNumber = function(val) {
+        if (typeof(val) === "string") {
+            var newVal = parseFloat(val);
+            return newVal;
         } else {
-            return string;
+            return val;
         } 
     }; // end convertToNumber
     
