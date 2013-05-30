@@ -59,8 +59,17 @@ var myLibrary = function() {
     }; // end findSmallestValue
     
     // Find total value of just numbers in an array function
-    var findTotalNumberValue = function() {
-        //code
+    var findTotalNumberValue = function(arrayToAdd) {
+        var totalValue = 0; 
+        for (var i=0; i < arrayToAdd.length; i++) {
+            if (typeof(arrayToAdd[i]) === "string") {
+                i++;
+            }
+            else {
+                totalValue += arrayToAdd[i];
+            }
+        }
+        return totalValue;
     }; // end findTotalNumberValue
     
     return {
@@ -68,8 +77,8 @@ var myLibrary = function() {
         "checkUrl": checkUrl,
         "formatDecimals": formatDecimals,
         "convertToNumber": convertToNumber,
-        "findSmallestValue": findSmallestValue
-        /*"findTotalNumberValue": */
+        "findSmallestValue": findSmallestValue,
+        "findTotalNumberValue": findTotalNumberValue
     }
     
 }; // end myLibrary
@@ -83,3 +92,7 @@ console.log("Is this a valid web address? " + newLib.checkUrl("htps://www.happyw
 console.log("I've changed decimal places on a number: " + newLib.formatDecimals(3.1, 2));
 console.log("I've changed a string to a number: " + newLib.convertToNumber("3.45lbs"));
 console.log("This outputs the next highest number in an array compared to a given number: " + newLib.findSmallestValue([6,3,4,5,2,20,1,13,17],14));
+console.log("This adds the numbers in an array: " + newLib.findTotalNumberValue([12, 3, "13", "pickle", 12, 27, 90]));
+
+
+
