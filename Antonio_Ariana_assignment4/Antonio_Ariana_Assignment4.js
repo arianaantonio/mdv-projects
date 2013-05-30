@@ -35,9 +35,14 @@ var myLibrary = function() {
         numberToChange = numberToChange.toFixed(decimalPlaces);
         return numberToChange
     };
-    // Convert string number to actual number function
+    // Convert string number to number function
     var convertToNumber = function(string) {
-        // code
+        if (typeof(string) === "string") {
+            var newString = parseFloat(string);
+            return newString;
+        } else {
+            return string;
+        } 
     };
     // Smallest value great than given value in array function
     var findSmallestValue = function(array) {
@@ -51,9 +56,9 @@ var myLibrary = function() {
     return {
         "checkPhoneNumber": checkPhoneNumber,
         "checkUrl": checkUrl,
-        "formatDecimals": formatDecimals
-        /*"convertToNumber":
-        "findSmallestValue":
+        "formatDecimals": formatDecimals,
+        "convertToNumber": convertToNumber
+        /*"findSmallestValue":
         "findTotalNumberValue": */
     }
     
@@ -65,4 +70,5 @@ console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("818-204-
 console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("213-45-3545"));
 console.log("Is this a valid web address? " + newLib.checkUrl("https://www.happywebsite.com"));
 console.log("Is this a valid web address? " + newLib.checkUrl("htps://www.happywebsite.com"))
-console.log(newLib.formatDecimals(3.1, 2));
+console.log("I've changed decimal places on a number: " + newLib.formatDecimals(3.1, 2));
+console.log("I've changed a string to a number: " + newLib.convertToNumber("3.45lbs"));
