@@ -38,8 +38,9 @@ var todaysHike = function(trail, miles) {
 };
 //number function
 var howFarHiked = function(distanceHiked) {
+	var distanceToGo
 	while (distanceHiked < distance) { 
-		var distanceToGo = distance - distanceHiked;
+		distanceToGo = distance - distanceHiked;
 		console.log("We have hiked " + distanceHiked + " miles and have " + distanceToGo + " to go.");
 		distanceHiked++;
 }
