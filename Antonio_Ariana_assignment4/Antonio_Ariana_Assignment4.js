@@ -10,20 +10,25 @@ var myLibrary = function() {
     
     // Check phone number string function
     var checkPhoneNumber = function(number) {
-       // var firstDash = myString.indexOf("-");
        if (number.length === 12) {
             if (number.charAt(3) === "-") {
                 if (number.charAt(7) === "-") {
                     return true;
                 }
             }
-       } else {
-        return false;
+       }
+       else {
+            return false;
        }
     };
     // Check URL string function
     var checkUrl = function(webAddress) {
-        // code
+        if (webAddress.substring(0, 7) === "http://" || webAddress.substring(0, 8) === "https://"){
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     // Format number of decimals function
     var formatDecimals = function(numberX) {
@@ -44,8 +49,8 @@ var myLibrary = function() {
     
     return {
         "checkPhoneNumber": checkPhoneNumber,
-       /* "checkUrl":
-        "formatDecimals":
+        "checkUrl": checkUrl
+        /*"formatDecimals":
         "convertToNumber":
         "findSmallestValue":
         "findTotalNumberValue": */
@@ -57,5 +62,5 @@ var myLibrary = function() {
 var newLib = new myLibrary();
 console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("818-204-3204"));
 console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("213-45-3545"));
-
-
+console.log("Is this a valid web address? " + newLib.checkUrl("https://www.happywebsite.com"));
+console.log("Is this a valid web address? " + newLib.checkUrl("htps://www.happywebsite.com"))
