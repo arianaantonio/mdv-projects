@@ -31,8 +31,9 @@ var myLibrary = function() {
         }
     };
     // Format number of decimals function
-    var formatDecimals = function(numberX) {
-        // 
+    var formatDecimals = function(numberToChange, decimalPlaces) {
+        numberToChange = numberToChange.toFixed(decimalPlaces);
+        return numberToChange
     };
     // Convert string number to actual number function
     var convertToNumber = function(string) {
@@ -49,9 +50,9 @@ var myLibrary = function() {
     
     return {
         "checkPhoneNumber": checkPhoneNumber,
-        "checkUrl": checkUrl
-        /*"formatDecimals":
-        "convertToNumber":
+        "checkUrl": checkUrl,
+        "formatDecimals": formatDecimals
+        /*"convertToNumber":
         "findSmallestValue":
         "findTotalNumberValue": */
     }
@@ -64,3 +65,4 @@ console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("818-204-
 console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("213-45-3545"));
 console.log("Is this a valid web address? " + newLib.checkUrl("https://www.happywebsite.com"));
 console.log("Is this a valid web address? " + newLib.checkUrl("htps://www.happywebsite.com"))
+console.log(newLib.formatDecimals(3.1, 2));
