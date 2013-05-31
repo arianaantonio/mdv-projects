@@ -13,10 +13,22 @@ var myLibrary = function() {
        if (number.length === 12) {
             if (number.charAt(3) === "-") {
                 if (number.charAt(7) === "-") {
-                    return true;
+                    if (!isNaN(number.substring(0,3)) && !isNaN(number.substring(4,7)) && !isNaN(number.substring(8))) {
+                        return true;
+                    }
+                    else {
+                        return false; 
+                    }
+                return true;
+                }
+                else {
+                    return false;
                 }
             }
-       }
+            else {
+                return false; 
+            }
+       }   
        else {
             return false;
        }
@@ -85,8 +97,9 @@ var myLibrary = function() {
 
 //outputs to test code
 var newLib = new myLibrary();
-console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("818-204-3204"));
-console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("213-45-3545"));
+console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("89-204-3904"));
+console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("a13-459-3545"));
+console.log("Is this a valid phone number? " + newLib.checkPhoneNumber("313-459-3545"));
 console.log("Is this a valid web address? " + newLib.checkUrl("https://www.happywebsite.com"));
 console.log("Is this a valid web address? " + newLib.checkUrl("htps://www.happywebsite.com"))
 console.log("I've changed decimal places on a number: " + newLib.formatDecimals(3.1, 2));
