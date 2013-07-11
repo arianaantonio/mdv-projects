@@ -15,6 +15,7 @@
     
     <body>
 	<h1>Add Movie</h1>
+        <form action="#" method="post">
 	    <fieldset>
                 <legend>Movie Information</legend>
                 <ul>
@@ -33,13 +34,19 @@
                             </optgroup>
                         </select>
                     </li>
-                    <li>Where Did You See The Movie?
+                    <li>
+                        <label for="where">Where Did You See The Movie?</label>
                         <ul>
-                            <li><input type="radio" checked value="Movie Theater" id="movietheater" name="genre" /><label for="movietheater">Movie Theater</label></li>
-                            <li><input type="radio" value="At Home" id="home" name="genre" /><label for="home">At Home</label></li>
-                            <li><input type="radio" value="Other" id="other" name="genra" /><label for="other">Other</label></li>
+                            <li><input type="radio" checked value="Movie Theater" id="movietheater" name="where" /><label for="movietheater">Movie Theater</label></li>
+                            <li><input type="radio" value="At Home" id="home" name="where" /><label for="home">At Home</label></li>
+                            <li><input type="radio" value="Other" id="other" name="where" /><label for="other">Other</label></li>
                         </ul>
+                    </li>
+                    <li>
+                        <label for="rating">Rate The Movie</label><input type="range" name="rating" min="1" max="10" step="1" value="5" /></li>
+                   <input type="submit" value="Log Movie" />
                 </ul>
             </fieldset>
+        </form>
     </body>
 </html>
