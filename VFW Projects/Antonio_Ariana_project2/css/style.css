@@ -3,7 +3,7 @@ Author: Ariana Antonio
 Project 2: Movie Journal
 VFW 1307
 */
-body{font-family: Georgia; background-color: grey}
+body{font-family: Georgia; background-color: #d3d3d3;}
 #content{overflow: scroll;}
 h1 {
     font-weight: bold;
@@ -11,24 +11,23 @@ h1 {
     border: 2px solid blue;
     padding: 5px;
     width: 200px;
-    margin-left: 90px;
-    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    color: #3f3f3f;
 }
-a:hover{color: pink; outline: none;}
+a:hover{color: purple; outline: none;}
 
 ul{list-style: none;}
+legend{color: #3f3f3f; font-size: 1.5em;}
 #title{border-radius: 5px;}
 #date{border-radius: 5px;}
 #friends{border-radius: 5px;}
 #review{border-radius: 5px;}
 li{
-    color: white;
+    color: #3f3f3f;
     margin-left: -37px;
 }
-#genre{
-    background-color: blue;
-    width: 125px;
-}
+#genre{width: 125px;}
 
 
 
