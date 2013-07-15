@@ -1,6 +1,6 @@
 <!doctype html>
 <!--Author: Ariana Antonio-->
-<!--Project 1: Movie Journal-->
+<!--Project 2: Movie Journal-->
 <!--VFW 1307-->
 <html>
     <head>
@@ -8,8 +8,8 @@
 	<meta name="description" content="Add Item for Movie Journal web app." />
         <meta name="keywords" content="web app, movie journal, list" />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="user-scalable=no", width=device-width" />
-		
+        <meta name="viewport" content="user-scalable=no, width=device-width" />
+	<link href="css/style.css" rel="stylesheet" />	
 	<title>New Movie</title>
     </head>
     <body>
@@ -18,20 +18,20 @@
 	    <fieldset>
                 <legend>Movie Information</legend>
                 <ul>
-                    <li><label for="title">Movie Title:</label><input type="text" id="title" /></li>
-                    <li><label for="date">Date Seen:</label><input type="date" id="date" /></li>
+                    <li><label for="title">Movie Title:</label><br><input type="text" id="title" /></li>
+                    <li><label for="date">Date Seen:</label><br><input type="date" id="date" /></li>
                     <li>
-                        <label for="genre">Movie Genre:</label>
-                        <select id="genre">
-                            <optgroup label="Genre">
-                                <option value="Comedy">Comedy</option>
-                                <option value="Drama">Drama</option>
-                                <option value="Romance">Romance</option>
-                                <option value="Action">Action</option>
-                                <option value="Horror">Horror</option>
-                                <option value="Other">Other</option>
-                            </optgroup>
-                        </select>
+                        <label for="genre">Movie Genre:</label><br>
+			<select id="genre">
+			    <optgroup label="Genre">
+				<option value="Comedy">Comedy</option>
+				<option value="Drama">Drama</option>
+				<option value="Romance">Romance</option>
+				<option value="Action">Action</option>
+				<option value="Horror">Horror</option>
+				<option value="Other">Other</option>
+			    </optgroup>
+			</select>
                     </li>
                     <li>
                         <label for="where">Where I Saw The Movie:</label>
@@ -41,9 +41,10 @@
                             <li><input type="radio" value="Other" id="other" name="where" /><label for="other">Other</label></li>
                         </ul>
                     </li>
-                    <li><label for="friends">Who I Saw It With:</label><input type="text" id="friends" /></li>          
-                    <li><label for="rating">Movie Rating:</label><input type="range" name="rating" min="1" max="10" step="1" value="5" /></li>
-                    <li><label for="review">Movie Review And Memorable Moments:</label><textarea id="review"></textarea></li>
+                    <li><label for="friends">Who I Saw It With:</label><br><input type="text" id="friends" /></li>          
+                    <li><label for="rating">Movie Rating:</label><br><input type="range" id="rating" min="1" max="10" step="1" value="5" /></li>
+                    <li><label for="favorite">Save As Favorite?</label><br><input type="checkbox" id="favorite" /></li>
+		    <li><label for="review">Movie Review And Memorable Moments:</label><textarea id="review"></textarea></li>
                 </ul>
 		<input type="hidden" value="English" />
 		<input type="submit" value="Log Movie" />
