@@ -20,20 +20,8 @@
                 <ul>
                     <li><label for="title">Movie Title:</label><br><input type="text" id="title" /></li>
                     <li><label for="date">Date Seen:</label><br><input type="date" id="date" /></li>
-                    <li>
-                        <label for="genre">Movie Genre:</label><br>
-			<select id="genre">
-			    <optgroup label="Genre">
-				<option value="Comedy">Comedy</option>
-				<option value="Drama">Drama</option>
-				<option value="Romance">Romance</option>
-				<option value="Action">Action</option>
-				<option value="Horror">Horror</option>
-				<option value="Other">Other</option>
-			    </optgroup>
-			</select>
-                    </li>
-                    <li>
+                    <li id="select"><label for="genre">Movie Genre:</label><br /></li>
+		    <li>
                         <label for="where">Where I Saw The Movie:</label>
                         <ul>
                             <li><input type="radio" checked value="Movie Theater" id="movietheater" name="where" /><label for="movietheater">Movie Theater</label></li>
