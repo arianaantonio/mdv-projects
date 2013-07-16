@@ -44,6 +44,26 @@ window.addEventListener("DOMContentLoaded", function(){
             favoriteValue = "No";
         }
     }
+    
+    function controls(p) {
+        switch(p) {
+            case "on":
+                id("movieForm").style.display = "none";
+                id("clearData").style.display = "inline";
+                id("displayData").style.display = "none";
+                id("newMovie").style.display = "inline";
+                break;
+            case "off":
+                id("movieForm").style.display = "block";
+                id("clearData").style.display = "inline";
+                id("displayData").style.display = "inline";
+                id("newMovie").style.display = "none";
+                id("values").style.display = "none";
+                break;
+            default:
+                return false;
+        }
+    }
     //saving data
     function saveData() {
         var randomId = Math.floor(Math.random()*1000001);
@@ -63,11 +83,16 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     
     function pullData() {
+        if (localStorage.length === 0) {
+            alert("There is no data stored.");
+        }
+        controls("on");
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "values");
         var createList = document.createElement("ul");
         createDiv.appendChild(createList);
         document.body.appendChild(createDiv);
+        id("values").style.display = "block";
         for (var i=0, j=localStorage.length; i<j; i++) {
             var createLi = document.createElement("li");
             createList.appendChild(createLi);
@@ -85,6 +110,17 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     
+    function clearLocalData() {
+        if (localStorage.length === 0) {
+            alert("Data is all clear!");
+        }else {
+            localStorage.clear();
+            alert("All movies have been deleted");
+            window.location.reload();
+            return false;
+        }
+    }
+    
     //variables
     var movieGenre = ["Genre", "Comedy", "Action", "Drama", "Romance", "Horror", "Other"],
         theaterValue,
@@ -96,8 +132,8 @@ window.addEventListener("DOMContentLoaded", function(){
     //Link click events
     var displayDataLink = id("displayData");
     displayDataLink.addEventListener("click", pullData);
-    //var clearDataLink = id("clearData");
-    //clearDataLink.addEventListener("click", clearLocalData); */
+    var clearDataLink = id("clearData");
+    clearDataLink.addEventListener("click", clearLocalData);
     var saveMovie = id("logMovie");
     saveMovie.addEventListener("click", saveData);
     

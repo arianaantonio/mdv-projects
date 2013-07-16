@@ -14,7 +14,7 @@
     </head>
     <body background="http://www.clker.com/cliparts/F/d/D/v/2/B/movie-reel-hi.png">
 	<h1><img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/>Add Movie<img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/></h1>
-        <form action="#" method="post">
+        <form action="#" method="post" id="movieForm">
 	    <fieldset>
                 <legend>Movie Information</legend>
                 <ul>
@@ -36,10 +36,11 @@
                 </ul>
 		<input type="hidden" value="English" />
 		<input type="button" value="Log Movie" id="logMovie" />
-            </fieldset>
+	    </fieldset>
 	    <footer>
                 <a href="#" id="clearData">Clear Stored Data</a>
                 <a href="#" id="displayData">Display Data</a>
+		<a href="additem.html" id="newMovie" style="display:none;">Add New Movie</a>
             </footer>
         </form>
 	<script type="text/javascript" src="js/main.js"></script>
