@@ -9,11 +9,11 @@
         <meta name="keywords" content="web app, movie journal, list" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="user-scalable=no, width=device-width" />
-	<link href="css/style.css" rel="stylesheet" />	
+	<link href="css/style.css" rel="stylesheet" type="text/css" />	
 	<title>New Movie</title>
     </head>
-    <body>
-	<h1>Add Movie</h1>
+    <body background="http://www.clker.com/cliparts/F/d/D/v/2/B/movie-reel-hi.png">
+	<h1><img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/>Add Movie<img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/></h1>
         <form action="#" method="post">
 	    <fieldset>
                 <legend>Movie Information</legend>
@@ -44,12 +44,12 @@
                     <li><label for="friends">Who I Saw It With:</label><br><input type="text" id="friends" /></li>          
                     <li><label for="rating">Movie Rating:</label><br><input type="range" id="rating" min="1" max="10" step="1" value="5" /></li>
                     <li><label for="favorite">Save As Favorite?</label><br><input type="checkbox" id="favorite" /></li>
-		    <li><label for="review">Movie Review And Memorable Moments:</label><br><textarea id="review"></textarea></li>
+		    <li><label for="review">Movie Review:</label><br><textarea id="review"></textarea></li>
                 </ul>
 		<input type="hidden" value="English" />
-		<input type="submit" value="Log Movie" />
+		<input type="button" value="Log Movie" id="logMovie" />
             </fieldset>
-            <footer>
+	    <footer>
                 <a href="#">Clear Stored Data</a>
                 <a href="#">Display Data</a>
             </footer>
