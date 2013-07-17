@@ -84,7 +84,7 @@ window.addEventListener("DOMContentLoaded", function(){
     
     function pullData() {
         if (localStorage.length === 0) {
-            alert("There is no data stored.");
+            alert("There are no movies saved");
         }
         controls("on");
         var createDiv = document.createElement("div");
