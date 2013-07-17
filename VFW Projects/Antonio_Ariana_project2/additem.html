@@ -12,9 +12,10 @@
 	<link href="css/style.css" rel="stylesheet" type="text/css" />	
 	<title>New Movie</title>
     </head>
-    <body background="http://www.clker.com/cliparts/F/d/D/v/2/B/movie-reel-hi.png">
+    <body background="http://www.clker.com/cliparts/F/d/D/v/2/B/movie-reel-hi.png" id="background">
 	<h1><img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/>Add Movie<img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/></h1>
-        <form action="#" method="post" id="movieForm">
+        <div id="bgDiv">
+	<form action="#" method="post" id="movieForm">
 	    <fieldset>
                 <legend>Movie Information</legend>
                 <ul>
@@ -38,6 +39,7 @@
 		<input type="button" value="Log Movie" id="logMovie" />
 	    </fieldset>
 	</form>
+	</div>
 	<footer>
             <a href="#" id="clearData">Clear Stored Data</a>
             <a href="#" id="displayData">Display Data</a>

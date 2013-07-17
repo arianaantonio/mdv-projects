@@ -20,9 +20,7 @@ h1 {
     margin-right: auto;
 }
 a:hover{color: purple; outline: none;}
-fieldset{
-   border: none;
-}
+fieldset{border: none;}
 img{height: 25px;}
 ul{list-style: none;}
 legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;}
@@ -57,6 +55,7 @@ li{
 p{color:white; background-color: rgba(0, 0, 0, 0.6);}
 h2{color:white; background-color: rgba(0, 0, 0, 0.6);}
 #pullData{color:white;}
+.displayDataStyle{color:white; background-image: none;}
 
 
 

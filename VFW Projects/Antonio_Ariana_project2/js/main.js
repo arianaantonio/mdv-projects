@@ -52,6 +52,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 id("clearData").style.display = "inline";
                 id("displayData").style.display = "none";
                 id("newMovie").style.display = "inline";
+                newBg.setAttribute("class", "displayDataStyle");
                 break;
             case "off":
                 id("movieForm").style.display = "block";
@@ -124,7 +125,8 @@ window.addEventListener("DOMContentLoaded", function(){
     //variables
     var movieGenre = ["Genre", "Comedy", "Action", "Drama", "Romance", "Horror", "Other"],
         theaterValue,
-        favoriteValue = "No";
+        favoriteValue = "No",
+        newBg = id("background");
     makeGenreSelect();
     
     
