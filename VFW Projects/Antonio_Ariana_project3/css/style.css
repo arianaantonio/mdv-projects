@@ -1,0 +1,77 @@
+/*
+Author: Ariana Antonio
+Project 2: Movie Journal
+VFW 1307
+*/
+body {font-family: Georgia, Ariel;
+    background-color: black;
+    background-repeat: no-repeat;
+}
+#content{overflow: scroll;}
+h1 {
+    font-weight: bold;
+    text-align: center;
+    background: -webkit-linear-gradient(top,#23538a 0%, #a7cfdf 100%);
+    color: #3f3f3f;
+    padding: 5px;
+    border-radius: 15px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+a:hover{color: purple; outline: none;}
+fieldset{border: none;}
+img{height: 25px;}
+ul{list-style: none;}
+legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;}
+#title{border-radius: 5px;}
+#date{border-radius: 5px;}
+#friends{border-radius: 5px;}
+#review{border-radius: 5px;}
+#rating{background-color: white;}
+label{color:white; background-color: rgba(0, 0, 0, 0.6);}
+li{
+    margin-left: -37px;
+
+}
+#genre{width: 125px;}
+#addMovie{
+    background:-webkit-linear-gradient(top, #a7cfdf 0%,#23538a 100%);
+    font-family: Georgia, Ariel;
+    color: #3f3f3f;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 15px;
+}
+#logMovie{
+    background:-webkit-linear-gradient(top, #a7cfdf 0%,#23538a 100%);
+    font-family: Georgia, Ariel;
+    color: #3f3f3f;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 15px;
+}
+
+p{color:white; background-color: rgba(0, 0, 0, 0.6);}
+h2{color:white; background-color: rgba(0, 0, 0, 0.6);}
+#pullData{color:white;}
+.displayDataStyle{color:white; background-image: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

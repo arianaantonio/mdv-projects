@@ -1,6 +1,6 @@
 /*
 Author: Ariana Antonio
-Project 2: Movie Journal
+Project 3: Movie Journal
 VFW 1307
 */
 //DOM Loading
