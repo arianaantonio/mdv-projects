@@ -96,6 +96,7 @@ window.addEventListener("DOMContentLoaded", function(){
         id("values").style.display = "block";
         for (var i=0, j=localStorage.length; i<j; i++) {
             var createLi = document.createElement("li");
+            var linksList = document.createElement("li");
             createList.appendChild(createLi);
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
@@ -107,8 +108,31 @@ window.addEventListener("DOMContentLoaded", function(){
                 newList.appendChild(newLi);
                 var optText = object[p][0] + " " + object[p][1];
                 newLi.innerHTML = optText;
+                newList.appendChild(linksList);
             }
+            createLinks(localStorage.key(i), linksList);
         }
+    }
+    //creating edit and delete links
+    function createLinks(key, linksList) {
+        var editLink = document.createElement("a");
+        editLink.href = "#";
+        editLink.key = key;
+        var changeText = "Edit Movie";
+        //editLink.addEventListener("click", editInput);
+        editLink.innerHTML = changeText;
+        linksList.appendChild(editLink);
+        
+        var lineBreak = document.createElement("br");
+        linksList.appendChild(lineBreak);
+        
+        var deleteLink = document.createElement("a");
+        deleteLink.href = "#";
+        deleteLink.key = key;
+        var deleteText = "Delete Movie";
+        //deleteLink.addEventListener("click", deleteInput);
+        deleteLink.innerHTML = deleteText;
+        linksList.appendChild(deleteLink);
     }
     
     function clearLocalData() {
