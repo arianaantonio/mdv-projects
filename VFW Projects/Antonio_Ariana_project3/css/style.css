@@ -55,7 +55,7 @@ li{
 p{color:white; background-color: rgba(0, 0, 0, 0.6);}
 h2{color:white; background-color: rgba(0, 0, 0, 0.6);}
 #pullData{color:white;}
-.displayDataStyle{color:white; background-color: rgba(0, 0, 0, 0.6);}
+.displayDataStyle{color:white;}
 .errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
 
 

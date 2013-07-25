@@ -66,8 +66,12 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     //saving data
-    function saveData() {
-        var randomId = Math.floor(Math.random()*1000001);
+    function saveData(key) {
+        if (!key) {
+            var randomId = Math.floor(Math.random()*1000001);
+        }else{
+            randomId = key;
+        }
         getFavorite();
         getTheater();
         var obj = {};
@@ -81,6 +85,7 @@ window.addEventListener("DOMContentLoaded", function(){
             obj.review = ["Review:", id("review").value];
         localStorage.setItem(randomId, JSON.stringify(obj));
         alert("Movie Saved!");
+        window.location.reload();
     }
     
     function pullData() {
@@ -130,9 +135,20 @@ window.addEventListener("DOMContentLoaded", function(){
         deleteLink.href = "#";
         deleteLink.key = key;
         var deleteText = "Delete Movie";
-        //deleteLink.addEventListener("click", deleteInput);
+        deleteLink.addEventListener("click", deleteInput);
         deleteLink.innerHTML = deleteText;
         linksList.appendChild(deleteLink);
+    }
+    
+    function deleteInput() {
+        var ask = confirm("Are you sure you want to delete this movie?");
+        if (ask) {
+            localStorage.removeItem(this.key);
+            window.location.reload();
+            alert("Movie deleted");
+        }else{
+            alert("This movie has not been deleted");
+        }
     }
     
     //creating edit input
@@ -145,15 +161,15 @@ window.addEventListener("DOMContentLoaded", function(){
         id("genre").value = obj.genre[1];
         var whereSeen = document.forms[0].where;
         for (var i =0; i<whereSeen.length; i++) {
-            if (whereSeen[i].value == "Movie Theater" /*&& obj.where[1] == "Movie Theater"*/) {
+            if (whereSeen[i].value == "Movie Theater" && obj.movietheater[1] == "Movie Theater") {
                 whereSeen[i].setAttribute("checked", "checked");
-            } else if (whereSeen[i].value == "At Home" /*&& obj.where[1] == "At Home"*/) {
+            } else if (whereSeen[i].value == "At Home" && obj.movietheater[1] == "At Home") {
                 whereSeen[i].setAttribute("checked", "checked");
-            } else if (whereSeen[i].value == "Other" /*&& obj.where[1] == "Other"*/) {
+            } else if (whereSeen[i].value == "Other" && obj.movietheater[1] == "Other") {
                 whereSeen[i].setAttribute("checked", "checked");
             }
         }
-        if (obj.favorite[1] == "Yes") {
+        if (obj.favorite[1] == "on") {
             id("favorite").setAttribute("checked", "checked");
         }
         id("friends").value = obj.friends[1];
@@ -163,33 +179,33 @@ window.addEventListener("DOMContentLoaded", function(){
         saveMovie.removeEventListener("click", saveData);
         id("logMovie").value = "Edit Movie";
         var editSave = id("logMovie");
-        editSave.addEventListener("click", confirm);
+        editSave.addEventListener("click", confirmData);
         editSave.key = this.key;
     } 
     
-    function confirm(n) {
+    function confirmData(n) {
         var getTitle = id("title");
         var getDate = id("date");
         var getReview = id("review");
         errorMsg.innerHTML = "";
-        getTitle.style.border = "1px dotted black";
-        getDate.style.border = "1px dotted black";
-        getReview.style.border = "1px dotted black";
+        getTitle.style.border = "1px solid black";
+        getDate.style.border = "1px solid black";
+        getReview.style.border = "1px solid black";
         
         var errorMessage = [];
         if (getTitle.value === "") {
             var titleError = "Please enter a title";
-            getTitle.style.border = "2px dotted red";
+            getTitle.style.border = "2px solid red";
             errorMessage.push(titleError);
         }
-        if (getDate.value === "") {
+        if (getDate.value === NaN) {
             var dateError = "Please enter a date";
-            getDate.style.border = "2px dotted red";
+            getDate.style.border = "2px solid red";
             errorMessage.push(dateError);
         }
         if (getReview.value === "") {
             var reviewError = "Please enter a review";
-            getReview.style.border = "2px dotted red";
+            getReview.style.border = "2px solid red";
             errorMessage.push(reviewError);
         }
         if (errorMessage.length >=1) {
@@ -199,7 +215,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 errorMsg.appendChild(errorTxt);
                 errorTxt.setAttribute("class", "errorMessage");
             }
-            n.preventDefault();
+            //n.preventDefault();
             return false;
         }else{
             saveData(this.key);
@@ -230,5 +246,5 @@ window.addEventListener("DOMContentLoaded", function(){
     var clearDataLink = id("clearData");
     clearDataLink.addEventListener("click", clearLocalData);
     var saveMovie = id("logMovie");
-    saveMovie.addEventListener("click", confirm);
+    saveMovie.addEventListener("click", confirmData);
 });
