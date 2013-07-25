@@ -198,7 +198,7 @@ window.addEventListener("DOMContentLoaded", function(){
             getTitle.style.border = "2px solid red";
             errorMessage.push(titleError);
         }
-        if (getDate.value === NaN) {
+        if (getDate.value === "") {
             var dateError = "Please enter a date";
             getDate.style.border = "2px solid red";
             errorMessage.push(dateError);
