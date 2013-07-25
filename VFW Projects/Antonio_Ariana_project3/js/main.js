@@ -119,7 +119,7 @@ window.addEventListener("DOMContentLoaded", function(){
         editLink.href = "#";
         editLink.key = key;
         var changeText = "Edit Movie";
-        //editLink.addEventListener("click", editInput);
+        editLink.addEventListener("click", editInput);
         editLink.innerHTML = changeText;
         linksList.appendChild(editLink);
         
@@ -134,6 +134,38 @@ window.addEventListener("DOMContentLoaded", function(){
         deleteLink.innerHTML = deleteText;
         linksList.appendChild(deleteLink);
     }
+    
+    //creating edit input
+    function editInput() {
+        var grabValue = localStorage.getItem(this.key);
+        var obj = JSON.parse(grabValue);
+        controls("off");
+        id("title").value = obj.title[1];
+        id("date").value = obj.date[1];
+        id("genre").value = obj.genre[1];
+        var whereSeen = document.forms[0].where;
+        for (var i =0; i<whereSeen.length; i++) {
+            if (whereSeen[i].value == "Movie Theater" /*&& obj.where[1] == "Movie Theater"*/) {
+                whereSeen[i].setAttribute("checked", "checked");
+            } else if (whereSeen[i].value == "At Home" /*&& obj.where[1] == "At Home"*/) {
+                whereSeen[i].setAttribute("checked", "checked");
+            } else if (whereSeen[i].value == "Other" /*&& obj.where[1] == "Other"*/) {
+                whereSeen[i].setAttribute("checked", "checked");
+            }
+        }
+        if (obj.favorite[1] == "Yes") {
+            id("favorite").setAttribute("checked", "checked");
+        }
+        id("friends").value = obj.friends[1];
+        id("rating").value = obj.rating[1];
+        id("review").value = obj.review[1];
+        
+        saveMovie.removeEventListener("click", saveData);
+        id("logMovie").value = "Edit Contact";
+        var editSave = id("logMovie");
+        editSave.addEventListener("click", validate);
+        editSave.key = this.key;
+    } 
     
     function clearLocalData() {
         if (localStorage.length === 0) {
