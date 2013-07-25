@@ -161,12 +161,50 @@ window.addEventListener("DOMContentLoaded", function(){
         id("review").value = obj.review[1];
         
         saveMovie.removeEventListener("click", saveData);
-        id("logMovie").value = "Edit Contact";
+        id("logMovie").value = "Edit Movie";
         var editSave = id("logMovie");
-        editSave.addEventListener("click", validate);
+        editSave.addEventListener("click", confirm);
         editSave.key = this.key;
     } 
     
+    function confirm(n) {
+        var getTitle = id("title");
+        var getDate = id("date");
+        var getReview = id("review");
+        errorMsg.innerHTML = "";
+        getTitle.style.border = "1px dotted black";
+        getDate.style.border = "1px dotted black";
+        getReview.style.border = "1px dotted black";
+        
+        var errorMessage = [];
+        if (getTitle.value === "") {
+            var titleError = "Please enter a title";
+            getTitle.style.border = "2px dotted red";
+            errorMessage.push(titleError);
+        }
+        if (getDate.value === "") {
+            var dateError = "Please enter a date";
+            getDate.style.border = "2px dotted red";
+            errorMessage.push(dateError);
+        }
+        if (getReview.value === "") {
+            var reviewError = "Please enter a review";
+            getReview.style.border = "2px dotted red";
+            errorMessage.push(reviewError);
+        }
+        if (errorMessage.length >=1) {
+            for (var i=0, j=errorMessage.length; i<j; i++) {
+                var errorTxt = document.createElement("li");
+                errorTxt.innerHTML = errorMessage[i];
+                errorMsg.appendChild(errorTxt);
+                errorTxt.setAttribute("class", "errorMessage");
+            }
+            n.preventDefault();
+            return false;
+        }else{
+            saveData(this.key);
+        }
+    }
     function clearLocalData() {
         if (localStorage.length === 0) {
             alert("Data is all clear!");
@@ -184,6 +222,7 @@ window.addEventListener("DOMContentLoaded", function(){
         favoriteValue = "No",
         newBg = id("background");
     makeGenreSelect();
+    errorMsg = id("errors");
     
     //Link click events
     var displayDataLink = id("displayData");
@@ -191,5 +230,5 @@ window.addEventListener("DOMContentLoaded", function(){
     var clearDataLink = id("clearData");
     clearDataLink.addEventListener("click", clearLocalData);
     var saveMovie = id("logMovie");
-    saveMovie.addEventListener("click", saveData);
+    saveMovie.addEventListener("click", confirm);
 });

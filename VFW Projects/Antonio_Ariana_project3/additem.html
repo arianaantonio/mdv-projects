@@ -18,9 +18,10 @@
 	<form action="#" method="post" id="movieForm">
 	    <fieldset>
                 <legend>Movie Information</legend>
+		<ul id="errors"></ul>
                 <ul>
-                    <li><label for="title">Movie Title:</label><br><input type="text" id="title" /></li>
-                    <li><label for="date">Date Seen:</label><br><input type="date" id="date" /></li>
+                    <li><label for="title">* Movie Title:</label><br><input type="text" id="title" /></li>
+                    <li><label for="date">* Date Seen:</label><br><input type="date" id="date" /></li>
                     <li id="select"><label for="genre">Movie Genre:</label><br /></li>
 		    <li>
                         <label for="where">Where I Saw The Movie:</label>
@@ -33,7 +34,7 @@
                     <li><label for="friends">Who I Saw It With:</label><br><input type="text" id="friends" /></li>          
                     <li><label for="rating">Movie Rating:</label><br><input type="range" id="rating" min="1" max="10" step="1" value="5" /></li>
                     <li><label for="favorite">Save As Favorite?</label><br><input type="checkbox" id="favorite" /></li>
-		    <li><label for="review">Movie Review:</label><br><textarea id="review"></textarea></li>
+		    <li><label for="review">* Movie Review:</label><br><textarea id="review"></textarea></li>
                 </ul>
 		<input type="hidden" value="English" />
 		<input type="button" value="Log Movie" id="logMovie" />
