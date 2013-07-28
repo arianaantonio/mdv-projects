@@ -108,6 +108,7 @@ window.addEventListener("DOMContentLoaded", function(){
             var object = JSON.parse(keyValue);
             var newList = document.createElement("ul");
             createLi.appendChild(newList);
+            pullImage(object.genre[1], newList);
             for (var p in object) {
                 var newLi = document.createElement("li");
                 newList.appendChild(newLi);
@@ -117,6 +118,14 @@ window.addEventListener("DOMContentLoaded", function(){
             }
             createLinks(localStorage.key(i), linksList);
         }
+    }
+    //pulling image for genre category
+    function pullImage(imgName, newList) {
+        var imgLi = document.createElement("li");
+        newList.appendChild(imgLi);
+        var imgTag = document.createElement("img");
+        var imgSrc = imgTag.setAttribute("src", "images/" + imgName +".psd");
+        imgLi.appendChild(imgTag);
     }
     //creating edit and delete links
     function createLinks(key, linksList) {
