@@ -3,6 +3,7 @@ Author: Ariana Antonio
 Project 4: Movie Journal
 VFW 1307
 */
+//Some non-functioning code has been commented out to be fixed later. Not required for project.
 //DOM Loading
 window.addEventListener("DOMContentLoaded", function(){
     
@@ -81,6 +82,7 @@ window.addEventListener("DOMContentLoaded", function(){
             obj.movietheater = ["Where Seen:", theaterValue];
             obj.friends = ["Who Seen With:", id("friends").value];
             obj.rating = ["Rating:", id("rating").value];
+            //obj.ratingInput = ["Rating Value:", id("ratingInput").value];
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", id("review").value];
         localStorage.setItem(randomId, JSON.stringify(obj));
@@ -128,6 +130,17 @@ window.addEventListener("DOMContentLoaded", function(){
             localStorage.setItem(randomId, JSON.stringify(json[n]));
         }
     }
+    /*creating value field for rating range input
+    function populateRangeInput(val) {
+      val=document.getElementById("ratingInput").value; 
+    }
+    function rangeValue() {
+        getRange = id("rating").value;
+        val=document.getElementById("ratingInput").value
+        val.innerHTML = getRange;
+        //getRange.addEventListener("change", populateRangeInput);
+    }*/
+    
     //pulling image for genre category
     function pullImage(imgName, newList) {
         var imgLi = document.createElement("li");
@@ -193,6 +206,7 @@ window.addEventListener("DOMContentLoaded", function(){
         id("friends").value = obj.friends[1];
         id("rating").value = obj.rating[1];
         id("review").value = obj.review[1];
+        //id("ratingInput").value = obj.ratingInput[1];
         
         saveMovie.removeEventListener("click", saveData);
         id("logMovie").value = "Edit Movie";
@@ -257,6 +271,7 @@ window.addEventListener("DOMContentLoaded", function(){
         newBg = id("background");
     makeGenreSelect();
     errorMsg = id("errors");
+    //rangeValue();
     
     //Link click events
     var displayDataLink = id("displayData");

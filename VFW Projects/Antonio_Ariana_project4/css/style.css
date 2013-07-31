@@ -64,6 +64,7 @@ h2{color:white; background-color: rgba(0, 0, 0, 0.6);}
 #pullData{color:white;}
 .displayDataStyle{color:white; background-image: none;}
 .errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
+#ratingInput{width: auto}
 
 
 
