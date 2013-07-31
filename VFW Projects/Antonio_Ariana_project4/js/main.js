@@ -90,7 +90,8 @@ window.addEventListener("DOMContentLoaded", function(){
     
     function pullData() {
         if (localStorage.length === 0) {
-            alert("There are no movies saved");
+            alert("There are no movies saved so default movies were added");
+            defaultData();
         }
         controls("on");
         var createDiv = document.createElement("div");
@@ -117,6 +118,14 @@ window.addEventListener("DOMContentLoaded", function(){
                 newList.appendChild(linksList);
             }
             createLinks(localStorage.key(i), linksList);
+        }
+    }
+    
+    //grabbing default data
+    function defaultData() {
+        for (var n in json) {
+            var randomId = Math.floor(Math.random()*1000001);
+            localStorage.setItem(randomId, JSON.stringify(json[n]));
         }
     }
     //pulling image for genre category

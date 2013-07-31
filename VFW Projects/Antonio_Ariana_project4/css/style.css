@@ -13,7 +13,8 @@ h1 {
     text-align: center;
     /*background: -webkit-linear-gradient(top,#f90c0c 0%, #b40606 100%);*/
     background: #f90c0c;
-    background-color: rgba(255, 0, 0, 0.6); #f90c0c;
+    background-color: rgba(255, 0, 0, 0.6);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
     color: #2a2a2a;
     padding: 5px;
     border-radius: 0px;
@@ -41,6 +42,7 @@ li{
 #genre{width: 125px;}
 #addMovie{
     background-color: rgba(255, 0, 0, 0.6);
+    background: -webkit-linear-gradient(top,#f90c0c 0%, #5c0505 100%);
     font-family: Georgia, Ariel;
     color: #dae204;
     font-weight: bold;
@@ -49,7 +51,7 @@ li{
 }
 #addMovie:hover{color: white; outline: none;}
 #logMovie{
-    background-color: rgba(255, 0, 0, 0.6);
+    background: -webkit-linear-gradient(top,#f90c0c 0%, #5c0505 100%);
     font-family: Georgia, Ariel;
     color: #dae204;
     font-weight: bold;
