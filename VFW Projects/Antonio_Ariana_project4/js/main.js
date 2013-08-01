@@ -219,11 +219,12 @@ window.addEventListener("DOMContentLoaded", function(){
         var getTitle = id("title");
         var getDate = id("date");
         var getReview = id("review");
+        var getGenre = id("genre");
         errorMsg.innerHTML = "";
         getTitle.style.border = "1px solid black";
         getDate.style.border = "1px solid black";
         getReview.style.border = "1px solid black";
-        
+        getGenre.style.border = "1px solid black";
         var errorMessage = [];
         if (getTitle.value === "") {
             var titleError = "Please enter a title";
@@ -239,6 +240,11 @@ window.addEventListener("DOMContentLoaded", function(){
             var reviewError = "Please enter a review";
             getReview.style.border = "2px solid red";
             errorMessage.push(reviewError);
+        }
+        if (getGenre.value === "Genre") {
+            var genreError = "Please enter a genre";
+            getGenre.style.border = "2px solid red";
+            errorMessage.push(genreError);
         }
         if (errorMessage.length >=1) {
             for (var i=0, j=errorMessage.length; i<j; i++) {
