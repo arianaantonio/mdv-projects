@@ -80,8 +80,23 @@ h3 {color:white;}
     background-color: white;
     color:black;
     margin:0px;
+    display: block;
     
 }
+#oops{color:white;background:none;}
+#oopsHeader{
+    font-weight: bold;
+    text-align: center;
+    background: #f90c0c;
+    background-color: rgba(255, 0, 0, 0.6);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    color: #2a2a2a;
+    padding: 5px;
+    border-radius: 0px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px}
 
 
 
