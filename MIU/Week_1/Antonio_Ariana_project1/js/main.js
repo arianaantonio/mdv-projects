@@ -1,7 +1,7 @@
 /*
 Author: Ariana Antonio
-Project 4: Movie Journal
-VFW 1307
+Project 1: Movie Journal
+MIU 1309
 */
 //Some non-functioning code has been commented out to be fixed later. Not required for project.
 //DOM Loading

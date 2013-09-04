@@ -1,7 +1,7 @@
 /*
 Author: Ariana Antonio
-Project 4: Movie Journal
-VFW 1307
+Project 1: Movie Journal
+MIU 1309
 */
 body {font-family: Georgia, Ariel;
     background-color: black;
@@ -36,7 +36,6 @@ legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;}
 label{color:white; background-color: rgba(0, 0, 0, 0.6);}
 li{
     margin-left: -37px;
-
 }
 
 #genre{width: 125px;}
@@ -60,11 +59,29 @@ li{
 }
 #logMovie:hover{color: white; outline: none;}
 p{color:white; background-color: rgba(0, 0, 0, 0.6);}
-h2{color:white; background-color: rgba(0, 0, 0, 0.6);}
+/*h2{color:white; background-color: rgba(0, 0, 0, 0.6);} */
 #pullData{color:white;}
 .displayDataStyle{color:white; background-image: none;}
 .errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
-
+h3 {color:white;}
+/*#browselist{border-style: solid; border-color: red; border-radius: 5px;}*/
+#browse{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: rgba(255, 0, 0, 0.6);
+    /*border-radius: 5px;*/
+    color: #2a2a2a;
+    padding:1px;
+}
+.browsetitles {
+    padding: 1px;
+    border-style:solid;
+    border-color: gray;
+    background-color: white;
+    color:black;
+    margin:0px;
+    
+}
 
 
 
