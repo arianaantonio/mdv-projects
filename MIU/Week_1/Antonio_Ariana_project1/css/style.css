@@ -4,14 +4,13 @@ Project 1: Movie Journal
 MIU 1309
 */
 body {font-family: Georgia, Ariel;
-    background-color: black;
+    background-color: #2a2a2a;
     background-repeat: no-repeat;
 }
 #content{overflow: scroll;}
 h1 {
     font-weight: bold;
     text-align: center;
-    /*background: -webkit-linear-gradient(top,#f90c0c 0%, #b40606 100%);*/
     background: #f90c0c;
     background-color: rgba(255, 0, 0, 0.6);
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
@@ -21,23 +20,24 @@ h1 {
     width: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0px;
 }
 a{color:white; background-color: rgba(0, 0, 0, 0.6);}
 a:hover{color: yellow; outline: none;}
 fieldset{border: none;}
 img{height: 25px;}
 ul{list-style: none;}
-legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;}
+legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margin-left: -15px;}
 #title{border-radius: 5px;}
 #date{border-radius: 5px;}
 #friends{border-radius: 5px;}
 #review{border-radius: 5px;}
 #rating{background-color: white;}
 label{color:white; background-color: rgba(0, 0, 0, 0.6);}
-li{
-    margin-left: -37px;
-}
-
+li{margin-left: -55px;}
+#movietheater{margin-left:15px;}
+#home{margin-left:15px;}
+#other{margin-left:15px;}
 #genre{width: 125px;}
 #addMovie{
     background-color: rgba(255, 0, 0, 0.6);
@@ -56,6 +56,7 @@ li{
     font-weight: bold;
     height: 30px;
     border-radius: 15px;
+    margin-left: -15px;
 }
 #logMovie:hover{color: white; outline: none;}
 p{color:white; background-color: rgba(0, 0, 0, 0.6);}
@@ -64,9 +65,8 @@ p{color:white; background-color: rgba(0, 0, 0, 0.6);}
 .displayDataStyle{color:white; background-image: none;}
 .errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
 h3 {color:white;}
-/*#browselist{border-style: solid; border-color: red; border-radius: 5px;}*/
-#browse{
-    margin-top: 0px;
+#browse{       
+    margin-top: 5px;
     margin-bottom: 0px;
     background-color: rgba(255, 0, 0, 0.6);
     /*border-radius: 5px;*/
@@ -75,13 +75,16 @@ h3 {color:white;}
 }
 .browsetitles {
     padding: 1px;
-    border-style:solid;
-    border-color: gray;
+    /*border-style:solid;
+    border-color: black;*/
     background-color: white;
+    margin: 1px;
     color:black;
-    margin:0px;
     display: block;
-    
+    text-decoration: none;
+    border-top:0px;
+    width:300px;
+    font-weight: bold;
 }
 #oops{color:white;background:none;}
 #oopsHeader{
