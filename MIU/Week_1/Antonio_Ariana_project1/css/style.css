@@ -64,7 +64,6 @@ p{color:white; background-color: rgba(0, 0, 0, 0.6);}
 #pullData{color:white;}
 .displayDataStyle{color:white; background-image: none;}
 .errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
-h3 {color:white;}
 #browse{       
     margin-top: 5px;
     margin-bottom: 0px;
@@ -78,13 +77,14 @@ h3 {color:white;}
     /*border-style:solid;
     border-color: black;*/
     background-color: white;
-    margin: 1px;
     color:black;
     display: block;
     text-decoration: none;
-    border-top:0px;
+    /*border-top:0px;*/
+    margin-bottom: 5px;
+    margin-top: -15px;
     width:300px;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 #oops{color:white;background:none;}
 #oopsHeader{
