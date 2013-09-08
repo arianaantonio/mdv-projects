@@ -1,6 +1,6 @@
 /*
 Author: Ariana Antonio
-Project 1: Movie Journal
+Project 2: My Hollywood - Gold
 MIU 1309
 */
 

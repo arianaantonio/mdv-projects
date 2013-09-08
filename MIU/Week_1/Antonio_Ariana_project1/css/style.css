@@ -22,11 +22,11 @@ h1 {
     margin-right: auto;
     margin-bottom: 0px;
 }
-a{color:white; background-color: rgba(0, 0, 0, 0.6);}
-a:hover{color: yellow; outline: none;}
+/*a{color:white; background-color: rgba(0, 0, 0, 0.6);}
+a:hover{color: yellow; outline: none;}*/
 fieldset{border: none;}
 img{height: 25px;}
-ul{list-style: none;}
+/*ul{list-style: none;}*/
 legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margin-left: -15px;}
 #title{border-radius: 5px;}
 #date{border-radius: 5px;}
@@ -35,7 +35,7 @@ legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margi
 #rating{background-color: white;}
 label{color:white; background-color: rgba(0, 0, 0, 0.6);}
 form{margin-left: -55px;}
-li{margin-left: 0px;}
+/*li{margin-left: 0px;}*/
 #movietheater{margin-left:15px;}
 #home{margin-left:15px;}
 #other{margin-left:15px;}
@@ -65,27 +65,27 @@ p{color:white; background-color: rgba(0, 0, 0, 0.6);}
 #pullData{color:white;}
 .displayDataStyle{color:white; background-image: none;}
 .errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
-#browse{       
+/*#browse{       
     margin-top: 5px;
     margin-bottom: 0px;
     background-color: rgba(255, 0, 0, 0.6);
-    /*border-radius: 5px;*/
+    border-radius: 5px;
     color: #2a2a2a;
     padding:1px;
 }
 .browsetitles {
     padding: 1px;
-    /*border-style:solid;
-    border-color: black;*/
+    border-style:solid;
+    border-color: black;
     background-color: white;
     color:black;
     display: block;
     text-decoration: none;
-    /*border-top:0px;*/
+    border-top:0px;
     margin-bottom: 5px;
     margin-top: -15px;
     width:300px;
-    /*font-weight: bold;*/
+    font-weight: bold;*/
 }
 #oops{color:white;background:none;}
 #oopsHeader{
