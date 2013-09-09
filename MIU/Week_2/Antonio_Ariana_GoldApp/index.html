@@ -75,7 +75,7 @@
 		</div>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed">
-		<div data-role="navbar">
+		<div data-role="navbar" data-iconpos="left">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
 			<li><a data-icon="star" href="#friends">Friends</a></li>
@@ -125,7 +125,7 @@
 		</ul>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed">
-		<div data-role="navbar">
+		<div data-role="navbar" data-iconpos="left">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
 			<li><a data-icon="star" href="#friends">Friends</a></li>
@@ -139,10 +139,39 @@
 		    <h1>About</h1>
 	    </div>
 	    <div data-role="content">
-		<p>All about this app</p>
+		<div>
+		    <label for="search"></label><input type="search" id="search" value="" placeholder="Search Movies..." />
+		</div>
+		<div data-role="content">
+		    <ul data-role="listview" data-inset="true">
+			<li><a href="#author">Author Info</a></li>
+			<li><a href="#">Bronze App</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects/tree/gh-pages/MIU/Week_2/Antonio_Ariana_GoldApp">Gold gh-pages</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects/tree/gh-pages/MIU/Week_2/Antonio_Ariana_BronzeApp">Bronze gh-pages</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects">GitHub Repo</a></li>
+		    </ul>
+		</div>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed">
-		<div data-role="navbar">
+		<div data-role="navbar" data-iconpos="left">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friends">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
+	    </div>
+	</div>
+	<div data-role="page" id="author">
+	    <div data-role="header">
+		    <h1>Author Info</h1>
+	    </div>
+	    <div data-role="content">
+		<img src="images/robot.jpg">
+		<p>My Hollywood app created by Ariana Antonio for Full Sail University in the B.S. Mobile Development program. For comments or suggestions email faeryqueen21@fullsail.edu.</a></p>
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed">
+		<div data-role="navbar" data-iconpos="left">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
 			<li><a data-icon="star" href="#friends">Friends</a></li>
