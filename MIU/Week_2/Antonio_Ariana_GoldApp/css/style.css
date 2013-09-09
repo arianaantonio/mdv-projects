@@ -25,8 +25,8 @@ body {font-family: Georgia, Ariel;
 /*a{color:white; background-color: rgba(0, 0, 0, 0.6);}
 a:hover{color: yellow; outline: none;}*/
 fieldset{border: none;}
-img{height: 25px;}
-ul{list-style: none;}
+/*img{height: 25px;}*/
+/*ul{list-style: none;}*/
 legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margin-left: -15px;}
 #title{border-radius: 5px;}
 #date{border-radius: 5px;}
@@ -60,7 +60,7 @@ form{margin-left: -55px;}
     margin-left: -15px;
 }
 #logMovie:hover{color: white; outline: none;}
-p{color:white; background-color: rgba(0, 0, 0, 0.6);}
+/*p{color:white; background-color: rgba(0, 0, 0, 0.6);}*/
 /*h2{color:white; background-color: rgba(0, 0, 0, 0.6);} */
 #pullData{color:white;}
 .displayDataStyle{color:white; background-image: none;}
@@ -102,6 +102,9 @@ p{color:white; background-color: rgba(0, 0, 0, 0.6);}
     font-size: 28px}
 #search{width: 305px;}
 #filmreel{width:305px; height: auto;margin-top:0px}
+#friends h3 {padding: 0px;margin: 0px;}
+#friends h4 {font-size: 14px;margin-top:5px;margin-bottom: 5px;color:blue;}
+#friends li {padding-bottom:5px;}
 
 
 
