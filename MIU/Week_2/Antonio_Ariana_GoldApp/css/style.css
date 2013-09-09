@@ -4,7 +4,7 @@ Project 2: My Hollywood - Gold
 MIU 1309
 */
 body {font-family: Georgia, Ariel;
-    background-color: #2a2a2a;
+  
     background-repeat: no-repeat;
 }
 #content{overflow: scroll;}
@@ -33,11 +33,11 @@ legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margi
 #friends{border-radius: 5px;}
 #review{border-radius: 5px;}
 #rating{background-color: white;}
-label{color:white; background-color: rgba(0, 0, 0, 0.6);}
+/*label{color:white; background-color: rgba(0, 0, 0, 0.6);}*/
 form{margin-left: -55px;}
 /*li{margin-left: 0px;}*/
 #movietheater{margin-left:15px;}
-#home{margin-left:15px;}
+#atHome{margin-left:15px;}
 #other{margin-left:15px;}
 #genre{width: 125px;}
 #addMovie{
@@ -100,8 +100,17 @@ form{margin-left: -55px;}
     margin-left: auto;
     margin-right: auto;
     font-size: 28px}
-#search{width: 305px;}
-#filmreel{width:305px; height: auto;margin-top:0px}
+/*#search{width: 305px;}*/
+#filmreel{width:305px; height: auto;display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:0px;
+    padding-top: 0px;
+    text-align:center;
+    padding:0px 0;
+    margin-bottom: 0px;
+}
+#star{width:25px;height:25px;}
 #friends h3 {padding: 0px;margin: 0px;}
 #friends h4 {font-size: 14px;margin-top:5px;margin-bottom: 5px;color:blue;}
 #friends li {padding-bottom:5px;}
@@ -111,6 +120,24 @@ form{margin-left: -55px;}
     margin-right: auto
 }
 #author p {text-align: center;}
+#headerImg{
+    width:314px;
+    border-color:#eb2026;
+    border-style: solid;
+    }
+.logo
+{
+
+    text-align:center;
+    padding:0px 0;
+    margin-bottom: 0px;
+}
+/*.ui-header
+{
+    border-bottom:4px solid #FFCC00;
+    background-color: black;
+}*/
+
 
 
 

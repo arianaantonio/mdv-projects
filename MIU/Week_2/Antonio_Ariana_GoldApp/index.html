@@ -11,33 +11,36 @@
         <meta name="viewport" content="user-scalable=no, width=device-width" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" data-ajax="false"/>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<link rel="stylesheet" href="themes/MyHollywood2.min.css" />
 	<title>My Hollywood</title>
     </head>
     <body>
-	<div data-role="page" id="home">
-	    <div data-role="header">
-		<h1><img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/>My Hollywood<img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/></h1>
-	    </div>
+	<div data-role="page" id="home" data-theme="c">
+	    <header data-theme="b"><div data-theme="b" class="logo"><img src="images/header1_03.gif" id="headerImg" data-theme="b"></div>
+	    </header>
+	    <!--<div data-role="header" data-theme="c">
+		<h1 ><img src="images/header_03.gif" id="headerImg"/><!--<img id="star" src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/>My Hollywood<img src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/></h1>
+	</div>-->
 	    <div data-role="content">
 		<div>
 		    <a href="addItem.html" data-ajax="false"><img id="filmreel" src="images/FilmReel3_03.gif"/></a>
 		</div>
 		<div>
-		    <label for="search"></label><input type="search" id="search" value="" placeholder="Search Movies..." />
-		</div>
-		<div id="browselist">
-		    <ul data-role="listview">
-			<li data-role="list-divider" id="browse">Browse by...</li>
-			<li><a href="tempBrowsePage.html"class="browsetitles">
+		    <label for="search"></label><input  data-theme="b" type="search" value="" placeholder="Search Movies..." />
+		</div><br>
+		<div>
+		    <ul data-role="listview"  data-theme="d">
+			<li data-role="list-divider" data-theme="c">Browse by...</li>
+			<li><a href="tempBrowsePage.html">
 			    <h1>Movie Title</h2></a>
 			</li>
-			<li><a href="tempBrowsePage.html"class="browsetitles">
+			<li><a href="tempBrowsePage.html">
 			    <h1>Date</h2></a>
 			</li>
-			<li >
-			    <h1>Genre</h1>
-			    <div >
-				<ul data-role="listview" data-inset="true">
+			<li><a href="#">
+			    <h1>Genre</h1></a>
+			    <!--<div >
+				<ul data-role="listview" data-inset="true"  data-theme="c">
 				    <li><a href="tempBrowsePage.html" data-ajax="false">
 					<img src="images/Action.psd">
 					<h2>Action</h2>
@@ -63,18 +66,18 @@
 					<h2>Other</h2>
 				    </li>
 				</ul>
-			    </div>
+			    </div>-->
 			</li>
-			<li><a href="tempBrowsePage.html"class="browsetitles">
+			<li><a href="tempBrowsePage.html">
 			    <h1>Rating</h1></a>
 			</li>
-			<li><a href="tempBrowsePage.html"class="browsetitles">
+			<li><a href="tempBrowsePage.html">
 			    <h1>Favorites</h1></a>
 			</li>
 		    </ul>    
 		</div>
 	    </div>
-	    <div data-role="footer" data-id="navbar" data-position="fixed">
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
 		<div data-role="navbar" data-iconpos="left">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
@@ -84,13 +87,13 @@
 		</div>    
 	    </div>
 	</div>
-	<div data-role="page" id="friends">
-	    <div data-role="header">
+	<div data-role="page" id="friends" data-theme="d">
+	    <div data-role="header" data-theme="b">
 		<h1>Friends</h1>
 	    </div>
 	    <div data-role="content">
 		<ul data-role="listview">
-		    <li data-role="list-divider">Today</li>
+		    <li data-role="list-divider" data-theme="d">Today</li>
 		    <li>
 			<img src="images/Jonathan.jpg">
 			<h3>Jonathan Antonio</h3>
@@ -109,7 +112,7 @@
 			<h4><a href="http://www.imdb.com/title/tt2334879/?ref_=sr_2">White House Down</a></h4>
 			<p>Why did I left my wife drag me to this?</p></a>
 		    </li>
-		    <li data-role="list-divider">Yesterday</li>
+		    <li data-role="list-divider" data-theme="d">Yesterday</li>
 		    <li>
 			<img src="images/Drew.jpg">
 			<h3>Drew Evans</h3>
@@ -125,7 +128,7 @@
 		</ul>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed">
-		<div data-role="navbar" data-iconpos="left">
+		<div data-role="navbar" data-iconpos="left" data-theme="a">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
 			<li><a data-icon="star" href="#friends">Friends</a></li>
@@ -134,16 +137,13 @@
 		</div>    
 	    </div>
 	</div>
-	<div data-role="page" id="about">
-	    <div data-role="header">
+	<div data-role="page" id="about"  data-theme="c">
+	    <div data-role="header" data-theme="c">
 		    <h1>About</h1>
 	    </div>
 	    <div data-role="content">
-		<div>
-		    <label for="search"></label><input type="search" id="search" value="" placeholder="Search Movies..." />
-		</div>
 		<div data-role="content">
-		    <ul data-role="listview" data-inset="true">
+		    <ul data-role="listview" data-inset="true"  data-theme="d">
 			<li><a href="#author">Author Info</a></li>
 			<li><a href="#">Bronze App</a></li>
 			<li><a href="https://github.com/p32424/mdv-projects/tree/gh-pages/MIU/Week_2/Antonio_Ariana_GoldApp">Gold gh-pages</a></li>
@@ -152,7 +152,7 @@
 		    </ul>
 		</div>
 	    </div>
-	    <div data-role="footer" data-id="navbar" data-position="fixed">
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
 		<div data-role="navbar" data-iconpos="left">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
@@ -162,15 +162,15 @@
 		</div>    
 	    </div>
 	</div>
-	<div data-role="page" id="author">
-	    <div data-role="header">
+	<div data-role="page" id="author" data-theme="c">
+	    <div data-role="header" data-theme="c">
 		    <h1>Author Info</h1>
 	    </div>
 	    <div data-role="content">
 		<img src="images/robot.jpg">
 		<p>My Hollywood app created by Ariana Antonio for Full Sail University in the B.S. Mobile Development program. For comments or suggestions email faeryqueen21@fullsail.edu.</a></p>
 	    </div>
-	    <div data-role="footer" data-id="navbar" data-position="fixed">
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
 		<div data-role="navbar" data-iconpos="left">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
