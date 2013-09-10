@@ -3,12 +3,19 @@ Author: Ariana Antonio
 Project 2: My Hollywood - Gold
 MIU 1309
 */
-body {font-family: Georgia, Ariel;
-  
+.body{font-family: Georgia, Ariel;
+    background-color: black;
     background-repeat: no-repeat;
 }
+#background{
+    background-color: black;
+    list-style: none;
+}
+#background li {
+    list-style: none;
+}
 #content{overflow: scroll;}
-/*h1 {
+#addMovie {
     font-weight: bold;
     text-align: center;
     background: #f90c0c;
@@ -21,19 +28,23 @@ body {font-family: Georgia, Ariel;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0px;
-}*/
+}
 /*a{color:white; background-color: rgba(0, 0, 0, 0.6);}
 a:hover{color: yellow; outline: none;}*/
 fieldset{border: none;}
+#fieldset{margin-left:-15px;}
 /*img{height: 25px;}*/
-/*ul{list-style: none;}*/
+.ulstyle{
+    list-style: none;
+    margin-left: -40px;
+}
 legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margin-left: -15px;}
 #title{border-radius: 5px;}
 #date{border-radius: 5px;}
 #friends{border-radius: 5px;}
 #review{border-radius: 5px;}
 #rating{background-color: white;}
-/*label{color:white; background-color: rgba(0, 0, 0, 0.6);}*/
+.label{color:white; background-color: rgba(0, 0, 0, 0.6);}*/
 form{margin-left: -55px;}
 /*li{margin-left: 0px;}*/
 #movietheater{margin-left:15px;}
@@ -61,9 +72,10 @@ form{margin-left: -55px;}
 }
 #logMovie:hover{color: white; outline: none;}
 /*p{color:white; background-color: rgba(0, 0, 0, 0.6);}*/
-/*h2{color:white; background-color: rgba(0, 0, 0, 0.6);} */
+#movieInfo{color:white; background-color: rgba(0, 0, 0, 0.6);} */
 #pullData{color:white;}
 .displayDataStyle{color:white; background-image: none;}
+.displayDataStyle li {margin-left: -40px;}
 .errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
 /*#browse{       
     margin-top: 5px;
@@ -101,16 +113,16 @@ form{margin-left: -55px;}
     margin-right: auto;
     font-size: 28px}
 /*#search{width: 305px;}*/
-#filmreel{width:305px; height: auto;display: block;
-    margin-left: 0px;
-    margin-right: 0px;
+#filmreel{
+    width:320px;
+    height: auto;
+    display: block;
+    margin-left: -15px;
     margin-top:0px;
     padding-top: 0px;
-    text-align:center;
-    padding:0px 0;
     margin-bottom: 0px;
 }
-#star{width:25px;height:25px;}
+.star{width:25px;height:25px;}
 #friends h3 {padding: 0px;margin: 0px;}
 #friends h4 {font-size: 14px;margin-top:5px;margin-bottom: 5px;color:blue;}
 #friends li {padding-bottom:5px;}
@@ -124,19 +136,11 @@ form{margin-left: -55px;}
     width:314px;
     border-color:#eb2026;
     border-style: solid;
-    }
-.logo
-{
-
     text-align:center;
     padding:0px 0;
     margin-bottom: 0px;
 }
-/*.ui-header
-{
-    border-bottom:4px solid #FFCC00;
-    background-color: black;
-}*/
+
 
 
 

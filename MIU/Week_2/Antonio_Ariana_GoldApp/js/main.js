@@ -146,7 +146,7 @@ window.addEventListener("DOMContentLoaded", function(){
         var imgLi = document.createElement("li");
         newList.appendChild(imgLi);
         var imgTag = document.createElement("img");
-        var imgSrc = imgTag.setAttribute("src", "images/" + imgName +".psd");
+        var imgSrc = imgTag.setAttribute("src", "images/" + imgName +".jpg");
         imgLi.appendChild(imgTag);
     }
     //creating edit and delete links
