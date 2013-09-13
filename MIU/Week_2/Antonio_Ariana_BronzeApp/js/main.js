@@ -1,6 +1,6 @@
 /*
 Author: Ariana Antonio
-Project 2: My Hollywood - Gold
+Project 2: My Hollywood - Bronze
 MIU 1309
 */
 //Some non-functioning code has been commented out to be fixed later. Not required for project.

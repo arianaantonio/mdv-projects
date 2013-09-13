@@ -1,6 +1,6 @@
 <!doctype html>
 <!--Author: Ariana Antonio-->
-<!--Project 2: My Hollywood - Gold-->
+<!--Project 2: My Hollywood - Bronze-->
 <!--MIU 1309-->
 <html>
     <head>
@@ -47,8 +47,30 @@
 			<li><a href="#tempBrowsePage">
 			    <h1>Date</h1></a>
 			</li>
-			<li><a href="#genres">
-			    <h1>Genres</h1></a>
+			<li>
+			    <div data-role="collapsible">
+				<h1>Genres</h1>
+				<div class="ui-grid-a">
+				    <div class="ui-block-a"><a href="#tempBrowsePage"><img src="images/Comedy.jpg">
+					<h2>Comedy</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Horror.jpg">
+					<h2>Horror</h2></a>
+				    </div>
+				    <div class="ui-block-a"><a href="#tempBrowsePage"><img src="images/Drama.jpg">
+					<h2>Drama</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Romance.jpg">
+					<h2>Romance</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Action.jpg">
+					<h2>Action</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Other.jpg">
+					<h2>Other</h2></a>
+				    </div>
+				</div>
+			    </div>
 			</li>
 			<li><a href="#tempBrowsePage">
 			    <h1>Rating</h1></a>
@@ -127,7 +149,7 @@
 		<div data-role="content">
 		    <ul data-role="listview" data-inset="true"  data-theme="d">
 			<li><a href="#author">Author Info</a></li>
-			<li><a href="https://github.com/p32424/mdv-projects/tree/master/MIU/Week_2/Antonio_Ariana_BronzeApp">Bronze App</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects/tree/master/MIU/Week_2/Antonio_Ariana_GoldApp">Gold App</a></li>
 			<li><a href="https://github.com/p32424/mdv-projects/tree/gh-pages/MIU/Week_2/Antonio_Ariana_GoldApp">Gold gh-pages</a></li>
 			<li><a href="https://github.com/p32424/mdv-projects/tree/gh-pages/MIU/Week_2/Antonio_Ariana_BronzeApp">Bronze gh-pages</a></li>
 			<li><a href="https://github.com/p32424/mdv-projects">GitHub Repo</a></li>
@@ -163,50 +185,9 @@
 		</div>    
 	    </div>
 	</div>
-	<div data-role="page" id="genres" data-theme="c">
-	    <div data-role="header" data-theme="c">
-		<h1>Genres</h1>
-	    </div>
-	    <div data-role="content">
-		<ul data-role="listview" data-inset="false"  data-theme="d">
-		    <li><a href="#tempBrowsePage">
-			<img src="images/Comedy.jpg">
-			<h2>Comedy</h2></a>
-		    </li>
-		    <li><a href="#tempBrowsePage">
-			<img src="images/Drama.jpg">
-			<h2>Drama</h2></a>
-		    </li>
-		    <li><a href="#tempBrowsePage">
-			<img src="images/Romance.jpg">
-			<h2>Romance</h2></a>
-		    </li>
-		    <li><a href="#tempBrowsePage">
-			<img src="images/Horror.jpg">
-			<h2>Horror</h2></a>
-		    </li>
-		    <li><a href="#tempBrowsePage">
-			<img src="images/Action.jpg">
-			<h2>Action<h2></a>
-		    </li>
-		    <li><a href="#tempBrowsePage">
-			<img src="images/Other.jpg">
-			<h2>Other</h2></a>
-		    </li>
-		</ul>
-	    </div>
-	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
-		<div data-role="navbar" data-iconpos="left">
-		    <ul>
-			<li><a data-icon="home" href="#home">Home</a></li>
-			<li><a data-icon="star" href="#friendsList">Friends</a></li>
-			<li><a data-icon="info" href="#about">About</a></li>
-		    </ul>
-		</div>    
-	    </div>   
-	</div>
-	<div data-role="page" id="tempBrowsePage" data-theme="c">
+	<div data-role="page" id="tempBrowsePage" data-theme="c" data-add-back-btn="true" >
 	    <div data-role="header">
+		<a href="#home" data-icon="delete" addBackBtn="true" data-rel="back">Back</a>
 		<h1>Browse</h1>
 	    </div>
 	    <div data-role="content">
