@@ -269,7 +269,7 @@ window.addEventListener("DOMContentLoaded", function(){
             return false;
         }
     }
-    
+    /*
     //Search button
     var search = id("searchBtn");
     search.addEventListener("click", searchApp);
@@ -277,7 +277,7 @@ window.addEventListener("DOMContentLoaded", function(){
     function searchApp () {
         //var genres = id("genre").value;
         var text = id("search").value;
-        /*
+        
         //Search by genre only
         if (genres != "Genre" && text=="") {
             var createDiv = document.createElement("div");
@@ -305,7 +305,7 @@ window.addEventListener("DOMContentLoaded", function(){
                     }
                 }
             }
-        }*/
+        }
         //Search by text only
         if (text != "") {
             var createDiv = document.createElement("div");
@@ -353,8 +353,8 @@ window.addEventListener("DOMContentLoaded", function(){
                     }
                 }
             }
-        }*/
-    }
+        }
+    }*/
     
     //variables
     var movieGenre = ["Genre", "Comedy", "Action", "Drama", "Romance", "Horror", "Other"],
