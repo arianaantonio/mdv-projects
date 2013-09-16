@@ -1,0 +1,63 @@
+<!doctype html>
+<!--Author: Ariana Antonio-->
+<!--Project 3: My Hollywood - Gold-->
+<!--MIU 1309-->
+<!--Some non-functioning code has been commented out to be fixed later. Not required for project. -->
+<html>
+    <head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Add Item for Movie Journal web app." />
+        <meta name="keywords" content="web app, movie journal, list" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="user-scalable=no, width=device-width" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" />	
+	<title>New Movie</title>
+    </head>
+    <body class="body" background="http://www.clker.com/cliparts/F/d/D/v/2/B/movie-reel-hi.png" id="background">
+	<h1 id="addMovie"><img class="star" src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/>Add Movie<img class="star" src="http://www.clker.com/cliparts/e/2/d/e/1194985751726798828stock-star.svg.thumb.png"/></h1>
+        <div id="bgDiv">
+	<form action="#" method="post" id="movieForm">
+	    <fieldset>
+                <legend id="movieInfo">Movie Information</legend>
+		<div id="fieldset">
+		<ul class="ulstyle" id="errors"></ul>
+                <ul class="ulstyle">
+                    <li><label class="label" for="title">* Movie Title:</label><br><input type="text" id="title" /></li>
+                    <li><label class="label" for="date">* Date Seen:</label><br><input type="date" id="date" /></li>
+                    <li id="select"><label class="label" for="genre">Movie Genre:</label><br/></li>
+		    <li>
+                        <label class="label" for="where" id="where">Where I Saw The Movie:</label>
+                        <ul class="ulstyle">
+                            <li><input type="radio" checked value="Movie Theater" id="movietheater" name="where" /><label for="movietheater">Movie Theater</label></li>
+                            <li><input type="radio" value="At Home" id="atHome" name="where" /><label for="home">At Home</label></li>
+                            <li><input type="radio" value="Other" id="other" name="where" /><label for="other">Other</label></li>
+                        </ul>
+                    </li>
+                    <li><label class="label" for="friends">Who I Saw It With:</label><br><input type="text" id="friends" /></li>          
+                    <li>
+			<label class="label" for="rating">Movie Rating:</label><br><input type="range" id="rating" min="1" max="10" step="1" value="5"/>
+			<!--<input for="ratingInput" type="text" id="ratingInput" value=""> -->
+		    </li>
+                    <li><label class="label" for="favorite">Save As Favorite?</label><br><input type="checkbox" id="favorite" /></li>
+		    <li><label class="label" for="review">* Movie Review:</label><br><textarea id="review"></textarea></li>
+                </ul>
+		</div>
+		<input type="hidden" value="English" />
+		<input type="button" value="Log Movie" id="logMovie" />
+	    </fieldset>
+	</form>
+	</div>
+	<footer>
+            <a href="#" id="clearData" data-ajax="false">Clear Stored Data</a>
+            <a href="#" id="displayData" data-ajax="false">Display Data</a>
+	    <a href="additem.html" id="newMovie" style="display:none;" data-ajax="false">Add New Movie</a>
+        </footer>
+	<!-- <script type="text/javascript">
+		function updateTextInput(val) {
+		document.getElementById('ratingInput').value=val; 
+		}
+	</script> -->
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>
