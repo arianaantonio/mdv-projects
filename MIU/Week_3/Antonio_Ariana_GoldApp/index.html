@@ -247,11 +247,37 @@
 	    </div>
 	    <div data-role="content">
 		<form action="" method="post" id="addItemForm">
-		    <label for="movieTitle">* Movie Title:</label>
-		    <input type="text" name="movieTitle" id="movieTitle" placeholder="ex. The Lord Of The Rings"/>
-		    <label for="dateSeen">* Date Seen:</label>
-		    <input type="date" id="dateSeen" name="dateSeen"/>
-		    
+		    <div data-role="fieldcontain">
+			<label for="movieTitle">* Movie Title:</label>
+			<input type="text" name="movieTitle" id="movieTitle" placeholder="ex. The Lord Of The Rings"/>
+		    </div>
+		    <div data-role="fieldcontain">
+			<label for="dateSeen">* Date Seen:</label>
+			<input type="date" id="dateSeen" name="dateSeen"/>
+		    </div>
+		    <div data-role="fieldcontain">
+			<label for="genres">Movie Genre:</label>
+			<select name="genres" id="genres">
+			    <option data-placeholder="true">Please Select A Genre</option>
+			    <option value="comedy">Comedy</option>
+			    <option value="Drama">Drama</option>
+			    <option value="Romance">Romance</option>
+			    <option value="Horror">Horror</option>
+			    <option value="Action">Action</option>
+			    <option value="Other">Other</option>
+			</select>
+		    </div>
+		    <div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+			    <legend>Where Seen:</legend>
+			    <input type="radio" value="Movie Theater" name="whereseen" id="movietheater"/>
+			    <label for="movietheater">Movie Theater</label>
+			    <input type="radio" value="At Home" name="whereseen" id="athome" />
+			    <label for="athome">At Home</label>
+			    <input type="radio" value="Other" name="whereseen" id="other" />
+			    <label for="other">Other</label>
+			</fieldset>
+		    </div>
 		</form>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
@@ -266,6 +292,7 @@
 	</div>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="js/search.js" data-ajax="false"></script>
     </body>
 </html>
