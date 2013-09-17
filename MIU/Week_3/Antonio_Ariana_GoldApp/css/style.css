@@ -3,7 +3,7 @@ Author: Ariana Antonio
 Project 3: My Hollywood - Gold
 MIU 1309
 */
-.body{font-family: Georgia, Ariel;
+/*.body{font-family: Georgia, Ariel;
     background-color: black;
     background-repeat: no-repeat;
 }
@@ -32,9 +32,9 @@ MIU 1309
 /*a{color:white; background-color: rgba(0, 0, 0, 0.6);}
 a:hover{color: yellow; outline: none;}*/
 fieldset{border: none;}
-#fieldset{margin-left:-15px;}
+/*#fieldset{margin-left:-15px;}*/
 /*img{height: 25px;}*/
-.ulstyle{
+/*.ulstyle{
     list-style: none;
     margin-left: -40px;
 }
@@ -44,15 +44,15 @@ li{
 .newLiStyle{list-style: none;
     margin-left: -70px;}
 /*legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margin-left: -15px;}*/
-#title{border-radius: 5px;}
+/*#title{border-radius: 5px;}
 #date{border-radius: 5px;}
 #friends{border-radius: 5px;}
 #review{border-radius: 5px;}
-#rating{background-color: white;}
-.label{color:white; background-color: rgba(0, 0, 0, 0.6);}*/
-form{margin-left: -55px;}
+#rating{background-color: white;}*/
+/*.label{color:white; background-color: rgba(0, 0, 0, 0.6);}
+form{margin-left: -55px;}*/
 /*li{margin-left: 0px;}*/
-#movietheater{margin-left:15px;}
+/*#movietheater{margin-left:15px;}
 #atHome{margin-left:15px;}
 #other{margin-left:15px;}
 #genre{width: 125px;}
