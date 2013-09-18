@@ -34,7 +34,7 @@ a:hover{color: yellow; outline: none;}*/
 fieldset{border: none;}
 /*#fieldset{margin-left:-15px;}*/
 /*img{height: 25px;}*/
-/*.ulstyle{
+.ulstyle{
     list-style: none;
     margin-left: -40px;
 }
@@ -145,7 +145,7 @@ form{margin-left: -55px;}*/
     padding:0px 0;
     margin-bottom: 0px;
 }
-
+label.error {display: block; margin: 10px 0;color: red;}
 
 
 
