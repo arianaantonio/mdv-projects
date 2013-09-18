@@ -75,7 +75,7 @@ var clearDataLink = id("clearData");
     clearDataLink.addEventListener("click", clearLocal);
 //pull whereseen value
 function getTheater(){
-        var theater = document.forms[0].where;
+        var theater = document.forms["addItemForm"].where;
         for (var i=0; i<theater.length; i++) {
             if (theater[i].checked) {
                 theaterValue = theater[i].value;
