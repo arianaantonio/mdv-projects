@@ -2,7 +2,7 @@ $('#home').on('pageinit', function(){
 	//var search = $('#searchBtn');
         //search.addEventListener("click", searchApp);
         $('#searchBtn').click(function(){
-                searchApp();        
+                searchApp();
         });
 });		
 $('#addItem').on('pageinit', function(){
@@ -267,6 +267,7 @@ function searchApp () {
                         var optText = obj[k][0] + " " + obj[k][1];
                         newLi.innerHTML = optText;
                         //newList.appendChild(linksList);
+                        
                         //console.log(obj[k][0] + ": "+ obj[k][1]);
                     }
                 }
