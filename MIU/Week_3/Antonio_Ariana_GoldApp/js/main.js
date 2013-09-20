@@ -1,3 +1,9 @@
+/*
+Author: Ariana Antonio
+Project 3: My Hollywood - Gold
+MIU 1309
+*/
+
 $('#home').on('pageinit', function(){
 	//var search = $('#searchBtn');
         //search.addEventListener("click", searchApp);
