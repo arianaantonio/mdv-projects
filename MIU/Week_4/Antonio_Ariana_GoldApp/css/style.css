@@ -147,8 +147,8 @@ form{margin-left: -55px;}*/
 }
 label.error {display: block; margin: 10px 0;color: red;}
 
-/*
- Have tried several methods to get a bg image to overide JQM and so far have been unsuccessful
+
+ /*Have tried several methods to get a bg image to overide JQM and so far have been unsuccessful*/
 .ui-mobile .type-home .ui-content { 
     background: white url(images/moviereelbg.jpg); 
     background-repeat: no-repeat;
@@ -167,15 +167,15 @@ body {
 }
 .ui-page.ui-body-c{
 
-background:url(images/movie-reel-hi.psd);
+background:url(images/moviereelbg.jpg);
 
 box-shadow: 0px 0px 30px 5px rgba(107, 105, 105, 0.3) inset,
 
 0px 0px 0px 1px rgba(107, 105, 105, 0.4) inset;
 
 }
-.backgroundimage  { background: transparent url(images/movie-reel-hi.psd) 0 0 no-repeat; }
-*/
+#backgroundimage  { background: transparent url(images/moviereelbg.jpg) 0 0 no-repeat; }*/
+
 
 
 
