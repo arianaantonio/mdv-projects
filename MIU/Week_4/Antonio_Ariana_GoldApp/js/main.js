@@ -123,7 +123,7 @@ function pullImage(imgName, newList) {
     
 //hide form when displaying data
     
-function controls(p) {
+/*function controls(p) {
     switch(p) {
         case "on":
             id("addItemForm").style.display = "none";
@@ -142,7 +142,7 @@ function controls(p) {
         default:
         return false;
     }
-}
+}*/
 
     
 function pullData() {
@@ -150,7 +150,7 @@ function pullData() {
         alert("There are no movies saved so default movies were added");
         defaultData();
     }
-    controls("on");
+    //controls("on");
     var createDiv = document.createElement("div");
     createDiv.setAttribute("id", "values");
     var createList = document.createElement("ul");

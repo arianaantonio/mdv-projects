@@ -242,8 +242,9 @@
 		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
 	    </div>
 	    <div data-role="content">
-		<p>All images courtesy of iStockPhoto</p>
+		<p>All images courtesy of <a href="http://istockphoto.com">iStockPhoto</a></p>
 		<p>Plaid background from <a href="http://wallpaperswide.com/">Wallpapers Wide</a></p>
+		<p>Logo font by<a href="http://dirt2.com">Andrew Hart</a></p>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
 		<div data-role="navbar" data-iconpos="left">
@@ -317,7 +318,7 @@
 			<input type="submit" value="Save Movie" id="savemovie" />
 		    </div>
 		    <a href="#" id="clearData" data-ajax="false">Clear Stored Data</a>
-		    <a href="#" id="displayData" data-ajax="false">Display Data</a>
+		    <a href="#display" id="displayData" data-ajax="false">Display Data</a>
 		</form>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
@@ -329,10 +330,23 @@
 		    </ul>
 		</div>    
 	    </div>
-	    <div>
-		<div data-role="content" id="displayPage">
-		    
-		</div>
+	</div>
+	<div data-role="page" id="display">
+	    <div data-role="header">
+		<a addBackBtn="true" data-rel="back">Back</a>
+		<h1>Saved Movies</h1>
+		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+	    </div>
+	    <div data-role="content" id="displayPage">
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+		<div data-role="navbar" data-iconpos="left">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friendsList">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
 	    </div>
 	</div>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
