@@ -19,9 +19,9 @@
 	<script src="js/libs/modernizr.custom.min.js"></script>
 	<title>My Hollywood</title>
     </head>
-    <body id=backgroundimage >
+    <body>
 	<div data-role="page" id="home" data-theme="c">
-	    <div data-role="header" data-theme="a">
+	    <div data-role="header" data-theme="c">
 		<h1>Home</h1>
 		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
 	    </div>
@@ -73,7 +73,8 @@
 	    </div>
 	</div>
 	<div data-role="page" id="friendsList" data-theme="d">
-	    <div data-role="header" data-theme="b">
+	    <div data-role="header" data-add-back-btn="true">
+		<a addBackBtn="true" data-rel="back">Back</a>
 		<h1>Friends</h1>
 		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
 	    </div>
@@ -114,7 +115,7 @@
 		</ul>
 	    </div>
 	    <div data-role="footer" data-id="navbar" data-position="fixed">
-		<div data-role="navbar" data-iconpos="left" data-theme="a">
+		<div data-role="navbar" data-iconpos="left" data-theme="b">
 		    <ul>
 			<li><a data-icon="home" href="#home">Home</a></li>
 			<li><a data-icon="star" href="#friendsList">Friends</a></li>
@@ -124,7 +125,8 @@
 	    </div>
 	</div>
 	<div data-role="page" id="about"  data-theme="c">
-	    <div data-role="header" data-theme="c">
+	    <div data-role="header" data-add-back-btn="true">
+		<a addBackBtn="true" data-rel="back">Back</a>
 		<h1>About</h1>
 		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
 	    </div>
@@ -151,7 +153,8 @@
 	    </div>
 	</div>
 	<div data-role="page" id="author" data-theme="c">
-	    <div data-role="header" data-theme="c">
+	    <div data-role="header" data-theme="c" data-add-back-btn="true">
+		<a addBackBtn="true" data-rel="back">Back</a>
 		<h1>Author Info</h1>
 		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
 	    </div>
@@ -170,7 +173,8 @@
 	    </div>
 	</div>
 	<div data-role="page" id="genres" data-theme="c">
-	    <div data-role="header" data-theme="c">
+	    <div data-role="header" data-theme="c" data-add-back-btn="true">
+		<a addBackBtn="true" data-rel="back">Back</a>
 		<h1>Genres</h1>
 		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
 	    </div>
@@ -212,9 +216,9 @@
 		</div>    
 	    </div>   
 	</div>
-	<div data-role="page" id="tempBrowsePage" data-theme="c" data-add-back-btn="true" >
-	    <div data-role="header">
-		<a href="#home" data-icon="delete" addBackBtn="true" data-rel="back">Back</a>
+	<div data-role="page" id="tempBrowsePage" data-theme="c" >
+	    <div data-role="header" data-add-back-btn="true">
+		<a addBackBtn="true" data-rel="back">Back</a>
 		<h1>Browse</h1>
 		<img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
 	    </div>
