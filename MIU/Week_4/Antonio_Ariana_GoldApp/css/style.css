@@ -138,12 +138,11 @@ form{margin-left: -55px;}*/
 }
 #author p {text-align: center;}
 #headerImg{
-    width:314px;
-    border-color:#eb2026;
-    border-style: solid;
-    text-align:center;
     padding:0px 0;
-    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 25%;
+    height: 60%;
 }
 label.error {display: block; margin: 10px 0;color: red;}
 
