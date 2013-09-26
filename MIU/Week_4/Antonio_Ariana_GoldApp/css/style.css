@@ -1,0 +1,169 @@
+/*
+Author: Ariana Antonio
+Project 4: My Hollywood - Gold
+MIU 1309
+*/
+/*.body{font-family: Georgia, Ariel;
+    background-color: black;
+    background-repeat: no-repeat;
+}
+#background{
+    background-color: black;
+    list-style: none;
+}
+#background li {
+    list-style: none;
+}*/
+/*#content{overflow: scroll;}*/
+/*#addMovie {
+    font-weight: bold;
+    text-align: center;
+    background: #f90c0c;
+    background-color: rgba(255, 0, 0, 0.6);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    color: #2a2a2a;
+    padding: 5px;
+    border-radius: 0px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}*/
+/*a{color:white; background-color: rgba(0, 0, 0, 0.6);}
+a:hover{color: yellow; outline: none;}*/
+fieldset{border: none;}
+/*#fieldset{margin-left:-15px;}*/
+/*img{height: 25px;}*/
+.ulstyle{
+    list-style: none;
+    margin-left: -40px;
+}
+li{
+    list-style: none;
+}
+.newLiStyle{list-style: none;
+    margin-left: -70px;}
+/*legend{color:white; background-color: rgba(0, 0, 0, 0.6); font-size: 1.5em;margin-left: -15px;}*/
+/*#title{border-radius: 5px;}
+#date{border-radius: 5px;}
+#friends{border-radius: 5px;}
+#review{border-radius: 5px;}
+#rating{background-color: white;}*/
+/*.label{color:white; background-color: rgba(0, 0, 0, 0.6);}
+form{margin-left: -55px;}*/
+/*li{margin-left: 0px;}*/
+/*#movietheater{margin-left:15px;}
+#atHome{margin-left:15px;}
+#other{margin-left:15px;}
+#genre{width: 125px;}
+#addMovie{
+    background-color: rgba(255, 0, 0, 0.6);
+    background: -webkit-linear-gradient(top,#f90c0c 0%, #5c0505 100%);
+    font-family: Georgia, Ariel;
+    color: #dae204;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 15px;
+}
+#addMovie:hover{color: white; outline: none;}
+#logMovie{
+    background: -webkit-linear-gradient(top,#f90c0c 0%, #5c0505 100%);
+    font-family: Georgia, Ariel;
+    color: #dae204;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 15px;
+    margin-left: -15px;
+}
+#logMovie:hover{color: white; outline: none;}
+/*p{color:white; background-color: rgba(0, 0, 0, 0.6);}*/
+#movieInfo{color:white; background-color: rgba(0, 0, 0, 0.6);} */
+#pullData{color:white;}
+.displayDataStyle{color:white; background-image: none;}
+.displayDataStyle li {margin-left: -40px;}
+.errorMessage{color:red; background-color: rgba(0, 0, 0, 0.6);}
+/*#browse{       
+    margin-top: 5px;
+    margin-bottom: 0px;
+    background-color: rgba(255, 0, 0, 0.6);
+    
+    color: #2a2a2a;
+    padding:1px;
+}
+.browsetitles {
+    padding: 1px;
+  
+    background-color: white;
+    color:black;
+    display: block;
+    text-decoration: none;
+   
+    margin-bottom: 5px;
+    margin-top: -15px;
+    width:300px;
+   
+}*/
+#oops{color:white;background:none;}
+#oopsHeader{
+    font-weight: bold;
+    text-align: center;
+    background: #f90c0c;
+    background-color: rgba(255, 0, 0, 0.6);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+    color: #2a2a2a;
+    padding: 5px;
+    border-radius: 0px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px}
+/*#search{width: 305px;}*/
+#filmreel{
+    width:320px;
+    height: auto;
+    display: block;
+    margin-left: -15px;
+    margin-top:0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+.star{width:25px;height:25px;}
+#friends h3 {padding: 0px;margin: 0px;}
+#friends h4 {font-size: 14px;margin-top:5px;margin-bottom: 5px;color:blue;}
+#friends li {padding-bottom:5px;}
+#author img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+#author p {text-align: center;}
+#headerImg{
+    padding:0px 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 25%;
+    height: 60%;
+}
+label.error {display: block; margin: 10px 0;color: red;}
+
+
+
+#home, #about, #addItem, #credits, .ui-content{
+background-image: url(../images/plaidbg.jpg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
