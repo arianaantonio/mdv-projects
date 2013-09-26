@@ -1,0 +1,234 @@
+<!doctype html>
+<!--Author: Ariana Antonio-->
+<!--Project 4: My Hollywood - Bronze-->
+<!--MIU 1309-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+	<meta name="description" content="Add Item for Movie Journal web app." />
+        <meta name="keywords" content="web app, movie journal, list" />
+        <meta name="robots" content="index, follow" />
+        <meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="cleartype" content="on">
+	<link href="css/style.css" rel="stylesheet" type="text/css" data-ajax="false"/>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<link rel="stylesheet" href="themes/MyHollywood2.min.css" />
+	<script src="js/libs/modernizr.custom.min.js"></script>
+	<title>My Hollywood</title>
+    </head>
+    <body>
+	<div data-role="page" id="home" data-theme="d">
+	    <div data-role="header" data-theme="c">
+		<h1>Home</h1>
+		<img src="images/logo_03.gif" id="headerImg" class="ui-btn-right">
+	    </div>
+	    <div data-role="content">
+		<div>
+		    <a href="addItem.html" data-ajax="false"><img id="filmreel" src="images/FilmReel3_03.gif"/></a>
+		</div>
+		<div>
+		<form action="#" method="post" id="searchForm">
+		    <fieldset>
+			<div id="fieldset">
+			    <ul class="ulstyle">
+				<li><label for="search"></label><input id="search" type="search" value="" placeholder="Search Movies" /></li>
+			    </ul>
+			</div>
+			<input type="button" value="Search" id="searchBtn" />
+		    </fieldset>
+		</form><br>
+	    </div>
+		<div>
+		    <ul data-role="listview"  data-theme="a">
+			<li data-role="list-divider" data-theme="c">Browse by...</li>
+			<li><a href="#tempBrowsePage">
+			    <h1>Movie Title</h1></a>
+			</li>
+			<li><a href="#tempBrowsePage">
+			    <h1>Date</h1></a>
+			</li>
+			<li>
+			    <div data-role="collapsible">
+				<h1>Genres</h1>
+				<div class="ui-grid-a">
+				    <div class="ui-block-a"><a href="#tempBrowsePage"><img src="images/Comedy.jpg">
+					<h2>Comedy</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Horror.jpg">
+					<h2>Horror</h2></a>
+				    </div>
+				    <div class="ui-block-a"><a href="#tempBrowsePage"><img src="images/Drama.jpg">
+					<h2>Drama</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Romance.jpg">
+					<h2>Romance</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Action.jpg">
+					<h2>Action</h2></a>
+				    </div>
+				    <div class="ui-block-b"><a href="#tempBrowsePage"><img src="images/Other.jpg">
+					<h2>Other</h2></a>
+				    </div>
+				</div>
+			    </div>
+			</li>
+			<li><a href="#tempBrowsePage">
+			    <h1>Rating</h1></a>
+			</li>
+			<li><a href="#tempBrowsePage">
+			    <h1>Favorites</h1></a>
+			</li>
+		    </ul>    
+		</div>
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+		<div data-role="navbar" data-iconpos="left">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friendsList">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
+	    </div>
+	</div>
+	<div data-role="page" id="friendsList" data-theme="a">
+	    <div data-role="header" data-theme="b">
+		<h1>Friends</h1>
+		<img src="images/logo_03.gif" id="headerImg" class="ui-btn-right">
+	    </div>
+	    <div data-role="content">
+		<ul data-role="listview">
+		    <li data-role="list-divider" data-theme="d">Today</li>
+		    <li>
+			<img src="images/Jonathan.jpg">
+			<h3>Jonathan Antonio</h3>
+			<h4><a href="http://www.imdb.com/title/tt1663662/?ref_=sr_1">Pacific Rim</a></h4>
+			<p>Really fun movie!</p>
+		    </li>
+		    <li>
+			<img src="images/Becca.jpg">
+			<h3>Becca Coffman</h3>
+			<h4><a href="http://www.imdb.com/title/tt0332280/?ref_=sr_1">The Notebook</a></h4>
+			<p>One of my all time favorites</p>
+		    </li>
+		    <li>
+			<img src="images/Heather.jpg">
+			<h3>Heather Shea</h3>
+			<h4><a href="http://www.imdb.com/title/tt2334879/?ref_=sr_2">White House Down</a></h4>
+			<p>Why did I let my wife drag me to this?</p>
+		    </li>
+		    <li data-role="list-divider" data-theme="d">Yesterday</li>
+		    <li>
+			<img src="images/Drew.jpg">
+			<h3>Drew Evans</h3>
+			<h4><a href="http://www.imdb.com/title/tt1690953/?ref_=sr_1">Despicable Me 2</a></h4>
+			<p>Loved it! Just as fun as the first.</p>
+		    </li>
+		     <li>
+			<img src="images/Debby.jpg">
+			<h3>Debby Ayars</h3>
+			<h4><a href="http://www.imdb.com/title/tt0379786/?ref_=sr_1">Serenity</a></h4>
+			<p>Can't believe it took me so long to see this awesome movie!</p>
+		    </li>
+		</ul>
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed">
+		<div data-role="navbar" data-iconpos="left" data-theme="a">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friendsList">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
+	    </div>
+	</div>
+	<div data-role="page" id="about"  data-theme="d">
+	    <div data-role="header" data-theme="c">
+		<h1>About</h1>
+		<img src="images/logo_03.gif" id="headerImg" class="ui-btn-right">
+	    </div>
+	    <div data-role="content">
+		<div data-role="content">
+		    <ul data-role="listview" data-inset="true"  data-theme="a">
+			<li><a href="#author">Author Info</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects/tree/master/MIU/Week_2/Antonio_Ariana_GoldApp">Gold App</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects/tree/gh-pages/MIU/Week_2/Antonio_Ariana_GoldApp">Gold gh-pages</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects/tree/gh-pages/MIU/Week_2/Antonio_Ariana_BronzeApp">Bronze gh-pages</a></li>
+			<li><a href="https://github.com/p32424/mdv-projects">GitHub Repo</a></li>
+			<li><a href="#credits">Credits</a></li>
+		    </ul>
+		</div>
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+		<div data-role="navbar" data-iconpos="left">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friends">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
+	    </div>
+	</div>
+	<div data-role="page" id="author" data-theme="c">
+	    <div data-role="header" data-theme="c">
+		<h1>Author Info</h1>
+		<img src="images/logo_03.gif" id="headerImg" class="ui-btn-right">
+	    </div>
+	    <div data-role="content">
+		<img src="images/robot.jpg">
+		<p>My Hollywood app created by Ariana Antonio for Full Sail University in the B.S. Mobile Development program. For comments or suggestions email faeryqueen21@fullsail.edu.</a></p>
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+		<div data-role="navbar" data-iconpos="left">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friendsList">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
+	    </div>
+	</div>
+	<div data-role="page" id="tempBrowsePage" data-theme="c" data-add-back-btn="true" >
+	    <div data-role="header">
+		<a href="#home" data-icon="delete" addBackBtn="true" data-rel="back">Back</a>
+		<h1>Browse</h1>
+		<img src="images/logo_03.gif" id="headerImg" class="ui-btn-right">
+	    </div>
+	    <div data-role="content">
+		<p>Oops! There are no movies to browse.</p>
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+		<div data-role="navbar" data-iconpos="left">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friendsList">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
+	    </div>
+	</div>
+	<div data-role="page" id="credits" data-theme="c">
+	    <div data-role="header">
+		<h1>Credits</h1>
+		<img src="images/logo_03.gif" id="headerImg" class="ui-btn-right">
+	    </div>
+	    <div data-role="content">
+		<p>All images courtesy of iStockPhoto</p>
+	    </div>
+	    <div data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+		<div data-role="navbar" data-iconpos="left">
+		    <ul>
+			<li><a data-icon="home" href="#home">Home</a></li>
+			<li><a data-icon="star" href="#friendsList">Friends</a></li>
+			<li><a data-icon="info" href="#about">About</a></li>
+		    </ul>
+		</div>    
+	    </div>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/search.js" data-ajax="false"></script>
+    </body>
+</html>
