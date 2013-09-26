@@ -155,7 +155,9 @@ function pullData() {
     createDiv.setAttribute("id", "values");
     var createList = document.createElement("ul");
     createDiv.appendChild(createList);
-    document.body.appendChild(createDiv);
+    var createDisplayPage = id("displayPage");
+    createDisplayPage.appendChild(createDiv);
+    //document.body.appendChild(createDiv);
     id("values").style.display = "block";
     for (var i=0, j=localStorage.length; i<j; i++) {
         var createLi = document.createElement("li");
