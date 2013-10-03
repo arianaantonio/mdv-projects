@@ -3,3 +3,35 @@ Author: Ariana Antonio
 Project 1
 ASD 1310
 */
+
+li{list-style: none;}
+#filmreel{
+    width:320px;
+    height: auto;
+    display: block;
+    margin-left: -15px;
+    margin-top:0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+#headerImg{
+    padding:0px 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 25%;
+    height: 60%;
+}
+#home, #about, #addItem, #credits, #browse, #search .ui-content{
+background-image: url(../images/plaidbg.jpg);
+}
+.ulstyle{
+    list-style: none;
+    margin-left: -40px;
+}
+.star {width:20px;height:20px;}
+#author img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+

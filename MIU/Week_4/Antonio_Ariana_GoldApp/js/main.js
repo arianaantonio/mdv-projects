@@ -31,6 +31,64 @@ $('#addItem').on('pageinit', function(){
 });
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
+//var starValue = $("img").attr("src", "images/" + imgName +".gif");
+function saveStar(){
+    var rating = document.forms["addItemForm"].where;
+    for (var i=0; i<rating.length; i++) {
+        if (rating[i].value === "rated") {
+            ratingValue = rating[i].value;
+        }
+    }	
+};
+var ratingValue;
+
+$("#1ststar").click(function(){
+    $(this).attr("src", "images/filledStar_03.gif");
+    $("#2ndstar").attr("src", "images/emptystar_03.gif");
+    $("#3rdstar").attr("src", "images/emptystar_03.gif");
+    $("#4thstar").attr("src", "images/emptystar_03.gif");
+    $("#5thstar").attr("src", "images/emptystar_03.gif");
+    $("#starrating").attr("value", "onestar");
+});
+$("#2ndstar").click(function(){
+    $(this).attr("src", "images/filledStar_03.gif");
+    $("#1ststar").attr("src", "images/filledStar_03.gif");
+    $("#3rdstar").attr("src", "images/emptystar_03.gif");
+    $("#4thstar").attr("src", "images/emptystar_03.gif");
+    $("#5thstar").attr("src", "images/emptystar_03.gif");
+    $("#starrating").attr("value", "twostars");
+});
+$("#3rdstar").click(function(){
+    $(this).attr("src", "images/filledStar_03.gif");
+    $("#1ststar").attr("src", "images/filledStar_03.gif");
+    $("#2ndstar").attr("src", "images/filledStar_03.gif");
+    $("#4thstar").attr("src", "images/emptystar_03.gif");
+    $("#5thstar").attr("src", "images/emptystar_03.gif");
+    $("#starrating").attr("value", "threestars");
+});
+$("#4thstar").click(function(){
+    $(this).attr("src", "images/filledStar_03.gif");
+    $("#1ststar").attr("src", "images/filledStar_03.gif");
+    $("#2ndstar").attr("src", "images/filledStar_03.gif");
+    $("#3rdstar").attr("src", "images/filledStar_03.gif");
+    $("#5thstar").attr("src", "images/emptystar_03.gif");
+    $("#starrating").attr("value", "fourstars");
+});
+$("#5thstar").click(function(){
+    $(this).attr("src", "images/filledStar_03.gif");
+    $("#1ststar").attr("src", "images/filledStar_03.gif");
+    $("#2ndstar").attr("src", "images/filledStar_03.gif");
+    $("#3rdstar").attr("src", "images/filledStar_03.gif");
+    $("#4thstar").attr("src", "images/filledStar_03.gif");
+    $("#starrating").attr("value", "fivestars");
+});
+var onestar = $("#1ststar");
+var twostar = $("#2ndstar");
+var threestar = $("#3rdstar");
+var fourstar = $("#4thstar");
+var fivestar = $("#5thstar");	
+var ratingDiv = $("#starrating");
+
 
 function id(x){
     var getElement = document.getElementById(x)
@@ -58,6 +116,7 @@ var storeData = function(key){
         obj.genre = ["Movie Genre:", id("genre").value];
         obj.movietheater = ["Where Seen:", theaterValue];
         obj.friends = ["Who Seen With:", id("seenwith").value];
+	obj.starrating = ["Star Rating:", ($("#starrating").attr('value'))];
         obj.rating = ["Rating:", id("rating").value];
         obj.favorite = ["Favorite?", favoriteValue];
         obj.review = ["Review:", id("review").value];
@@ -123,7 +182,7 @@ function pullImage(imgName, newList) {
     
 //hide form when displaying data
     
-/*function controls(p) {
+function controls(p) {
     switch(p) {
         case "on":
             id("addItemForm").style.display = "none";
@@ -142,7 +201,7 @@ function pullImage(imgName, newList) {
         default:
         return false;
     }
-}*/
+}
 
     
 function pullData() {
@@ -178,8 +237,19 @@ function pullData() {
         }
         createLinks(localStorage.key(i), linksList);
     }
+    displayRating;
 }
-    
+var displayRating = function() {
+    if($("#starrating").attr('value') === "onestar") {
+	var aTag = document.createElement("a");
+	var imgTag = document.createElement("img");
+	ratingDiv.appendChild(aTag);
+	aTag.appendChild(imgTag);
+	aTag.attr("href", "#");
+	imgTag.attr("src", "images/filledStar_03.gif")
+    }
+}
+   
 
 //creating edit and delete links
 function createLinks(key, linksList) {
