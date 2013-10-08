@@ -4,32 +4,25 @@ Project 2
 ASD 1310
 */
 $('#search').on('pageinit', function(){
-    var text = $("search").val();
+    var text = $("#searchInput").val();
     function searchApp(){
        if (text != "") {
-            var createDiv = document.createElement("div");
-            createDiv.setAttribute("id", "values");
-            var createList = document.createElement("ul");
-            createDiv.appendChild(createList);
-            var createSearch = $("searchForm");
-            createSearch.appendChild(createDiv);
+            $("#searchForm").append("div")
+            $("searchForm div").attr("id", "values");
+            $("searchForm div").append("ul");
             for (var i=0, j=localStorage.length; i<j; i++) {
-                var createLi = document.createElement("li");
+                $("#searchForm div ul").append("li");
                 //var linksList = document.createElement("li");
-                createList.appendChild(createLi);
                 var key = localStorage.key(i);
                 var keyValue = localStorage.getItem(key);
                 var obj = JSON.parse(keyValue);
-                var newList = document.createElement("ul");
-                createLi.appendChild(newList);
+                $("#searchForm div ul li").append("ul");
                 for (l in obj) {
                     if (text === obj[l][1]) {
                         for(k in obj){
-                            var newLi = document.createElement("li");
-                            newList.appendChild(newLi);
-                            newLi.setAttribute("class", "newLiStyle")
-                            var optText = obj[k][0] + " " + obj[k][1];
-                            newLi.innerHTML = optText;
+                            $("#searchForm div ul li ul").append("li");
+                            $("#searchForm div ul li ul li").attr("class", "newLiStyle");
+                            $("#searchForm div ul li ul li").text("obj[k][0] + ' ' + obj[k][1]");
                             //newList.appendChild(linksList);
                             //console.log(obj[k][0] + ": "+ obj[k][1]);
                         }
