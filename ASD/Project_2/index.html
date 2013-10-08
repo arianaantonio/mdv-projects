@@ -1,0 +1,252 @@
+<!doctype html>
+<!--
+Author: Ariana Antonio
+Project 2
+ASD 1310
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="Add Item for Movie Journal web app." />
+		<meta name="keywords" content="web app, movie journal, list" />
+		<meta name="robots" content="index, follow" />
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="cleartype" content="on">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />		
+		<link rel="stylesheet" href="libs/themes/MyHollywood2.min.css" />
+		<link href="css/style.css" rel="stylesheet" type="text/css" data-ajax="false"/>
+		<script src="libs/modernizr.custom.min.js"></script>
+		<title>My Hollywood</title>
+	</head>
+	<body>
+		<div id="main">
+			<section data-role="page" id="home" data-theme="c">
+				<header data-role="header">
+				    <h1>Home</h1>
+				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">		
+				</header>
+				<div data-role="content">
+				    <div>
+						<a href="#addItem"><img id="filmreel" src="images/FilmReel3_03.gif"/></a>
+		            </div>		
+				</div>
+				<nav data-role="content">
+				    <ul data-role="listview"  data-theme="d">
+						<li><a href="#browse">Browse Movies</a></li>
+						<li><a href="#search">Search Movies</a></li>
+					</ul>		
+				</nav>
+				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+				    <nav data-role="navbar" data-iconpos="left">
+						<ul>
+						    <li><a data-icon="home" href="#home">Home</a></li>
+						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
+						    <li><a data-icon="info" href="#about">About</a></li>
+						</ul>
+				    </nav>
+			    </footer>
+			</section>			
+			<section data-role="page" id="about"  data-theme="c">
+				<header data-role="header" data-add-back-btn="true">
+				    <a addBackBtn="true" data-rel="back">Back</a>
+				    <h1>About</h1>
+				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				</header>
+				<nav data-role="content">
+				    <ul data-role="listview" data-inset="true"  data-theme="d">
+						<li><a href="#author">Author Info</a></li>
+						<li><a href="#credits">Credits</a></li>
+				    </ul>
+				</nav>
+				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+				    <div data-role="navbar" data-iconpos="left">
+						<ul>
+						    <li><a data-icon="home" href="#home">Home</a></li>
+						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
+						    <li><a data-icon="info" href="#about">About</a></li>
+						</ul>
+				    </div>    
+				</footer>
+		    </section>
+			<section data-role="page" id="author"  data-theme="c">
+				<header data-role="header" data-add-back-btn="true">
+				    <a addBackBtn="true" data-rel="back">Back</a>
+				    <h1>Author Info</h1>
+				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				</header>
+				<section data-role="content">
+				    <img src="images/robot.jpg">
+				    <p>My Hollywood app created by Ariana Antonio for Full Sail University in the B.S. Mobile Development program. For comments or suggestions email faeryqueen21@fullsail.edu.</a></p>
+				</section>
+				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+				    <div data-role="navbar" data-iconpos="left">
+						<ul>
+						    <li><a data-icon="home" href="#home">Home</a></li>
+						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
+						    <li><a data-icon="info" href="#about">About</a></li>
+						</ul>
+				</footer>    
+	        </section>
+			<section data-role="page" id="credits" data-theme="c" data-add-back-btn="true">
+				<header data-role="header">
+				    <a addBackBtn="true" data-rel="back">Back</a>
+				    <h1>Credits</h1>
+				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				</header>
+				<section data-role="content">
+				    <ul>
+				        <li>All images courtesy of <a href="http://istockphoto.com">iStockPhoto</a></li>
+				        <li>Plaid background from <a href="http://wallpaperswide.com/">Wallpapers Wide</a></li>
+				        <li>Logo font by<a href="http://dirt2.com">Andrew Hart</a></li>
+					</ul>	
+				</section>
+				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+				    <div data-role="navbar" data-iconpos="left">
+						<ul>
+						    <li><a data-icon="home" href="#home">Home</a></li>
+						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
+						    <li><a data-icon="info" href="#about">About</a></li>
+						</ul>
+				    </div>    
+				</footer>
+		    </section>
+			<section data-role="page" id="search" data-theme="c" data-add-back-btn="true">
+				<header data-role="header">
+				    <a addBackBtn="true" data-rel="back">Back</a>
+				    <h1>Search</h1>
+				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				</header>
+				<section data-role="content">
+				    <form action="#" method="post" id="searchForm">
+						<fieldset>
+						    <div id="fieldset">
+								<ul class="ulstyle">
+								    <li><label for="search"></label><input id="searchInput" type="search" value="" placeholder="Search Movies" /></li>
+								</ul>
+						    </div>
+						    <input type="button" value="Search" id="searchBtn" />
+				        </fieldset>
+				    </form>
+				</section>
+				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+				    <div data-role="navbar" data-iconpos="left">
+						<ul>
+				            <li><a data-icon="home" href="#home">Home</a></li>
+						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
+						    <li><a data-icon="info" href="#about">About</a></li>
+						</ul>
+				    </div>
+				</footer>
+			</section>
+			<section data-role="page" id="browse" data-theme="c" data-add-back-btn="true">
+				<header data-role="header">
+				    <a addBackBtn="true" data-rel="back">Back</a>
+				    <h1>Browse Movies</h1>
+				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				</header>
+				<section data-role="content">
+				</section>
+				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+				    <div data-role="navbar" data-iconpos="left">
+						<ul>
+				            <li><a data-icon="home" href="#home">Home</a></li>
+						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
+						    <li><a data-icon="info" href="#about">About</a></li>
+						</ul>
+				    </div>
+				</footer>
+			</section>
+			<section data-role="page" id="addItem" data-add-back-btn="true">
+				<header data-role="header">
+				    <a addBackBtn="true" data-rel="back">Back</a>
+				    <h1>Add Movie</h1>
+				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				</header>
+				<section data-role="content">
+				    <form action="" method="post" id="addItemForm">
+						<div data-role="fieldcontain">
+						    <label for="movietitle">*Movie Title:</label>
+						    <input data-clear-btn="true" type="text" name="movietitle" id="movietitle" placeholder="ex. The Lord Of The Rings" class="required" />
+						</div>
+						<div data-role="fieldcontain">
+						    <label for="dateseen">*Date Seen:</label>
+						    <input class="required" type="date" id="dateseen" name="dateseen"/>
+						</div>
+						<div data-role="fieldcontain">
+						    <label for="genre">*Movie Genre:</label>
+						    <select name="genre" id="genre" class="required">
+								<option data-placeholder="true" value>Please Select A Genre</option>
+								<option value="Comedy">Comedy</option>
+								<option value="Drama">Drama</option>
+								<option value="Romance">Romance</option>
+								<option value="Horror">Horror</option>
+								<option value="Action">Action</option>
+								<option value="Other">Other</option>
+						    </select>
+						</div>
+						<div data-role="fieldcontain">
+						    <fieldset data-role="controlgroup">
+								<legend id="where">Where I Saw The Movie:</legend>
+								<input type="radio" value="Movie Theater" name="where" id="movietheater"/>
+								<label for="movietheater">Movie Theater</label>
+								<input type="radio" value="At Home" name="where" id="athome" />
+								<label for="athome">At Home</label>
+								<input type="radio" value="Other" name="where" id="other" />
+								<label for="other">Other</label>
+						    </fieldset>
+				        </div>
+						<div data-role="fieldcontain">
+						    <label for="seenwith">Who I Saw It With:</label>
+						    <input data-clear-btn="true" type="text" name="seenwith" id="seenwith" />
+						</div>
+						<div data-role="fieldcontain">
+						    <label>Movie Rating:</label><br>
+						    <div id="starrating" >
+								<a href="#"><img src="images/emptystar_03.gif" class="star" id="1ststar" /></a>
+								<a href="#"><img src="images/emptystar_03.gif" class="star" id="2ndstar" /></a>
+								<a href="#"><img src="images/emptystar_03.gif" class="star" id="3rdstar" /></a>
+								<a href="#"><img src="images/emptystar_03.gif" class="star" id="4thstar" /></a>
+								<a href="#"><img src="images/emptystar_03.gif" class="star" id="5thstar" /></a>
+						    </div>
+						</div>
+						<!--<div data-role="fieldcontain" >
+						    <label for="rating">Movie Rating:</label>
+						    <input data-theme="b" type="range" name="rating" id="rating" value="5" min="0" max="10" />
+						</div>-->
+						<div data-role="fieldcontain">
+						    <fieldset data-role="controlgroup">
+								<input type="checkbox" value="Favorite" name="favorite" id="favorite" />
+								<label for="favorite">Save As Favorite?</label>
+						    </fieldset>
+						</div>
+						<div data-role="fieldcontain">
+						    <label for="review">*My Review:</label>
+						    <textarea  id="review" class="required"></textarea>
+						</div>
+						<div data-role="fieldcontain">
+						    <input type="submit" value="Save Movie" id="savemovie" />
+						</div>
+						<a href="#" id="clearData" data-ajax="false">Clear Stored Data</a>
+						<a href="#display" id="displayData" data-ajax="false">Display Data</a>
+				    </form>
+				</section>
+				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+				    <div data-role="navbar" data-iconpos="left">
+						<ul>
+				            <li><a data-icon="home" href="#home">Home</a></li>
+						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
+						    <li><a data-icon="info" href="#about">About</a></li>
+						</ul>
+				    </div>
+				</footer>
+		    </section
+		</div>
+		<script src="libs/jquery-2.0.3.min.js"></script>
+		<script src="libs/jquery.mobile-1.3.2.min.js"></script>
+		<script type="text/javascript" src="libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/json.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
