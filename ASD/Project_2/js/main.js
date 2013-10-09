@@ -36,6 +36,74 @@ $('#search').on('pageinit', function(){
     });
 });		
 $('#addItem').on('pageinit', function(){
+    /*pull whereseen value
+    function getTheater(){
+        var theater = $("input:radio:selected").val();
+        var theater = document.forms["addItemForm"].where;
+        for (var i=0; i<theater.length; i++) {
+            if (theater[i].checked) {
+                theaterValue = theater[i].value;
+            }
+        }
+    }*/
+    //pull favorite value    
+    function getFavorite() {
+        if ($("input:checkbox:checked")) {
+            favoriteValue = "Yes"
+        } else {
+            favoriteValue = "No";
+        }
+    }
+
+    //var theaterValue;
+    //var favoriteValue = "No";
+    
+    
+    
+    var storeData = function(key){
+        if (!key) {
+            var randomId = Math.floor(Math.random()*1000001);
+        }else{
+            randomId = key;
+        }
+        getFavorite();
+        //getTheater();
+        var obj = {};
+            obj.title = ["Movie Title:", $("#movietitle").val()];
+            obj.date = ["Date:", $("#dateseen").val()];
+            obj.genre = ["Movie Genre:", $("#genre").val()];
+            obj.movietheater = ["Where Seen:", $("input:radio:selected").val()];
+            obj.friends = ["Who Seen With:", $("#seenwith").val()];
+            obj.starrating = ["Star Rating:", ($("#starrating").attr('value'))];
+            obj.rating = ["Rating:", $("#rating").val()];
+            obj.favorite = ["Favorite?", favoriteValue];
+            obj.review = ["Review:", $("#review").val()];
+        localStorage.setItem(randomId, JSON.stringify(obj));
+        alert("Movie Saved!");
+        window.location.reload();
+    }         
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
     var myForm = $('#addItemForm');
     myForm.validate ({
 		invalidHandler: function(form, validator) {
