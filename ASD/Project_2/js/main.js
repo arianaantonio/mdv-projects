@@ -125,6 +125,7 @@ $('#addItem').on('pageinit', function(){
             alert("There are no movies saved so default movies were added");
             defaultData();
         }
+        
         //var linksList;
         //pullImage(object.genre[1], newList);
         //linkList = newList.append("<li></li>");
@@ -139,6 +140,7 @@ $('#addItem').on('pageinit', function(){
                 .appendTo("#values");
             $("#values div")
                 .append("<ul></<ul>")
+            console.log(object.starrating[1]);    
             var counter=0;
             for (var p in object) {
                 $('<li></li>')
@@ -152,6 +154,18 @@ $('#addItem').on('pageinit', function(){
     //call pulldata function when display data link is clicked
     $("#displayData").on("click", pullData);  
     
+    //clear local data					
+    var clearLocal = function(){
+        if (localStorage.length === 0) {
+            alert("Data is all clear!");
+        }else {
+            localStorage.clear();
+            alert("All movies have been deleted");
+            window.location.reload();
+            return false;
+    }
+};
+    $("#clearData").on("click", clearLocal);
     
     
     
