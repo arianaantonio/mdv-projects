@@ -48,7 +48,7 @@ $('#addItem').on('pageinit', function(){
     }*/
     //pull favorite value    
     function getFavorite() {
-        if ($("input:checkbox:checked")) {
+        if ($("input[type=checkbox]").is(':checked')) {
             favoriteValue = "Yes"
         } else {
             favoriteValue = "No";
@@ -72,7 +72,7 @@ $('#addItem').on('pageinit', function(){
             obj.title = ["Movie Title:", $("#movietitle").val()];
             obj.date = ["Date:", $("#dateseen").val()];
             obj.genre = ["Movie Genre:", $("#genre").val()];
-            obj.movietheater = ["Where Seen:", $("input:radio:selected").val()];
+            obj.movietheater = ["Where Seen:", $("input[type=radio]:checked").val()];
             obj.friends = ["Who Seen With:", $("#seenwith").val()];
             obj.starrating = ["Star Rating:", ($("#starrating").attr('value'))];
             obj.rating = ["Rating:", $("#rating").val()];
