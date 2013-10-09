@@ -119,15 +119,38 @@ $('#addItem').on('pageinit', function(){
         ratingDiv.attr("value", "fivestars");
     });
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //display data from local storage to display page
+    function pullData() {
+        if (localStorage.length === 0) {
+            alert("There are no movies saved so default movies were added");
+            defaultData();
+        }
+        //var linksList;
+        //pullImage(object.genre[1], newList);
+        //linkList = newList.append("<li></li>");
+        //createLinks(localStorage.key(i), linksList);
+        //displayRating;
+        for (var i=0, j=localStorage.length; i<j; i++) {
+            var key = localStorage.key(i);
+            var keyValue = localStorage.getItem(key);
+            var object = JSON.parse(keyValue);
+            $("<div></div>")
+                .attr("data-role", key)
+                .appendTo("#values");
+            $("#values div")
+                .append("<ul></<ul>")
+            var counter=0;
+            for (var p in object) {
+                $('<li></li>')
+                    .html(object[p][0] + " " + object[p][1])
+                    .appendTo("#values div ul");
+                counter++;
+            }
+        $("#values div ul").append("<br>");
+        }
+    }
+    //call pulldata function when display data link is clicked
+    $("#displayData").on("click", pullData);  
     
     
     
