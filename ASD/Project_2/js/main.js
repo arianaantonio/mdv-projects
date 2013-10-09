@@ -34,19 +34,10 @@ $('#search').on('pageinit', function(){
     $('#searchBtn').click(function(){
         searchApp();
     });
-});		
+});
+
 $('#addItem').on('pageinit', function(){
-    /*pull whereseen value
-    function getTheater(){
-        var theater = $("input:radio:selected").val();
-        var theater = document.forms["addItemForm"].where;
-        for (var i=0; i<theater.length; i++) {
-            if (theater[i].checked) {
-                theaterValue = theater[i].value;
-            }
-        }
-    }*/
-    //pull favorite value    
+    //pull favorite? value    
     function getFavorite() {
         if ($("input[type=checkbox]").is(':checked')) {
             favoriteValue = "Yes"
@@ -54,12 +45,8 @@ $('#addItem').on('pageinit', function(){
             favoriteValue = "No";
         }
     }
-
-    //var theaterValue;
-    //var favoriteValue = "No";
     
-    
-    
+    //storing data to local storage
     var storeData = function(key){
         if (!key) {
             var randomId = Math.floor(Math.random()*1000001);
@@ -67,7 +54,6 @@ $('#addItem').on('pageinit', function(){
             randomId = key;
         }
         getFavorite();
-        //getTheater();
         var obj = {};
             obj.title = ["Movie Title:", $("#movietitle").val()];
             obj.date = ["Date:", $("#dateseen").val()];
@@ -75,15 +61,63 @@ $('#addItem').on('pageinit', function(){
             obj.movietheater = ["Where Seen:", $("input[type=radio]:checked").val()];
             obj.friends = ["Who Seen With:", $("#seenwith").val()];
             obj.starrating = ["Star Rating:", ($("#starrating").attr('value'))];
-            obj.rating = ["Rating:", $("#rating").val()];
+            //obj.rating = ["Rating:", $("#rating").val()];
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", $("#review").val()];
         localStorage.setItem(randomId, JSON.stringify(obj));
         alert("Movie Saved!");
         window.location.reload();
-    }         
-        
-        
+    }
+    
+    //setting up vars for star rating    
+    var onestar = $("#1ststar");
+    var twostar = $("#2ndstar");
+    var threestar = $("#3rdstar");
+    var fourstar = $("#4thstar");
+    var fivestar = $("#5thstar");	
+    var ratingDiv = $("#starrating");
+    
+    //setting up click events for star ratings to get value
+    onestar.click(function(){
+        onestar.attr("src", "images/filledStar_03.gif");
+        twostar.attr("src", "images/emptystar_03.gif");
+        threestar.attr("src", "images/emptystar_03.gif");
+        fourstar.attr("src", "images/emptystar_03.gif");
+        fivestar.attr("src", "images/emptystar_03.gif");
+        ratingDiv.attr("value", "onestar");
+    });
+    twostar.click(function(){
+        twostar.attr("src", "images/filledStar_03.gif");
+        onestar.attr("src", "images/filledStar_03.gif");
+        threestar.attr("src", "images/emptystar_03.gif");
+        fourstar.attr("src", "images/emptystar_03.gif");
+        fivestar.attr("src", "images/emptystar_03.gif");
+        ratingDiv.attr("value", "twostars");
+    });
+    threestar.click(function(){
+        threestar.attr("src", "images/filledStar_03.gif");
+        onestar.attr("src", "images/filledStar_03.gif");
+        twostar.attr("src", "images/filledStar_03.gif");
+        fourstar.attr("src", "images/emptystar_03.gif");
+        fivestar.attr("src", "images/emptystar_03.gif");
+        ratingDiv.attr("value", "threestars");
+    });
+    fourstar.click(function(){
+        fourstar.attr("src", "images/filledStar_03.gif");
+        onestar.attr("src", "images/filledStar_03.gif");
+        twostar.attr("src", "images/filledStar_03.gif");
+        threestar.attr("src", "images/filledStar_03.gif");
+        fivestar.attr("src", "images/emptystar_03.gif");
+        ratingDiv.attr("value", "fourstars");
+    });
+    fivestar.click(function(){
+        fivestar.attr("src", "images/filledStar_03.gif");
+        onestar.attr("src", "images/filledStar_03.gif");
+        twostar.attr("src", "images/filledStar_03.gif");
+        threestar.attr("src", "images/filledStar_03.gif");
+        fourstar.attr("src", "images/filledStar_03.gif");
+        ratingDiv.attr("value", "fivestars");
+    });
     
     
     
@@ -103,7 +137,7 @@ $('#addItem').on('pageinit', function(){
     
     
     
-        
+    //validating form    
     var myForm = $('#addItemForm');
     myForm.validate ({
 		invalidHandler: function(form, validator) {
