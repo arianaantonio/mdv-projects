@@ -139,16 +139,46 @@ $('#addItem').on('pageinit', function(){
                 .attr("data-role", key)
                 .appendTo("#values");
             $("#values div")
-                .append("<ul></<ul>")
-            console.log(object.starrating[1]);    
+                .append("<ul></<ul>")    
             var counter=0;
             for (var p in object) {
+                if (object[p][0] === "Star Rating:" ) continue;
                 $('<li></li>')
                     .html(object[p][0] + " " + object[p][1])
                     .appendTo("#values div ul");
                 counter++;
+                }
+            if (object.starrating[1] === "onestar") {
+                //console.log("one star");
+                numOfStars();
             }
-        $("#values div ul").append("<br>");
+            if (object.starrating[1] === "twostars") {
+                //console.log("two stars");    
+                numOfStars();
+                numOfStars();
+            }
+            if (object.starrating[1] === "threestars") {
+                //console.log("three stars");
+                numOfStars();
+                numOfStars();
+                numOfStars();
+            }
+            if (object.starrating[1] === "fourstars") {
+                //console.log("four stars");
+                numOfStars();
+                numOfStars();
+                numOfStars();
+                numOfStars();
+            }
+            if (object.starrating[1] === "fivestars") {
+                //console.log("five stars")
+                numOfStars();
+                numOfStars();
+                numOfStars();
+                numOfStars();
+                numOfStars();
+            }
+        $("#values div ul img").append("<br>");
         }
     }
     //call pulldata function when display data link is clicked
@@ -167,8 +197,12 @@ $('#addItem').on('pageinit', function(){
 };
     $("#clearData").on("click", clearLocal);
     
-    
-    
+    //creating star rating values for display page
+    function numOfStars(){ $("#values div ul").append("<img />");
+        $("#values div ul img")
+            .attr("src", "images/filledstar_03.gif")
+            .attr("class", "star");
+    };
     
     
     
