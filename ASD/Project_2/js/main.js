@@ -125,28 +125,27 @@ $('#addItem').on('pageinit', function(){
             alert("There are no movies saved so default movies were added");
             defaultData();
         }
-        
         //var linksList;
         //pullImage(object.genre[1], newList);
         //linkList = newList.append("<li></li>");
         //createLinks(localStorage.key(i), linksList);
-        //displayRating;
         for (var i=0, j=localStorage.length; i<j; i++) {
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
             var object = JSON.parse(keyValue);
-            $("<div></div>")
+            $("<ul></ul>")
                 .attr("data-role", key)
-                .appendTo("#values");
-            $("#values div")
-                .append("<ul></<ul>")    
-            var counter=0;
+                .appendTo("#values")
+                .wrap("<div></div>");
+            //$("#values div")
+                //.append("<ul></<ul>")    
+            //var counter=0;
             for (var p in object) {
                 if (object[p][0] === "Star Rating:" ) continue;
                 $('<li></li>')
                     .html(object[p][0] + " " + object[p][1])
-                    .appendTo("#values div ul");
-                counter++;
+                    .appendTo("#values div ul");    
+                //counter++;
                 }
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
@@ -178,7 +177,17 @@ $('#addItem').on('pageinit', function(){
                 numOfStars();
                 numOfStars();
             }
-        $("#values div ul img").append("<br>");
+        $("<a></a>").appendTo("#values div ul")
+            .text("Edit Movie")
+            .attr("href", "#")
+            .css("display", "block")
+        $("<a></a>").appendTo("#values div ul")
+            .text("Delete Movie")
+            .attr("href", "#")
+            .on("click", deleteInput)
+            .attr("id", "deleteLink")
+            .after("<br>");
+        $("#deleteLink").key = key;    
         }
     }
     //call pulldata function when display data link is clicked
@@ -204,7 +213,39 @@ $('#addItem').on('pageinit', function(){
             .attr("class", "star");
     };
     
+    //creating edit and delete links
+    /*function createLinks(key, linksList) {
+    var editLink = document.createElement("a");
+    editLink.href = "#";
+    editLink.key = key;
+    var changeText = "Edit Movie";
+    editLink.addEventListener("click", editInput);
+    editLink.innerHTML = changeText;
+    linksList.appendChild(editLink);
+        
+    var lineBreak = document.createElement("br");
+    linksList.appendChild(lineBreak);
+        
+    var deleteLink = document.createElement("a");
+    deleteLink.href = "#";
+    deleteLink.key = key;
+    var deleteText = "Delete Movie";
+    deleteLink.addEventListener("click", deleteInput);
+        deleteLink.innerHTML = deleteText;
+        linksList.appendChild(deleteLink);
+    }*/
     
+    function deleteInput() {
+        var ask = confirm("Are you sure you want to delete this movie?");
+        if (ask) {
+            console.log("deleting");    
+            localStorage.removeItem(this.key);
+            window.location.reload();
+            alert("Movie deleted");
+        }else{
+            alert("This movie has not been deleted");
+        }
+    }
     
     
     
