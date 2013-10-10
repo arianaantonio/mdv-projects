@@ -142,7 +142,7 @@ $('#addItem').on('pageinit', function(){
             //var counter=0;
             for (var p in object) {
                 if (object[p][0] === "Star Rating:" ) continue;
-                $('<li></li>')
+                $("<li></li>")
                     .html(object[p][0] + " " + object[p][1])
                     .appendTo("#values div ul");    
                 //counter++;
@@ -181,13 +181,20 @@ $('#addItem').on('pageinit', function(){
             .text("Edit Movie")
             .attr("href", "#")
             .css("display", "block")
+        /*var timestamp = +new Date();
+        var deleteMovie = '<a href="#" class="delete" data-key="' + timestamp + '">Delete</a>';
+        $(".delete").on("click", function(){
+            localStorage.removeItem(key);        
+        })
+        $("#values div ul").append(deleteMovie);*/
         $("<a></a>").appendTo("#values div ul")
             .text("Delete Movie")
             .attr("href", "#")
             .on("click", deleteInput)
             .attr("id", "deleteLink")
-            .after("<br>");
-        $("#deleteLink").key = key;    
+            .after("<br>")
+            .data("key", key);
+        //key = $("#deleteLink").data("key");   
         }
     }
     //call pulldata function when display data link is clicked
@@ -239,7 +246,7 @@ $('#addItem').on('pageinit', function(){
         var ask = confirm("Are you sure you want to delete this movie?");
         if (ask) {
             console.log("deleting");    
-            localStorage.removeItem(this.key);
+            localStorage.removeItem($("#deleteLink").data("key"));
             window.location.reload();
             alert("Movie deleted");
         }else{
