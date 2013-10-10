@@ -332,4 +332,24 @@ $('#addItem').on('pageinit', function(){
     var movieData;
     var saveMovie = $("#savemovie");
 });
+
+$('#browse').on('pageinit', function(){
+   
+        $("#jsonData").on("click", function(){
+                console.log("working");
+            $.ajax({
+                url: "xhr/data.json",
+                type: "GET",
+                dataType: "json",
+                success: function(response){
+                        console.log(response);        
+                }
+                
+            });
+        });
+
+
+
+
+});
 	
