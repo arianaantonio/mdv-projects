@@ -142,17 +142,17 @@ $('#addItem').on('pageinit', function(){
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
             var object = JSON.parse(keyValue);
-            var i = object.length;
+            
             /*$("<ul></ul>")
                 .attr("data-role", key)
                 .appendTo("#movieDisplay")
                 //.wrap("<div></div>");*/
                 
-            movieData += "<li>" + object[i]  + "</li>";
-            /*for (var p in object) {
+            
+            for (var p in object) {
                 if (object[p][0] === "Star Rating:" ) continue;
                 movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
-            }*/
+            }
             $("#movieDisplay ul").append(movieData);
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
