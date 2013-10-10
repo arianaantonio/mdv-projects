@@ -153,12 +153,13 @@ $('#addItem').on('pageinit', function(){
                 if (object[p][0] === "Star Rating:" ) continue;
                 movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
             }
-<<<<<<< HEAD
+
             console.log(movieData);
-=======
-            movieData += '<li><a href="#addItem" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
+
+            movieData += '<li><a href="#addItem" id="editlink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
+            $("#editlink").on("click", editInput);
             movieData += '<li><a id="deleteLink" href="#addItem" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
->>>>>>> gh-pages
+
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
@@ -185,24 +186,9 @@ $('#addItem').on('pageinit', function(){
                 numOfStars();
                 numOfStars();
             }    
-<<<<<<< HEAD
-        $("<a></a>").appendTo("#values div ul")
-            .text("Edit Movie")
-            .attr("href", "#addItem")
-            .css("display", "block")
-            .data("key", key)
-            .on("click", editInput);    
-        $("<a></a>").appendTo("#values div ul")
-            .text("Delete Movie")
-            .attr("href", "#")
-            .on("click", deleteInput)
-            .attr("id", "deleteLink")
-            .after("<br>")
-            .data("key", key);   
+   
         }
-=======
-        
->>>>>>> gh-pages
+
         $("#movieDisplay ul").append(movieData);
     }
     //call pulldata function when display data link is clicked
