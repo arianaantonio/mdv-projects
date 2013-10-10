@@ -154,12 +154,12 @@ $('#addItem').on('pageinit', function(){
                 movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
             }
 
-            console.log(movieData);
+            
 
-            movieData += '<li><a href="#addItem" id="editlink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
-            $("#editlink").on("click", editInput);
-            movieData += '<li><a id="deleteLink" href="#addItem" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
-
+            movieData += '<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
+            //$(".editLink").on("click", editInput);
+            movieData += '<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
+           
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
@@ -190,6 +190,18 @@ $('#addItem').on('pageinit', function(){
         }
 
         $("#movieDisplay ul").append(movieData);
+        $(".editLink").on("click", editInput);
+        $(".deleteLink").on("click", function() {
+        var ask = confirm("Are you sure you want to delete this movie?");
+        if (ask) {
+            console.log("deleting");    
+            localStorage.removeItem($(".deleteLink").data("key"));
+            window.location.reload();
+            alert("Movie deleted");
+        }else{
+            alert("This movie has not been deleted");
+        }
+    });
     }
     //call pulldata function when display data link is clicked
     $("#displayData").on("click", function(){
@@ -282,26 +294,26 @@ $('#addItem').on('pageinit', function(){
         //obj.rating[1] = $("#rating").val();
         $("#review").val(obj.review[1]);
         
-        //saveMovie.removeEventListener("click", storeData);
+        saveMovie.off("click", storeData);
         $("#savemovie")
             .val("Edit Movie")
             .data(this.key);
-        //var editSave = $("#savemovie");
-        //editSave.addEventListener("click", confirmData);
-        //editSave.key = this.key;
+        var editSave = $("#savemovie");
+        //editSave.on("click", confirmData);
+        editSave.key = this.key;
     }
     
-    function deleteInput() {
+    $(".deleteLink").on("click", function() {
         var ask = confirm("Are you sure you want to delete this movie?");
         if (ask) {
             console.log("deleting");    
-            localStorage.removeItem($("#deleteLink").data("key"));
+            localStorage.removeItem($(".deleteLink").data("key"));
             window.location.reload();
             alert("Movie deleted");
         }else{
             alert("This movie has not been deleted");
         }
-    }
+    });
     
     
     
@@ -318,5 +330,6 @@ $('#addItem').on('pageinit', function(){
     
     //global variables
     var movieData;
+    var saveMovie = $("#savemovie");
 });
 	
