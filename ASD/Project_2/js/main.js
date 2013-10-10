@@ -153,7 +153,7 @@ $('#addItem').on('pageinit', function(){
                 if (object[p][0] === "Star Rating:" ) continue;
                 movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
             }
-            $("#movieDisplay ul").append(movieData);
+            console.log(movieData);
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
@@ -194,6 +194,7 @@ $('#addItem').on('pageinit', function(){
             .after("<br>")
             .data("key", key);   
         }
+        $("#movieDisplay ul").append(movieData);
     }
     //call pulldata function when display data link is clicked
     $("#displayData").on("click", function(){
