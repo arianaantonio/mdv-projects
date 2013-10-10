@@ -5,33 +5,42 @@ ASD 1310
 */
 $('#search').on('pageinit', function(){
     var text = $("#searchInput").val();
+    console.log(text);
     function searchApp(){
-       if (text != "") {
-            $("#searchForm").append("div")
-            $("searchForm div").attr("id", "values");
-            $("searchForm div").append("ul");
+        
+       if (text !== " ") {
+            //console.log("yo");
+            $("<div></div>")
+                .insertAfter("#searchForm")
+                //.attr("id", "values")
+                .append("<ol></ol>");
+            $("div ul").attr("id", "searchUl");    
             for (var i=0, j=localStorage.length; i<j; i++) {
-                $("#searchForm div ul").append("li");
+                //console.log("working");
+                $("div ol").append("<li></li>");
                 //var linksList = document.createElement("li");
                 var key = localStorage.key(i);
                 var keyValue = localStorage.getItem(key);
                 var obj = JSON.parse(keyValue);
-                $("#searchForm div ul li").append("ul");
+                
+                $("div ol li").append("<ul></ul>");
                 for (l in obj) {
-                    if (text === obj[l][1]) {
+                        console.log(text);
+                    if (text == obj[l][1]) {
+                        console.log(text);
                         for(k in obj){
-                            $("#searchForm div ul li ul").append("li");
-                            $("#searchForm div ul li ul li").attr("class", "newLiStyle");
-                            $("#searchForm div ul li ul li").text("obj[k][0] + ' ' + obj[k][1]");
+                            $("div ol li ul").append("<li></li>");
+                            $("div ol li ul li").attr("class", "newLiStyle");
+                            $("div ol li ul li").text("obj[k][0] + ' ' + obj[k][1]");
                             //newList.appendChild(linksList);
-                            //console.log(obj[k][0] + ": "+ obj[k][1]);
+                            console.log(obj[k][0] + ": "+ obj[k][1]);
                         }
                     }
                 }
             } 
         }
     }
-    $('#searchBtn').click(function(){
+    $('#searchBtn').on("click", function(){
         searchApp();
     });
 });
@@ -133,20 +142,18 @@ $('#addItem').on('pageinit', function(){
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
             var object = JSON.parse(keyValue);
-            $("<ul></ul>")
+            var i = object.length;
+            /*$("<ul></ul>")
                 .attr("data-role", key)
-                .appendTo("#values")
-                .wrap("<div></div>");
-            //$("#values div")
-                //.append("<ul></<ul>")    
-            //var counter=0;
-            for (var p in object) {
+                .appendTo("#movieDisplay")
+                //.wrap("<div></div>");*/
+                
+            movieData += "<li>" + object[i]  + "</li>";
+            /*for (var p in object) {
                 if (object[p][0] === "Star Rating:" ) continue;
-                $("<li></li>")
-                    .html(object[p][0] + " " + object[p][1])
-                    .appendTo("#values div ul");    
-                //counter++;
-                }
+                movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
+            }*/
+            $("#movieDisplay ul").append(movieData);
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
@@ -172,7 +179,7 @@ $('#addItem').on('pageinit', function(){
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }
+            }    
         $("<a></a>").appendTo("#values div ul")
             .text("Edit Movie")
             .attr("href", "#addItem")
@@ -189,8 +196,11 @@ $('#addItem').on('pageinit', function(){
         }
     }
     //call pulldata function when display data link is clicked
-    $("#displayData").on("click", pullData);  
-    
+    $("#displayData").on("click", function(){
+        $("#movieDisplay ul").html(" ");
+        movieData = " ";
+        pullData(); 
+    }); 
     //clear local data					
     var clearLocal = function(){
         if (localStorage.length === 0) {
@@ -232,6 +242,7 @@ $('#addItem').on('pageinit', function(){
             }
         }
         if (obj.favorite[1] == "Yes") {
+            //$('#favorite').prop('checked', true);    
             $("#favorite").attr("checked", "checked")
         }
         if (obj.starrating[1] === "onestar") {
@@ -308,5 +319,8 @@ $('#addItem').on('pageinit', function(){
 			storeData(this.key);
 		}
     });
+    
+    //global variables
+    var movieData;
 });
 	
