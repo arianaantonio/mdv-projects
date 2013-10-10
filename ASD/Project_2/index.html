@@ -25,7 +25,7 @@ ASD 1310
 			<section data-role="page" id="home" data-theme="c">
 				<header data-role="header">
 				    <h1>Home</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">		
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">		
 				</header>
 				<div data-role="content">
 				    <div>
@@ -52,7 +52,7 @@ ASD 1310
 				<header data-role="header" data-add-back-btn="true">
 				    <a addBackBtn="true" data-rel="back">Back</a>
 				    <h1>About</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">
 				</header>
 				<nav data-role="content">
 				    <ul data-role="listview" data-inset="true"  data-theme="d">
@@ -74,11 +74,11 @@ ASD 1310
 				<header data-role="header" data-add-back-btn="true">
 				    <a addBackBtn="true" data-rel="back">Back</a>
 				    <h1>Author Info</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">
 				</header>
 				<section data-role="content">
 				    <img src="images/robot.jpg">
-				    <p>My Hollywood app created by Ariana Antonio for Full Sail University in the B.S. Mobile Development program. For comments or suggestions email faeryqueen21@fullsail.edu.</a></p>
+				    <p>My Hollywood app created by Ariana Antonio for Full Sail University in the B.S. Mobile Development program. For comments or suggestions email faeryqueen21@fullsail.edu.</p>
 				</section>
 				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
 				    <div data-role="navbar" data-iconpos="left">
@@ -87,13 +87,14 @@ ASD 1310
 						    <li><a data-icon="star" href="#addItem">Add Movie</a></li>
 						    <li><a data-icon="info" href="#about">About</a></li>
 						</ul>
+					</div>	
 				</footer>    
 	        </section>
 			<section data-role="page" id="credits" data-theme="c" data-add-back-btn="true">
 				<header data-role="header">
 				    <a addBackBtn="true" data-rel="back">Back</a>
 				    <h1>Credits</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">
 				</header>
 				<section data-role="content">
 				    <ul>
@@ -116,14 +117,14 @@ ASD 1310
 				<header data-role="header">
 				    <a addBackBtn="true" data-rel="back">Back</a>
 				    <h1>Search</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">
 				</header>
 				<section data-role="content">
 				    <form action="#" method="post" id="searchForm">
 						<fieldset>
 						    <div id="fieldset">
 								<ul class="ulstyle">
-								    <li><label for="search"></label><input id="searchInput" type="search" value="" placeholder="Search Movies" /></li>
+								    <li><label for="searchInput"></label><input id="searchInput" type="search" value="" placeholder="Search Movies" /></li>
 								</ul>
 						    </div>
 						    <input type="button" value="Search" id="searchBtn" />
@@ -144,7 +145,7 @@ ASD 1310
 				<header data-role="header">
 				    <a addBackBtn="true" data-rel="back">Back</a>
 				    <h1>Browse Movies</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">
 				</header>
 				<section data-role="content">
 				</section>
@@ -162,7 +163,7 @@ ASD 1310
 				<header data-role="header">
 				    <a addBackBtn="true" data-rel="back">Back</a>
 				    <h1>Add Movie</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">
 				</header>
 				<section data-role="content">
 				    <form action="" method="post" id="addItemForm">
@@ -246,10 +247,14 @@ ASD 1310
 				<header data-role="header">
 				    <a addBackBtn="true" data-rel="back">Back</a>
 				    <h1>Saved Movies</h1>
-				    <img src="images/logo2_03.gif" id="headerImg" class="ui-btn-right">
+				    <img src="images/logo2_03.gif" class="headerImg" class="ui-btn-right">
 				</header>
 				<section data-role="content" id="values">
-					
+					<div id="movieDisplay">
+						<ul>
+						
+						</ul>	
+					</div>	
 				</section>
 				<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
 				    <div data-role="navbar" data-iconpos="left">
