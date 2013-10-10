@@ -179,22 +179,17 @@ $('#addItem').on('pageinit', function(){
             }
         $("<a></a>").appendTo("#values div ul")
             .text("Edit Movie")
-            .attr("href", "#")
+            .attr("href", "#addItem")
             .css("display", "block")
-        /*var timestamp = +new Date();
-        var deleteMovie = '<a href="#" class="delete" data-key="' + timestamp + '">Delete</a>';
-        $(".delete").on("click", function(){
-            localStorage.removeItem(key);        
-        })
-        $("#values div ul").append(deleteMovie);*/
+            .data("key", key)
+            .on("click", editInput);    
         $("<a></a>").appendTo("#values div ul")
             .text("Delete Movie")
             .attr("href", "#")
             .on("click", deleteInput)
             .attr("id", "deleteLink")
             .after("<br>")
-            .data("key", key);
-        //key = $("#deleteLink").data("key");   
+            .data("key", key);   
         }
     }
     //call pulldata function when display data link is clicked
@@ -220,27 +215,45 @@ $('#addItem').on('pageinit', function(){
             .attr("class", "star");
     };
     
-    //creating edit and delete links
-    /*function createLinks(key, linksList) {
-    var editLink = document.createElement("a");
-    editLink.href = "#";
-    editLink.key = key;
-    var changeText = "Edit Movie";
-    editLink.addEventListener("click", editInput);
-    editLink.innerHTML = changeText;
-    linksList.appendChild(editLink);
+    //creating edit and delete functions
+    function editInput() {
+        var key = $(this).data("key");
+        var grabValue = localStorage.getItem(key);
+        var obj = JSON.parse(grabValue);
+        $("#movietitle").val(obj.title[1]);
+        $("#dateseen").val(obj.date[1]);
+        $("#genre").val(obj.genre[1]);
+        var whereSeen = document.forms["addItemForm"].where;
+        for (var i =0; i<whereSeen.length; i++) {
+            if ($("whereSeen[i]").val("Movie Theater") && obj.movietheater[1] == "Movie Theater") {
+                $("whereSeen[i]").attr("checked", "checked");
+            } else if (whereSeen[i].value == "At Home" && obj.movietheater[1] == "At Home") {
+                whereSeen[i].setAttribute("checked", "checked");
+            } else if (whereSeen[i].value == "Other" && obj.movietheater[1] == "Other") {
+                whereSeen[i].setAttribute("checked", "checked");
+            }
+        }
+        if (obj.favorite[1] == "Yes") {
+            //console.log(obj.favorite[1]);
+            $("#favorite").prop(":checked", true);
+            $("input[type=checkbox]").prop(":checked", true);
+            $("input[type=checkbox]").attr(":checked");
+            $("#favorite").attr('checked', true)
+            $("input[type=checkbox]").is(":checked");
+            //console.log($("input[type=checkbox]").val());
+        }
+        $("#seenwith").val(obj.friends[1]);
+        //obj.rating[1] = $("#rating").val();
+        $("#review").val(obj.review[1]);
         
-    var lineBreak = document.createElement("br");
-    linksList.appendChild(lineBreak);
-        
-    var deleteLink = document.createElement("a");
-    deleteLink.href = "#";
-    deleteLink.key = key;
-    var deleteText = "Delete Movie";
-    deleteLink.addEventListener("click", deleteInput);
-        deleteLink.innerHTML = deleteText;
-        linksList.appendChild(deleteLink);
-    }*/
+        //saveMovie.removeEventListener("click", storeData);
+        $("#savemovie")
+            .val("Edit Movie")
+            .data(this.key);
+        //var editSave = $("#savemovie");
+        //editSave.addEventListener("click", confirmData);
+        //editSave.key = this.key;
+    }
     
     function deleteInput() {
         var ask = confirm("Are you sure you want to delete this movie?");
