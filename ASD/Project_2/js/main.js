@@ -150,26 +150,22 @@ $('#addItem').on('pageinit', function(){
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
-            }
-            if (object.starrating[1] === "twostars") {
+            }else if (object.starrating[1] === "twostars") {
                 //console.log("two stars");    
                 numOfStars();
                 numOfStars();
-            }
-            if (object.starrating[1] === "threestars") {
+            }else if (object.starrating[1] === "threestars") {
                 //console.log("three stars");
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }
-            if (object.starrating[1] === "fourstars") {
+            }else if (object.starrating[1] === "fourstars") {
                 //console.log("four stars");
                 numOfStars();
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }
-            if (object.starrating[1] === "fivestars") {
+            }else if (object.starrating[1] === "fivestars") {
                 //console.log("five stars")
                 numOfStars();
                 numOfStars();
@@ -225,23 +221,56 @@ $('#addItem').on('pageinit', function(){
         $("#genre").val(obj.genre[1]);
         var whereSeen = document.forms["addItemForm"].where;
         for (var i =0; i<whereSeen.length; i++) {
-            if ($("whereSeen[i]").val("Movie Theater") && obj.movietheater[1] == "Movie Theater") {
-                $("whereSeen[i]").attr("checked", "checked");
-            } else if (whereSeen[i].value == "At Home" && obj.movietheater[1] == "At Home") {
-                whereSeen[i].setAttribute("checked", "checked");
-            } else if (whereSeen[i].value == "Other" && obj.movietheater[1] == "Other") {
-                whereSeen[i].setAttribute("checked", "checked");
+            if ($(whereSeen[i]).val("Movie Theater") && obj.movietheater[1] == "Movie Theater") {
+                $("#movietheater").attr("checked", "checked");
+                //console.log($("#movietheater").attr());
+                console.log($("#movietheater").val());
+            } else if ($(whereSeen[i]).val("At Home") && obj.movietheater[1] == "At Home") {
+                $("#athome").attr("checked", "checked");
+            } else if ($(whereSeen[i]).val("Other") && obj.movietheater[1] == "Other") {
+                $("#other").attr("checked", "checked");
             }
         }
         if (obj.favorite[1] == "Yes") {
-            //console.log(obj.favorite[1]);
-            $("#favorite").prop(":checked", true);
-            $("input[type=checkbox]").prop(":checked", true);
-            $("input[type=checkbox]").attr(":checked");
-            $("#favorite").attr('checked', true)
-            $("input[type=checkbox]").is(":checked");
-            //console.log($("input[type=checkbox]").val());
+            $("#favorite").attr("checked", "checked")
         }
+        if (obj.starrating[1] === "onestar") {
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/emptystar_03.gif");
+            threestar.attr("src", "images/emptystar_03.gif");
+            fourstar.attr("src", "images/emptystar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "onestars");
+        }
+        if (obj.starrating[1] === "twostars") {
+            twostar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            threestar.attr("src", "images/emptystar_03.gif");
+            fourstar.attr("src", "images/emptystar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "twostars");
+        }else if (obj.starrating[1] === "threestars") {
+            threestar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/filledStar_03.gif");
+            fourstar.attr("src", "images/emptystar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "threestars");
+        }else if (obj.starrating[1] === "fourstars") {
+            fourstar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/filledStar_03.gif");
+            threestar.attr("src", "images/filledStar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "fourstars");
+        }else if (obj.starrating[1] === "fivestars") {
+            fivestar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/filledStar_03.gif");
+            threestar.attr("src", "images/filledStar_03.gif");
+            fourstar.attr("src", "images/filledStar_03.gif");
+            ratingDiv.attr("value", "fivestars");
+        }            
         $("#seenwith").val(obj.friends[1]);
         //obj.rating[1] = $("#rating").val();
         $("#review").val(obj.review[1]);
