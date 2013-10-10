@@ -5,33 +5,42 @@ ASD 1310
 */
 $('#search').on('pageinit', function(){
     var text = $("#searchInput").val();
+    console.log(text);
     function searchApp(){
-       if (text != "") {
-            $("#searchForm").append("div")
-            $("searchForm div").attr("id", "values");
-            $("searchForm div").append("ul");
+        
+       if (text !== " ") {
+            //console.log("yo");
+            $("<div></div>")
+                .insertAfter("#searchForm")
+                //.attr("id", "values")
+                .append("<ol></ol>");
+            $("div ul").attr("id", "searchUl");    
             for (var i=0, j=localStorage.length; i<j; i++) {
-                $("#searchForm div ul").append("li");
+                //console.log("working");
+                $("div ol").append("<li></li>");
                 //var linksList = document.createElement("li");
                 var key = localStorage.key(i);
                 var keyValue = localStorage.getItem(key);
                 var obj = JSON.parse(keyValue);
-                $("#searchForm div ul li").append("ul");
+                
+                $("div ol li").append("<ul></ul>");
                 for (l in obj) {
-                    if (text === obj[l][1]) {
+                        console.log(text);
+                    if (text == obj[l][1]) {
+                        console.log(text);
                         for(k in obj){
-                            $("#searchForm div ul li ul").append("li");
-                            $("#searchForm div ul li ul li").attr("class", "newLiStyle");
-                            $("#searchForm div ul li ul li").text("obj[k][0] + ' ' + obj[k][1]");
+                            $("div ol li ul").append("<li></li>");
+                            $("div ol li ul li").attr("class", "newLiStyle");
+                            $("div ol li ul li").text("obj[k][0] + ' ' + obj[k][1]");
                             //newList.appendChild(linksList);
-                            //console.log(obj[k][0] + ": "+ obj[k][1]);
+                            console.log(obj[k][0] + ": "+ obj[k][1]);
                         }
                     }
                 }
             } 
         }
     }
-    $('#searchBtn').click(function(){
+    $('#searchBtn').on("click", function(){
         searchApp();
     });
 });
@@ -133,66 +142,65 @@ $('#addItem').on('pageinit', function(){
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
             var object = JSON.parse(keyValue);
-            $("<ul></ul>")
+            var i = object.length;
+            /*$("<ul></ul>")
                 .attr("data-role", key)
-                .appendTo("#values")
-                .wrap("<div></div>");
-            //$("#values div")
-                //.append("<ul></<ul>")    
-            //var counter=0;
-            for (var p in object) {
+                .appendTo("#movieDisplay")
+                //.wrap("<div></div>");*/
+                
+            movieData += "<li>" + object[i]  + "</li>";
+            /*for (var p in object) {
                 if (object[p][0] === "Star Rating:" ) continue;
-                $('<li></li>')
-                    .html(object[p][0] + " " + object[p][1])
-                    .appendTo("#values div ul");    
-                //counter++;
-                }
+                movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
+            }*/
+            $("#movieDisplay ul").append(movieData);
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
-            }
-            if (object.starrating[1] === "twostars") {
+            }else if (object.starrating[1] === "twostars") {
                 //console.log("two stars");    
                 numOfStars();
                 numOfStars();
-            }
-            if (object.starrating[1] === "threestars") {
+            }else if (object.starrating[1] === "threestars") {
                 //console.log("three stars");
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }
-            if (object.starrating[1] === "fourstars") {
+            }else if (object.starrating[1] === "fourstars") {
                 //console.log("four stars");
                 numOfStars();
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }
-            if (object.starrating[1] === "fivestars") {
+            }else if (object.starrating[1] === "fivestars") {
                 //console.log("five stars")
                 numOfStars();
                 numOfStars();
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }
+            }    
         $("<a></a>").appendTo("#values div ul")
             .text("Edit Movie")
-            .attr("href", "#")
+            .attr("href", "#addItem")
             .css("display", "block")
+            .data("key", key)
+            .on("click", editInput);    
         $("<a></a>").appendTo("#values div ul")
             .text("Delete Movie")
             .attr("href", "#")
             .on("click", deleteInput)
             .attr("id", "deleteLink")
-            .after("<br>");
-        $("#deleteLink").key = key;    
+            .after("<br>")
+            .data("key", key);   
         }
     }
     //call pulldata function when display data link is clicked
-    $("#displayData").on("click", pullData);  
-    
+    $("#displayData").on("click", function(){
+        $("#movieDisplay ul").html(" ");
+        movieData = " ";
+        pullData(); 
+    }); 
     //clear local data					
     var clearLocal = function(){
         if (localStorage.length === 0) {
@@ -213,33 +221,85 @@ $('#addItem').on('pageinit', function(){
             .attr("class", "star");
     };
     
-    //creating edit and delete links
-    /*function createLinks(key, linksList) {
-    var editLink = document.createElement("a");
-    editLink.href = "#";
-    editLink.key = key;
-    var changeText = "Edit Movie";
-    editLink.addEventListener("click", editInput);
-    editLink.innerHTML = changeText;
-    linksList.appendChild(editLink);
+    //creating edit and delete functions
+    function editInput() {
+        var key = $(this).data("key");
+        var grabValue = localStorage.getItem(key);
+        var obj = JSON.parse(grabValue);
+        $("#movietitle").val(obj.title[1]);
+        $("#dateseen").val(obj.date[1]);
+        $("#genre").val(obj.genre[1]);
+        var whereSeen = document.forms["addItemForm"].where;
+        for (var i =0; i<whereSeen.length; i++) {
+            if ($(whereSeen[i]).val("Movie Theater") && obj.movietheater[1] == "Movie Theater") {
+                $("#movietheater").attr("checked", "checked");
+                //console.log($("#movietheater").attr());
+                console.log($("#movietheater").val());
+            } else if ($(whereSeen[i]).val("At Home") && obj.movietheater[1] == "At Home") {
+                $("#athome").attr("checked", "checked");
+            } else if ($(whereSeen[i]).val("Other") && obj.movietheater[1] == "Other") {
+                $("#other").attr("checked", "checked");
+            }
+        }
+        if (obj.favorite[1] == "Yes") {
+            //$('#favorite').prop('checked', true);    
+            $("#favorite").attr("checked", "checked")
+        }
+        if (obj.starrating[1] === "onestar") {
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/emptystar_03.gif");
+            threestar.attr("src", "images/emptystar_03.gif");
+            fourstar.attr("src", "images/emptystar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "onestars");
+        }
+        if (obj.starrating[1] === "twostars") {
+            twostar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            threestar.attr("src", "images/emptystar_03.gif");
+            fourstar.attr("src", "images/emptystar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "twostars");
+        }else if (obj.starrating[1] === "threestars") {
+            threestar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/filledStar_03.gif");
+            fourstar.attr("src", "images/emptystar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "threestars");
+        }else if (obj.starrating[1] === "fourstars") {
+            fourstar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/filledStar_03.gif");
+            threestar.attr("src", "images/filledStar_03.gif");
+            fivestar.attr("src", "images/emptystar_03.gif");
+            ratingDiv.attr("value", "fourstars");
+        }else if (obj.starrating[1] === "fivestars") {
+            fivestar.attr("src", "images/filledStar_03.gif");
+            onestar.attr("src", "images/filledStar_03.gif");
+            twostar.attr("src", "images/filledStar_03.gif");
+            threestar.attr("src", "images/filledStar_03.gif");
+            fourstar.attr("src", "images/filledStar_03.gif");
+            ratingDiv.attr("value", "fivestars");
+        }            
+        $("#seenwith").val(obj.friends[1]);
+        //obj.rating[1] = $("#rating").val();
+        $("#review").val(obj.review[1]);
         
-    var lineBreak = document.createElement("br");
-    linksList.appendChild(lineBreak);
-        
-    var deleteLink = document.createElement("a");
-    deleteLink.href = "#";
-    deleteLink.key = key;
-    var deleteText = "Delete Movie";
-    deleteLink.addEventListener("click", deleteInput);
-        deleteLink.innerHTML = deleteText;
-        linksList.appendChild(deleteLink);
-    }*/
+        //saveMovie.removeEventListener("click", storeData);
+        $("#savemovie")
+            .val("Edit Movie")
+            .data(this.key);
+        //var editSave = $("#savemovie");
+        //editSave.addEventListener("click", confirmData);
+        //editSave.key = this.key;
+    }
     
     function deleteInput() {
         var ask = confirm("Are you sure you want to delete this movie?");
         if (ask) {
             console.log("deleting");    
-            localStorage.removeItem(this.key);
+            localStorage.removeItem($("#deleteLink").data("key"));
             window.location.reload();
             alert("Movie deleted");
         }else{
@@ -259,5 +319,8 @@ $('#addItem').on('pageinit', function(){
 			storeData(this.key);
 		}
     });
+    
+    //global variables
+    var movieData;
 });
 	
