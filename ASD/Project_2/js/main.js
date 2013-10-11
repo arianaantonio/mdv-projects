@@ -3,7 +3,7 @@ Author: Ariana Antonio
 Project 2
 ASD 1310
 */
-$('#search').on('pageinit', function(){
+/*$('#search').on('pageinit', function(){
     var text = $("#searchInput").val();
     console.log(text);
     function searchApp(){
@@ -43,7 +43,7 @@ $('#search').on('pageinit', function(){
     $('#searchBtn').on("click", function(){
         searchApp();
     });
-});
+});*/
 
 $('#addItem').on('pageinit', function(){
     //pull favorite? value    
@@ -142,23 +142,14 @@ $('#addItem').on('pageinit', function(){
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
             var object = JSON.parse(keyValue);
-            
-            /*$("<ul></ul>")
-                .attr("data-role", key)
-                .appendTo("#movieDisplay")
-                //.wrap("<div></div>");*/
-                
-            
             for (var p in object) {
                 if (object[p][0] === "Star Rating:" ) continue;
                 movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
             }
-<<<<<<< HEAD
-            console.log(movieData);
-=======
-            movieData += '<li><a href="#addItem" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
-            movieData += '<li><a id="deleteLink" href="#addItem" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
->>>>>>> gh-pages
+            movieData += '<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
+            //$(".editLink").on("click", editInput);
+            movieData += '<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
+           /*
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
@@ -184,26 +175,25 @@ $('#addItem').on('pageinit', function(){
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }    
-<<<<<<< HEAD
-        $("<a></a>").appendTo("#values div ul")
-            .text("Edit Movie")
-            .attr("href", "#addItem")
-            .css("display", "block")
-            .data("key", key)
-            .on("click", editInput);    
-        $("<a></a>").appendTo("#values div ul")
-            .text("Delete Movie")
-            .attr("href", "#")
-            .on("click", deleteInput)
-            .attr("id", "deleteLink")
-            .after("<br>")
-            .data("key", key);   
+            }  */  
+   
         }
-=======
-        
->>>>>>> gh-pages
+
         $("#movieDisplay ul").append(movieData);
+        $(".editLink").on("click", editInput);
+        $(".deleteLink")
+        .after("<br>")
+        .on("click", function() {
+        var ask = confirm("Are you sure you want to delete this movie?");
+        if (ask) {
+            console.log("deleting");    
+            localStorage.removeItem($(".deleteLink").data("key"));
+            window.location.reload();
+            alert("Movie deleted");
+        }else{
+            alert("This movie has not been deleted");
+        }
+    });
     }
     //call pulldata function when display data link is clicked
     $("#displayData").on("click", function(){
@@ -296,26 +286,26 @@ $('#addItem').on('pageinit', function(){
         //obj.rating[1] = $("#rating").val();
         $("#review").val(obj.review[1]);
         
-        //saveMovie.removeEventListener("click", storeData);
+        saveMovie.off("click", storeData);
         $("#savemovie")
             .val("Edit Movie")
             .data(this.key);
-        //var editSave = $("#savemovie");
-        //editSave.addEventListener("click", confirmData);
-        //editSave.key = this.key;
+        var editSave = $("#savemovie");
+        //editSave.on("click", confirmData);
+        editSave.key = this.key;
     }
     
-    function deleteInput() {
+    $(".deleteLink").on("click", function() {
         var ask = confirm("Are you sure you want to delete this movie?");
         if (ask) {
             console.log("deleting");    
-            localStorage.removeItem($("#deleteLink").data("key"));
+            localStorage.removeItem($(".deleteLink").data("key"));
             window.location.reload();
             alert("Movie deleted");
         }else{
             alert("This movie has not been deleted");
         }
-    }
+    });
     
     
     
@@ -332,5 +322,59 @@ $('#addItem').on('pageinit', function(){
     
     //global variables
     var movieData;
+    var saveMovie = $("#savemovie");
+});
+
+$('#browse').on('pageinit', function(){
+   
+        $("#jsonData").on("click", function(){
+                
+            $.ajax({
+                url: "xhr/data.json",
+                type: "GET",
+                dataType: "json",
+                success: function(data){
+                    for(var i=0, j=data.movies.length; i<j; i++){
+                        var jsonDisplay = data.movies[i];
+                        $(''+
+                            '<div>' +
+                                '<ul>' +
+                                  '<li>' + jsonDisplay.title + '</li>' +
+                                  '<li>' + jsonDisplay.date + '</li>' +
+                                  '<li>' + jsonDisplay.genre + '</li>' +
+                                  '<li>' + jsonDisplay.movietheater + '</li>' +
+                                  '<li>' + jsonDisplay.friends + '</li>' +
+                                  '<li>' + jsonDisplay.starrating + '</li>' +
+                                  '<li>' + jsonDisplay.favorite + '</li>' +
+                                  '<li>' + jsonDisplay.review + '</li>' +
+                                '</ul>' +
+                            '</div>'
+                        ).appendTo("#dataContent");
+                    };    
+                }
+            });
+        });
+        
+    $("#xmlData").on("click", function(){
+        $.ajax({
+            url: "xhr/data.xml",
+            type: "GET",
+            dataType: "xml",
+            success: function(xml){
+                data = $.parseXML(xml);
+                //var movies = $(data);
+                console.log($(data).find("title").text());
+                $(data).find("movie").each(function(){
+                        console.log("working");
+                 var movie = $(this);
+                 console.log("Title: ", movie.find("title"));
+                });
+            }    
+        });
+    });
+
+
+
+
 });
 	
