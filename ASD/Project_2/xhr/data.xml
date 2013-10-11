@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<movies>
+	<movie>
+		<title>Monster's Inc</title>
+		<date>Jan 1, 2012</date>
+		<genre>Comedy</genre>
+		<rating>5 Stars</rating>
+		<review>Love this movie! So funny and sweet.</review>
+	</movie>
+	<movie>
+		<title>King Of Corn</title>
+		<date>Feb 2, 2013</date>
+		<genre>Other</genre>
+		<rating>3 Stars</rating>
+		<review>Interesting stuff but boring movie.</review>
+	</movie>
+	<movie>
+		<title>Gladiator</title>
+		<date>July 4, 2006</date>
+		<genre>Action</genre>
+		<rating>5 Stars</rating>
+		<review>A fun and epic movie with great music. Always a good watch</review>
+	</movie>
+	<movie>
+		<title>Once</title>
+		<date>May 12, 2010</date>
+		<genre>Other</genre>
+		<rating>4 Stars</rating>
+		<review>Such a cute and sweet musical.</review>
+	</movie>
+	<movie>
+		<title>Back To The Future</title>
+		<date>June 6, 1985</date>
+		<genre>Action</genre>
+		<rating>5 Stars</rating>
+		<review>One of the best movies ever!</review>
+	</movie>
+</movies>

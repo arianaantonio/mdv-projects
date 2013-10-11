@@ -360,17 +360,17 @@ $('#browse').on('pageinit', function(){
             url: "xhr/data.xml",
             type: "GET",
             dataType: "xml",
-            success: function(xml){
-                data = $.parseXML(xml);
+            success: function(data){
+                //var data = $.parseXML(xml);
                 //var movies = $(data);
-                console.log($(data).find("title").text());
+                console.log($(data).find("movie").text());
                 $(data).find("movie").each(function(){
-                        console.log("working");
-                 var movie = $(this);
-                 console.log("Title: ", movie.find("title"));
+                    console.log("working");
+                    var movie = $(this);
+                    console.log("Title: ", movie.find("title"));
                 });
             }    
-        });
+        });	
     });
 
 
