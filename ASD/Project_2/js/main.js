@@ -146,40 +146,48 @@ $('#addItem').on('pageinit', function(){
                 if (object[p][0] === "Star Rating:" ) continue;
                 movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
             }
+            if (object.starrating[1] === "onestar") {
+              movieData += '<li><img src="images/filledstar_03.gif" class="star" /></li>';
+            }else if (object.starrating[1] === "twostars") {
+                movieData += '<li><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /></li>';
+            }else if (object.starrating[1] === "threestars") {
+                movieData += '<li><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /></li>';
+            }else if (object.starrating[1] === "fourstars") {
+                movieData += '<li><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /></li>';
+            }else if (object.starrating[1] === "fivestars") {
+                movieData += '<li><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /></li>';
+            }
             movieData += '<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
             //$(".editLink").on("click", editInput);
             movieData += '<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
-           /*
-            if (object.starrating[1] === "onestar") {
+        }
+        $("#movieDisplay ul").append(movieData);
+        /*if (getRating === "onestar") {
                 //console.log("one star");
                 numOfStars();
-            }else if (object.starrating[1] === "twostars") {
-                //console.log("two stars");    
+            }else if (getRating === "twostars") {
+                console.log("two stars");
                 numOfStars();
                 numOfStars();
-            }else if (object.starrating[1] === "threestars") {
+            }else if (getRating === "threestars") {
                 //console.log("three stars");
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }else if (object.starrating[1] === "fourstars") {
+            }else if (getRating === "fourstars") {
                 //console.log("four stars");
                 numOfStars();
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }else if (object.starrating[1] === "fivestars") {
+            }else if (getRating === "fivestars") {
                 //console.log("five stars")
                 numOfStars();
                 numOfStars();
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }  */  
-   
-        }
-
-        $("#movieDisplay ul").append(movieData);
+            }*/  
         $(".editLink").on("click", editInput);
         $(".deleteLink")
         .after("<br>")
@@ -215,7 +223,7 @@ $('#addItem').on('pageinit', function(){
     $("#clearData").on("click", clearLocal);
     
     //creating star rating values for display page
-    function numOfStars(){ $("#values div ul").append("<img />");
+    function numOfStars(){ $("#movieDisplay ul").append("<img />");
         $("#values div ul img")
             .attr("src", "images/filledstar_03.gif")
             .attr("class", "star");
@@ -339,14 +347,14 @@ $('#browse').on('pageinit', function(){
                         $(''+
                             '<div>' +
                                 '<ul>' +
-                                  '<li>' + jsonDisplay.title + '</li>' +
-                                  '<li>' + jsonDisplay.date + '</li>' +
-                                  '<li>' + jsonDisplay.genre + '</li>' +
-                                  '<li>' + jsonDisplay.movietheater + '</li>' +
-                                  '<li>' + jsonDisplay.friends + '</li>' +
-                                  '<li>' + jsonDisplay.starrating + '</li>' +
-                                  '<li>' + jsonDisplay.favorite + '</li>' +
-                                  '<li>' + jsonDisplay.review + '</li>' +
+                                  '<li>' + "Title: " + jsonDisplay.title + '</li>' +
+                                  '<li>' + "Date: " + jsonDisplay.date + '</li>' +
+                                  '<li>' + "Genre: " + jsonDisplay.genre + '</li>' +
+                                  '<li>' + "Where Seen: " + jsonDisplay.movietheater + '</li>' +
+                                  '<li>' + "Seen With: " + jsonDisplay.friends + '</li>' +
+                                  '<li>' + "Rating: " + jsonDisplay.starrating + '</li>' +
+                                  '<li>' + "Favorite?: " + jsonDisplay.favorite + '</li>' +
+                                  '<li>' + "Review: " + jsonDisplay.review + '</li>' +
                                 '</ul>' +
                             '</div>'
                         ).appendTo("#dataContent");
@@ -363,11 +371,19 @@ $('#browse').on('pageinit', function(){
             success: function(data){
                 //var data = $.parseXML(xml);
                 //var movies = $(data);
-                console.log($(data).find("movie").text());
                 $(data).find("movie").each(function(){
-                    console.log("working");
                     var movie = $(this);
-                    console.log("Title: ", movie.find("title"));
+                    $(''+
+                            '<div>' +
+                                '<ul>' +
+                                  '<li>' + "Title: " + movie.find("title").text() + '</li>' +
+                                  '<li>' + "Date: " + movie.find("date").text() + '</li>' +
+                                  '<li>' + "Genre: " + movie.find("genre").text() + '</li>' +
+                                  '<li>' + "Rating: " + movie.find("rating").text() + '</li>' +
+                                  '<li>' + "Review: " + movie.find("review").text() + '</li>' +
+                                '</ul>' +
+                            '</div>'
+                        ).appendTo("#dataContent");
                 });
             }    
         });	
