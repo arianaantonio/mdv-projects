@@ -158,36 +158,9 @@ $('#addItem').on('pageinit', function(){
                 movieData += '<li><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /><img src="images/filledstar_03.gif" class="star" /></li>';
             }
             movieData += '<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
-            //$(".editLink").on("click", editInput);
             movieData += '<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
         }
-        $("#movieDisplay ul").append(movieData);
-        /*if (getRating === "onestar") {
-                //console.log("one star");
-                numOfStars();
-            }else if (getRating === "twostars") {
-                console.log("two stars");
-                numOfStars();
-                numOfStars();
-            }else if (getRating === "threestars") {
-                //console.log("three stars");
-                numOfStars();
-                numOfStars();
-                numOfStars();
-            }else if (getRating === "fourstars") {
-                //console.log("four stars");
-                numOfStars();
-                numOfStars();
-                numOfStars();
-                numOfStars();
-            }else if (getRating === "fivestars") {
-                //console.log("five stars")
-                numOfStars();
-                numOfStars();
-                numOfStars();
-                numOfStars();
-                numOfStars();
-            }*/  
+        $("#movieDisplay ul").append(movieData);  
         $(".editLink").on("click", editInput);
         $(".deleteLink")
         .after("<br>")
@@ -221,13 +194,6 @@ $('#addItem').on('pageinit', function(){
     }
 };
     $("#clearData").on("click", clearLocal);
-    
-    //creating star rating values for display page
-    function numOfStars(){ $("#movieDisplay ul").append("<img />");
-        $("#values div ul img")
-            .attr("src", "images/filledstar_03.gif")
-            .attr("class", "star");
-    };
     
     //creating edit and delete functions
     function editInput() {
