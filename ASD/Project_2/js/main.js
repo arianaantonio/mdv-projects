@@ -3,7 +3,7 @@ Author: Ariana Antonio
 Project 2
 ASD 1310
 */
-$('#search').on('pageinit', function(){
+/*$('#search').on('pageinit', function(){
     var text = $("#searchInput").val();
     console.log(text);
     function searchApp(){
@@ -43,7 +43,7 @@ $('#search').on('pageinit', function(){
     $('#searchBtn').on("click", function(){
         searchApp();
     });
-});
+});*/
 
 $('#addItem').on('pageinit', function(){
     //pull favorite? value    
@@ -142,24 +142,14 @@ $('#addItem').on('pageinit', function(){
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
             var object = JSON.parse(keyValue);
-            
-            /*$("<ul></ul>")
-                .attr("data-role", key)
-                .appendTo("#movieDisplay")
-                //.wrap("<div></div>");*/
-                
-            
             for (var p in object) {
                 if (object[p][0] === "Star Rating:" ) continue;
                 movieData += "<li>" + object[p][0] + " " + object[p][1] + "</li>";  
             }
-
-            
-
             movieData += '<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
             //$(".editLink").on("click", editInput);
             movieData += '<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
-           
+           /*
             if (object.starrating[1] === "onestar") {
                 //console.log("one star");
                 numOfStars();
@@ -185,13 +175,15 @@ $('#addItem').on('pageinit', function(){
                 numOfStars();
                 numOfStars();
                 numOfStars();
-            }    
+            }  */  
    
         }
 
         $("#movieDisplay ul").append(movieData);
         $(".editLink").on("click", editInput);
-        $(".deleteLink").on("click", function() {
+        $(".deleteLink")
+        .after("<br>")
+        .on("click", function() {
         var ask = confirm("Are you sure you want to delete this movie?");
         if (ask) {
             console.log("deleting");    
@@ -365,12 +357,19 @@ $('#browse').on('pageinit', function(){
         
     $("#xmlData").on("click", function(){
         $.ajax({
-            url: "xhr/data.jxml",
+            url: "xhr/data.xml",
             type: "GET",
             dataType: "xml",
-            success: function(data){
-                        
-            }
+            success: function(xml){
+                data = $.parseXML(xml);
+                //var movies = $(data);
+                console.log($(data).find("title").text());
+                $(data).find("movie").each(function(){
+                        console.log("working");
+                 var movie = $(this);
+                 console.log("Title: ", movie.find("title"));
+                });
+            }    
         });
     });
 
