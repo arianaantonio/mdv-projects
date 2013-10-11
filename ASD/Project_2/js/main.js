@@ -336,17 +336,43 @@ $('#addItem').on('pageinit', function(){
 $('#browse').on('pageinit', function(){
    
         $("#jsonData").on("click", function(){
-                console.log("working");
+                
             $.ajax({
                 url: "xhr/data.json",
                 type: "GET",
                 dataType: "json",
-                success: function(response){
-                        console.log(response);        
+                success: function(data){
+                    for(var i=0, j=data.movies.length; i<j; i++){
+                        var jsonDisplay = data.movies[i];
+                        $(''+
+                            '<div>' +
+                                '<ul>' +
+                                  '<li>' + jsonDisplay.title + '</li>' +
+                                  '<li>' + jsonDisplay.date + '</li>' +
+                                  '<li>' + jsonDisplay.genre + '</li>' +
+                                  '<li>' + jsonDisplay.movietheater + '</li>' +
+                                  '<li>' + jsonDisplay.friends + '</li>' +
+                                  '<li>' + jsonDisplay.starrating + '</li>' +
+                                  '<li>' + jsonDisplay.favorite + '</li>' +
+                                  '<li>' + jsonDisplay.review + '</li>' +
+                                '</ul>' +
+                            '</div>'
+                        ).appendTo("#dataContent");
+                    };    
                 }
-                
             });
         });
+        
+    $("#xmlData").on("click", function(){
+        $.ajax({
+            url: "xhr/data.jxml",
+            type: "GET",
+            dataType: "xml",
+            success: function(data){
+                        
+            }
+        });
+    });
 
 
 
