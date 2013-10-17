@@ -57,11 +57,13 @@ $('#addItem').on('pageinit', function(){
     
     //storing data to local storage
     var storeData = function(key){
-        if (!key) {
+        if ($("#myKey").val() === "") {
             var randomId = Math.floor(Math.random()*1000001);
+            
         }else{
-            randomId = key;
+            randomId = $("#myKey").val();
         }
+        $("#myKey").val(randomId)
         getFavorite();
         var obj = {};
             obj.title = ["Movie Title:", $("#movietitle").val()];
@@ -73,6 +75,7 @@ $('#addItem').on('pageinit', function(){
             //obj.rating = ["Rating:", $("#rating").val()];
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", $("#review").val()];
+            obj.myKey = ["key:", $("#myKey").val()];
         localStorage.setItem(randomId, JSON.stringify(obj));
         alert("Movie Saved!");
         window.location.reload();
@@ -259,11 +262,12 @@ $('#addItem').on('pageinit', function(){
         $("#seenwith").val(obj.friends[1]);
         //obj.rating[1] = $("#rating").val();
         $("#review").val(obj.review[1]);
-        
-        saveMovie.on("click", function(){
+        $("#myKey").val(obj.myKey[1]);
+        //console.log($("#myKey").val());
+        /*saveMovie.on("click", function(){
                $(this).data("key");
                //saveMovie.key = this.key;
-        });
+        });*/
         
         //var editSave = $("#savemovie");
         //console.log(editSave.val() + editSave.data());
