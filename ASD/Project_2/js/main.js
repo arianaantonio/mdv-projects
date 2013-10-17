@@ -163,17 +163,17 @@ $('#addItem').on('pageinit', function(){
         $("#movieDisplay ul").append(movieData);  
         $(".editLink").on("click", editInput);
         $(".deleteLink")
-        .after("<br>")
-        .on("click", function() {
-        var ask = confirm("Are you sure you want to delete this movie?");
-        if (ask) {
-            console.log("deleting");    
-            localStorage.removeItem($(".deleteLink").data("key"));
-            window.location.reload();
-            alert("Movie deleted");
-        }else{
-            alert("This movie has not been deleted");
-        }
+            .after("<br>")
+            .on("click", function() {
+            var ask = confirm("Are you sure you want to delete this movie?");
+            if (ask) {
+                console.log("deleting");    
+                localStorage.removeItem($(".deleteLink").data("key"));
+                window.location.reload();
+                alert("Movie deleted");
+            }else{
+                alert("This movie has not been deleted");
+            }
     });
     }
     //call pulldata function when display data link is clicked
@@ -260,13 +260,15 @@ $('#addItem').on('pageinit', function(){
         //obj.rating[1] = $("#rating").val();
         $("#review").val(obj.review[1]);
         
-        saveMovie.off("click", storeData);
-        $("#savemovie")
-            .val("Edit Movie")
-            .data(this.key);
-        var editSave = $("#savemovie");
+        saveMovie.on("click", function(){
+               $(this).data("key");
+               //saveMovie.key = this.key;
+        });
+        
+        //var editSave = $("#savemovie");
+        //console.log(editSave.val() + editSave.data());
         //editSave.on("click", confirmData);
-        editSave.key = this.key;
+        //editSave.key = this.key;
     }
     
     $(".deleteLink").on("click", function() {
