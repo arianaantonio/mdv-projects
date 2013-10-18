@@ -1,0 +1,103 @@
+
+{
+    "movies":[{
+        "title": "The Lord Of The Rings",
+        "date": "2001-12-19",
+        "genre": "Action",
+        "movietheater": "Theater",
+        "friends": "Jonathan and Becca",
+        "starrating": "5 Stars",
+        "favorite": "Favorite",
+        "review": "This is the best movie ever. We had a ton of fun that night and many people were dressed in costume!"
+    },
+    {
+        "title": "The Conjuring",
+        "date": "2013-07-20",
+        "genre": "Horror",
+        "movietheater": "Movie Theater",
+        "friends": "Bethany",
+        "starrating": "3 Stars",
+        "favorite": "Favorite",
+        "review": "Lame at parts, but generally terrifying"
+    },
+    {
+        "title": "Love Actually",
+        "date": "2012-12-24",
+        "genre": "Romance",
+        "movietheater": "At Home",
+        "friends": "My family",
+        "starrating": "5 Stars",
+        "favorite": "Not a favorite",
+        "review": "A holiday staple, this movie is sweet and funny. I enjoy it every time."
+    },
+    {
+        "title": "Nacho Libre",
+        "date": "2013-08-30",
+        "genre": "Comedy",
+        "movietheater": "At Home",
+        "friends": "Jonathan",
+        "starrating": "5 Stars",
+        "favorite": "Favorite",
+        "review": "Always make me laugh and cheers me up when I need it."
+    },
+     {
+        "title": "Mama",
+        "date": "2013-07-12",
+        "genre":  "Horror",
+        "movietheater":  "At Home",
+        "friends": "Eden",
+        "starrating": "3 Stars",
+        "favorite": "Not a favorite",
+        "review": "Had some scary parts but overall pretty dumb."
+    },
+    {
+        "title": "Requiem For A Dream",
+        "date": "2008-12-11",
+        "genre": "Drama",
+        "movietheater": "At Home",
+        "friends":  "Beeca",
+        "starrating": "4 Stars",
+        "favorite": "Not a favorite",
+        "review": "Great movie although a bit depressing. Definitely scared me off of drugs!"
+    },
+    {
+        "title": "Serenity",
+        "date":  "2006-11-21",
+        "genre": "Action",
+        "movietheater":  "At Home",
+        "friends": "Alex",
+        "starrating": "5 Stars",
+        "favorite": "Favorite",
+        "review": "Such a great movie. Hard to put it in the action category because it is so many things. Love it love it."
+    },
+    {
+        "title": "Face/Off",
+        "date": "2013-08-31",
+        "genre": "Action",
+        "movietheater": "At Home",
+        "friends":  "Jonathan",
+        "starrating": "2 Stars",
+        "favorite": "Not a favorite",
+        "review": "Loved this movie as a kid but found it pretty bad as an adult."
+    },
+    {
+        "title": "Monster's Ball",
+        "date": "2007-01-16",
+        "genre": "Drama",
+        "movietheater": "Theater",
+        "friends": "Becca",
+        "starrating": "5 Stars",
+        "favorite": "Not a favorite",
+        "review": "A great and moving movie about horrible people. Always love Heath Ledger."
+    },
+    {
+        "title": "Napolean Dynamite",
+        "date": "2008-07-13",
+        "genre": "Comedy",
+        "movietheater": "Theater",
+        "friends":  "Heather and Kara",
+        "starrating": "5 Stars",
+        "favorite": "Favorite",
+        "review": "Funny and weird. Had a great time."
+    }
+]}    

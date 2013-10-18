@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/myhollywood"
+    },
+    "cloudant": {
+      "db": "https://keenctiverelaindsclettly:txLH4EDLRBcVUIliX0rAHN6X@faeryqueen21.cloudant.com/myhollywood/"
+    }
+  }
+}

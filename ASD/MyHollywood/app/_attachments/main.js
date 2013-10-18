@@ -46,7 +46,7 @@ ASD 1310
 });*/
 
 $('#addItem').on('pageinit', function(){
-	console.log("JS is working.");
+
     //pull favorite? value    
     function getFavorite() {
         if ($("input[type=checkbox]").is(':checked')) {
@@ -307,11 +307,44 @@ $('#addItem').on('pageinit', function(){
 });
 
 $('#browse').on('pageinit', function(){
-   
+   		$("#couchDBData").on("click", function(){
+			$.ajax({
+				"url": "_view/Movies",
+				"dataType": "json",
+				"success": function (data) {
+					$.each(data.rows, function(index, movie) {
+						var title = movie.value.title;
+						var date = movie.value.date;
+						var genre = movie.value.genre;
+						var movietheater = movie.value.movietheater;
+						var friends = movie.value.friends;
+						var starrating = movie.value.starrating;
+						var favorite = movie.value.favorite;
+						var review = movie.value.review;
+						$(''+
+                            '<div>' +
+                                '<ul>' +
+                                  '<li>' + "Title: " + title + '</li>' +
+                                  '<li>' + "Date: " + date + '</li>' +
+                                  '<li>' + "Genre: " + genre + '</li>' +
+                                  '<li>' + "Where Seen: " + movietheater + '</li>' +
+                                  '<li>' + "Seen With: " + friends + '</li>' +
+                                  '<li>' + "Rating: " + starrating + '</li>' +
+                                  '<li>' + "Favorite?: " + favorite + '</li>' +
+                                  '<li>' + "Review: " + review + '</li>' +
+                                '</ul>' +
+                            '</div>'
+                        ).appendTo("#dataContent");
+					});
+				}
+			});   		
+   		
+   		});
+   		
         $("#jsonData").on("click", function(){
                 
             $.ajax({
-                url: "xhr/data.json",
+                url: "data.json",
                 type: "GET",
                 dataType: "json",
                 success: function(data){
@@ -338,7 +371,7 @@ $('#browse').on('pageinit', function(){
         
     $("#xmlData").on("click", function(){
         $.ajax({
-            url: "xhr/data.xml",
+            url: "data.xml",
             type: "GET",
             dataType: "xml",
             success: function(data){
