@@ -1,6 +1,6 @@
 /*
 Author: Ariana Antonio
-Project 2
+Project 3
 ASD 1310
 */
 /*$('#search').on('pageinit', function(){
