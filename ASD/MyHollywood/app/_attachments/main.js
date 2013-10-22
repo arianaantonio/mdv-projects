@@ -307,7 +307,7 @@ $('#addItem').on('pageinit', function(){
 });
 
 $('#browse').on('pageinit', function(){
-   		$("#couchDBData").on("click", function(){
+   		/*$("#couchDBData").on("click", function(){
 			$.ajax({
 				"url": "_view/Movies",
 				"dataType": "json",
@@ -393,7 +393,7 @@ $('#browse').on('pageinit', function(){
                 });
             }    
         });	
-    });
+    });*/
 
 
 
