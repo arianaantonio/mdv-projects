@@ -323,7 +323,7 @@ $(document).on("pageinit", "#genrePage",  function(){
 						console.log("page working");
 						$("#genreslist").append(
 							$("<li>").append(
-								$("<a>").attr("href", "#")
+								$("<a>").attr("href", "genres.html?genre=" + type)
 									.text(title)
 							)
 						);
