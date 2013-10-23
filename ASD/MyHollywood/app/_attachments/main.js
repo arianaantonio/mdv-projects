@@ -77,8 +77,12 @@ $('#addItem').on('pageinit', function(){
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", $("#review").val()];
             obj.myKey = ["key:", $("#myKey").val()];
-        localStorage.setItem(randomId, JSON.stringify(obj));
-        alert("Movie Saved!");
+		$.couch.db("myhollywood").saveDoc(obj, {
+			success: function() { console.log("Movie Saved!");},
+			error: function() {console.log("Movie NOT Saved");}
+		})	
+        //localStorage.setItem(randomId, JSON.stringify(obj));
+        //alert("Movie Saved!");
         window.location.reload();
     }
     
