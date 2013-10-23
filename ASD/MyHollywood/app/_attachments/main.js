@@ -78,15 +78,15 @@ $('#addItem').on('pageinit', function(){
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", $("#review").val()];
             obj.myKey = ["key:", $("#myKey").val()];
-			console.log(obj);
+			alert(obj);
 			//console.log(req.responseText);
 		$.couch.db("myhollywood").saveDoc(obj, {
-			success: function() { console.log("Movie Saved!");},
-			error: function() {console.log("Movie NOT Saved");}
+			success: function() { alert("Movie Saved!");},
+			error: function() {alert("Movie NOT Saved");}
 		})	
         //localStorage.setItem(randomId, JSON.stringify(obj));
         //alert("Movie Saved!");
-        window.location.reload();
+        //window.location.reload();
     }
     
     //setting up vars for star rating    
@@ -141,15 +141,35 @@ $('#addItem').on('pageinit', function(){
     
     //display data from local storage to display page
     function pullData() {
-        if (localStorage.length === 0) {
+		var id = $(this).data("id");
+		//var doc = _id;
+		var rev = $(this).data("rev");
+		$.couch.db("myhollywood").view(id, {
+			success: function(data) {
+				$("#movieTitles").empty();
+					$.each(data.rows, function(index, movie) {
+						var title = movie.value.title;
+						var date = movie.value.date;
+						var genre = movie.value.genre;
+						var movietheater = movie.value.movietheater;
+						var friends = movie.value.friends;
+						var starrating = movie.value.starrating;
+						var favorite = movie.value.favorite;
+						var review = movie.value.review;
+						console.log(title);
+					});
+				alert("Movie Displayed");},
+			error: function() {alert("No movies to display");}
+		})
+        /*if (localStorage.length === 0) {
             alert("There are no movies saved so default movies were added");
             defaultData();
-        }
+        }*/
         //var linksList;
         //pullImage(object.genre[1], newList);
         //linkList = newList.append("<li></li>");
         //createLinks(localStorage.key(i), linksList);
-        for (var i=0, j=localStorage.length; i<j; i++) {
+        /*for (var i=0, j=localStorage.length; i<j; i++) {
             var key = localStorage.key(i);
             var keyValue = localStorage.getItem(key);
             var object = JSON.parse(keyValue);
@@ -171,7 +191,7 @@ $('#addItem').on('pageinit', function(){
             movieData += '<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>';
             movieData += '<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>';
         }
-        $("#movieDisplay ul").append(movieData);  
+        $("#movieDisplay ul").append(movieData); */ 
         $(".editLink").on("click", editInput);
         $(".deleteLink")
             .after("<br>")
@@ -294,8 +314,8 @@ $('#addItem').on('pageinit', function(){
 				success: function() {console.log("Moved Deleted");},
 				error: function() {console.log("Movie has NOT been deleted");}								 
 			})
-            localStorage.removeItem($(".deleteLink").data("key"));
-            window.location.reload();
+            //localStorage.removeItem($(".deleteLink").data("key"));
+            //window.location.reload();
             alert("Movie deleted");
         }else{
             alert("This movie has not been deleted");
