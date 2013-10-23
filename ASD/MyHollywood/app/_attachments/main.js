@@ -306,24 +306,25 @@ $('#addItem').on('pageinit', function(){
     var saveMovie = $("#savemovie");
 });
 
-$(document).on("pageinit", "#browse",  function(){
-			/*$.couch.db("myhollywood").view("myhollywoodapp/Movies", {
+$(document).on("pageinit", "#genrePage",  function(){
+			$.couch.db("myhollywood").view("myhollywoodapp/Movies", {
 				success: function (data) {
-					$("genrelist").empty();
-					$.each(data.rows, function(index, movie) {
-						var title = movie.value.title;
-						var date = movie.value.date;
+					$("genreslist").empty();
+					$.each(data.rows, function(index, genre) {
+						var title = genre.value.title;
+						var type = genre.value.type;
+						/*var date = movie.value.date;
 						var genre = movie.value.genre;
 						var movietheater = movie.value.movietheater;
 						var friends = movie.value.friends;
 						var starrating = movie.value.starrating;
 						var favorite = movie.value.favorite;
-						var review = movie.value.review;
+						var review = movie.value.review;*/
 						console.log("page working");
-						$("#genrelist").append(
+						$("#genreslist").append(
 							$("<li>").append(
 								$("<a>").attr("href", "#")
-									.text(genre)
+									.text(title)
 							)
 						);
 						/*$(''+
@@ -339,11 +340,11 @@ $(document).on("pageinit", "#browse",  function(){
                                   '<li>' + "Review: " + review + '</li>' +
                                 '</ul>' +
                             '</div>'
-                        ).appendTo("#dataContent");
+                        ).appendTo("#dataContent");*/
 					});
-					$("genrelist").listview("refresh");
+					$("genreslist").listview("refresh");
 				}
-			});   	*/	
+			});   	
    		
    		/*
         $("#jsonData").on("click", function(){

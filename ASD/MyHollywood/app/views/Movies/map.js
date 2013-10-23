@@ -1,4 +1,20 @@
 function(doc) {
+  if (doc._id.substr(0,6) === "genre:") {
+    emit(doc._id.substr(6), {
+    	"type": doc.type,
+    	"title": doc.title
+    		
+    });
+  }
+};
+
+
+
+
+
+
+
+/*function(doc) {
   if (doc._id.substr(0,6) === "movie:") {
     emit(doc._id.substr(6), {
     	"title": doc.title,
@@ -11,4 +27,4 @@ function(doc) {
     	"review": doc.review	
     });
   }
-};
+};*/
