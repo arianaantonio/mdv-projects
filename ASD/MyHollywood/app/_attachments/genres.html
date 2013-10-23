@@ -6,9 +6,26 @@ ASD 1310
 -->
 <html>
 <head>
-    <title><!-- Insert your title here --></title>
+    <title>Movies Saved</title>
 </head>
 <body>
-    <!-- Insert your content here -->
+    <section data-role="page" id="movie" data-theme="c">
+		<header data-role="header">
+			<h1>Movies Saved</h1>
+			<img src="logo2_03.gif" class="headerImg ui-btn-right">		
+		</header>
+		<div data-role="content">
+            <ul data-role="listview"  data-theme="d" id="movieTitles"></ul>
+		</div>
+		<footer data-role="footer" data-id="navbar" data-position="fixed" data-theme="a">
+			<nav data-role="navbar" data-iconpos="left">
+				<ul>
+					<li><a data-icon="home" href="#home">Home</a></li>
+					<li><a data-icon="star" href="#addItem">Add Movie</a></li>
+					<li><a data-icon="info" href="#about">About</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</section>			
 </body>
 </html>

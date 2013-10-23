@@ -320,11 +320,12 @@ $(document).on("pageinit", "#genrePage",  function(){
 						var starrating = movie.value.starrating;
 						var favorite = movie.value.favorite;
 						var review = movie.value.review;*/
-						console.log("page working");
+						//console.log("page working");
 						$("#genreslist").append(
 							$("<li>").append(
 								$("<a>").attr("href", "genres.html?genre=" + type)
 									.text(title)
+									.attr("id", type)
 							)
 						);
 						/*$(''+
@@ -342,7 +343,7 @@ $(document).on("pageinit", "#genrePage",  function(){
                             '</div>'
                         ).appendTo("#dataContent");*/
 					});
-					$("genreslist").listview("refresh");
+					$("#genreslist").listview("refresh");
 				}
 			});   	
    		
@@ -401,8 +402,134 @@ $(document).on("pageinit", "#genrePage",  function(){
         });	
     });*/
 
+var urlVars = function() {	
+	var urlData = $($.mobile.activePage).data("url");
+    var urlParts = urlData.split('?');
+    var urlPairs = urlParts[1].split('&');
+    var urlValues = {};
+    for(var pair in urlPairs) {
+        var keyValue = urlPairs[pair].split('=');
+        var key = decodeURIComponent(keyValue[0]);
+        var value = decodeURIComponent(keyValue[1]);
+        urlValues[key] = value;
+    }
+	return urlValues;
+};
 
 
+});
+$(document).on("pageinit", "#movie",  function(){
+	urlData = $(this).data("url");
+	//console.log(urlData);
+	//var movieTitle = urlVars()["genre"];
+	//console.log(movieTitle);
+	$.couch.db("myhollywood").view("myhollywoodapp/Titles", {
+		success: function (data) {
+					$("#movieTitles").empty();
+					$.each(data.rows, function(index, movie) {
+						var title = movie.value.title;
+						var date = movie.value.date;
+						var genre = movie.value.genre;
+						var movietheater = movie.value.movietheater;
+						var friends = movie.value.friends;
+						var starrating = movie.value.starrating;
+						var favorite = movie.value.favorite;
+						var review = movie.value.review;
+						//console.log(title);
+						if (genre === "Action") {
+							//console.log(title);
+							//console.log("action working");
+							$("#action").on("click", function(){
+								console.log(title);
+								$("#movieTitles").append(
+									$("<li>").append(
+										$("<a>").attr("href", "genres.html?genre=" + title)
+											.text(title)
+									)
+								);
+							});
+						}
+						if (genre === "Comedy") {
+							$("#comedy").on("click", function(){
+								console.log(title);
+								$("#movieTitles").append(
+									$("<li>").append(
+										$("<a>").attr("href", "genres.html?genre=" + title)
+											.text(title)
+									)
+								);
+							});
+						}
+						if (genre === "Horror") {
+							$("#horror").on("click", function(){
+								console.log(title);
+								$("#movieTitles").append(
+									$("<li>").append(
+										$("<a>").attr("href", "genres.html?genre=" + title)
+											.text(title)
+									)
+								);
+							});
+						}
+						if (genre === "Romance") {
+							$("#romance").on("click", function(){
+								console.log(title);
+								$("#movieTitles").append(
+									$("<li>").append(
+										$("<a>").attr("href", "genres.html?genre=" + title)
+											.text(title)
+									)
+								);
+							});
+						}
+							if (genre === "Drama") {
+							$("#drama").on("click", function(){
+								console.log(title);
+								$("#movieTitles").append(
+									$("<li>").append(
+										$("<a>").attr("href", "genres.html?genre=" + title)
+											.text(title)
+									)
+								);
+							});
+						}
+						if (genre === "Other") {
+							$("#other").on("click", function(){
+								console.log(title);
+								$("#movieTitles").append(
+									$("<li>").append(
+										$("<a>").attr("href", "genres.html?genre=" + title)
+											.text(title)
+									)
+								);
+							});
+						}
+						/*$("#movieTitles").append(
+							$("<li>").append(
+								$("<a>").attr("href", "genres.html?genre=" + title)
+									.text(title)
+							)
+						);
+						$(''+
+                            '<div>' +
+                                '<ul>' +
+                                  '<li>' + "Title: " + title + '</li>' +
+                                  '<li>' + "Date: " + date + '</li>' +
+                                  '<li>' + "Genre: " + genre + '</li>' +
+                                  '<li>' + "Where Seen: " + movietheater + '</li>' +
+                                  '<li>' + "Seen With: " + friends + '</li>' +
+                                  '<li>' + "Rating: " + starrating + '</li>' +
+                                  '<li>' + "Favorite?: " + favorite + '</li>' +
+                                  '<li>' + "Review: " + review + '</li>' +
+                                '</ul>' +
+                            '</div>'
+                        ).appendTo("#movieItems");*/
+					});
+					$("#movieTitles").listview("refresh");
+				}	
+	});
 
+
+	
 });
 	
