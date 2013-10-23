@@ -58,6 +58,7 @@ $('#addItem').on('pageinit', function(){
     
     //storing data to local storage
     var storeData = function(key){
+		console.log("function working");
         if ($("#myKey").val() === "") {
             var randomId = Math.floor(Math.random()*1000001);
             
@@ -77,6 +78,8 @@ $('#addItem').on('pageinit', function(){
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", $("#review").val()];
             obj.myKey = ["key:", $("#myKey").val()];
+			console.log(obj);
+			//console.log(req.responseText);
 		$.couch.db("myhollywood").saveDoc(obj, {
 			success: function() { console.log("Movie Saved!");},
 			error: function() {console.log("Movie NOT Saved");}
