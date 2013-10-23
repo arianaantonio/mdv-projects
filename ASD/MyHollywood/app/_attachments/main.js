@@ -1,6 +1,6 @@
 /*
 Author: Ariana Antonio
-Project 3
+Project 4
 ASD 1310
 */
 /*$('#search').on('pageinit', function(){
@@ -306,12 +306,10 @@ $('#addItem').on('pageinit', function(){
     var saveMovie = $("#savemovie");
 });
 
-$('#browse').on('pageinit', function(){
-   		/*$("#couchDBData").on("click", function(){
-			$.ajax({
-				"url": "_view/Movies",
-				"dataType": "json",
-				"success": function (data) {
+$(document).on("pageinit", "#browse",  function(){
+			/*$.couch.db("myhollywood").view("myhollywoodapp/Movies", {
+				success: function (data) {
+					$("genrelist").empty();
 					$.each(data.rows, function(index, movie) {
 						var title = movie.value.title;
 						var date = movie.value.date;
@@ -321,7 +319,14 @@ $('#browse').on('pageinit', function(){
 						var starrating = movie.value.starrating;
 						var favorite = movie.value.favorite;
 						var review = movie.value.review;
-						$(''+
+						console.log("page working");
+						$("#genrelist").append(
+							$("<li>").append(
+								$("<a>").attr("href", "#")
+									.text(genre)
+							)
+						);
+						/*$(''+
                             '<div>' +
                                 '<ul>' +
                                   '<li>' + "Title: " + title + '</li>' +
@@ -336,11 +341,11 @@ $('#browse').on('pageinit', function(){
                             '</div>'
                         ).appendTo("#dataContent");
 					});
+					$("genrelist").listview("refresh");
 				}
-			});   		
+			});   	*/	
    		
-   		});
-   		
+   		/*
         $("#jsonData").on("click", function(){
                 
             $.ajax({
