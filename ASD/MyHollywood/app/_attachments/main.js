@@ -280,10 +280,17 @@ $('#addItem').on('pageinit', function(){
         //editSave.key = this.key;
     }
     
-    $(".deleteLink").on("click", function() {
+    $(".deleteLink").on("click", function(e) {
+		e.preventDefault();
+		key = $(this).data("key");
+		var rev = $(this).data("rev");
         var ask = confirm("Are you sure you want to delete this movie?");
         if (ask) {
-            console.log("deleting");    
+            console.log("deleting");
+			$.couch.db("myhollywood").removeDoc(doc, {
+				success: function() {console.log("Moved Deleted");},
+				error: function() {console.log("Movie has NOT been deleted");}								 
+			})
             localStorage.removeItem($(".deleteLink").data("key"));
             window.location.reload();
             alert("Movie deleted");
