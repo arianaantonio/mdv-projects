@@ -45,7 +45,7 @@ ASD 1310
     });
 });*/
 
-$('#addItem').on('pageinit', function(){
+$(document).on('pageinit', '#addItem', function(){
 
     //pull favorite? value    
     function getFavorite() {
@@ -65,7 +65,7 @@ $('#addItem').on('pageinit', function(){
         }else{
             randomId = $("#myKey").val();
         }
-        $("#myKey").val(randomId)
+        //$("#myKey").val(randomId)
         getFavorite();
         var obj = {};
             obj.title = ["Movie Title:", $("#movietitle").val()];
@@ -78,7 +78,7 @@ $('#addItem').on('pageinit', function(){
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", $("#review").val()];
             obj.myKey = ["key:", $("#myKey").val()];
-			alert(obj);
+			//alert(obj);
 			//console.log(req.responseText);
 		$.couch.db("myhollywood").saveDoc(obj, {
 			success: function() { alert("Movie Saved!");},
@@ -141,13 +141,18 @@ $('#addItem').on('pageinit', function(){
     
     //display data from local storage to display page
     function pullData() {
-		var id = $(this).data("id");
-		//var doc = _id;
-		var rev = $(this).data("rev");
-		$.couch.db("myhollywood").view(id, {
+		//var key = $(this).data("key");
+		//var rev = $(this).data("rev");
+		//console.log(key);
+		//var doc = {};
+		//doc._id = key;
+		//doc._rev = rev; 
+		$.couch.db("myhollywood").view("myhollywoodapp/New", {
 			success: function(data) {
-				$("#movieTitles").empty();
+				$("#displayPage").empty();
+				//console.log(myKey);
 					$.each(data.rows, function(index, movie) {
+						//console.log(myKey);
 						var title = movie.value.title;
 						var date = movie.value.date;
 						var genre = movie.value.genre;
@@ -156,9 +161,29 @@ $('#addItem').on('pageinit', function(){
 						var starrating = movie.value.starrating;
 						var favorite = movie.value.favorite;
 						var review = movie.value.review;
-						console.log(title);
+						//console.log(title);
+						$("#movieDisplay").append(
+							$("<li>").append(
+								$("<a>").attr("href", "genres.html?genre=" + title)
+									.text(title)
+									.attr("id", title)
+							)
+						);
+						$(''+
+                            
+                        
+                                  '<li>' + "Title: " + title + '</li>' +
+                                  '<li>' + "Date: " + date + '</li>' +
+                                  '<li>' + "Genre: " + genre + '</li>' +
+                                  '<li>' + "Where Seen: " + movietheater + '</li>' +
+                                  '<li>' + "Seen With: " + friends + '</li>' +
+                                  '<li>' + "Rating: " + starrating + '</li>' +
+                                  '<li>' + "Favorite?: " + favorite + '</li>' +
+                                  '<li>' + "Review: " + review + '</li>' 
+                              
+                        ).appendTo("#movieDisplay");
 					});
-				alert("Movie Displayed");},
+				/*console.log("Movie Displayed");*/},
 			error: function() {alert("No movies to display");}
 		})
         /*if (localStorage.length === 0) {
@@ -303,10 +328,13 @@ $('#addItem').on('pageinit', function(){
         //editSave.key = this.key;
     }
     
-    $(".deleteLink").on("click", function(e) {
+   /* $(".deleteLink").on("click", function(e) {
 		e.preventDefault();
 		key = $(this).data("key");
 		var rev = $(this).data("rev");
+		var doc = {};
+		doc._id = key;
+		doc._rev = rev; 
         var ask = confirm("Are you sure you want to delete this movie?");
         if (ask) {
             console.log("deleting");
@@ -320,7 +348,7 @@ $('#addItem').on('pageinit', function(){
         }else{
             alert("This movie has not been deleted");
         }
-    });
+    });*/
     
     
     
@@ -455,115 +483,105 @@ var urlVars = function() {
 $(document).on("pageinit", "#movie",  function(){
 	urlData = $(this).data("url");
 	//console.log(urlData);
+	//console.log(urlData.indexOf("title"));
 	//var movieTitle = urlVars()["genre"];
 	//console.log(movieTitle);
-	$.couch.db("myhollywood").view("myhollywoodapp/Titles", {
+	$.couch.db("myhollywood").view("myhollywoodapp/New", {
 		success: function (data) {
-					$("#movieTitles").empty();
-					$.each(data.rows, function(index, movie) {
-						var title = movie.value.title;
-						var date = movie.value.date;
-						var genre = movie.value.genre;
-						var movietheater = movie.value.movietheater;
-						var friends = movie.value.friends;
-						var starrating = movie.value.starrating;
-						var favorite = movie.value.favorite;
-						var review = movie.value.review;
-						//console.log(title);
-						if (genre === "Action") {
-							//console.log(title);
-							//console.log("action working");
-							$("#action").on("click", function(){
-								console.log(title);
-								$("#movieTitles").append(
-									$("<li>").append(
-										$("<a>").attr("href", "genres.html?genre=" + title)
-											.text(title)
-									)
-								);
-							});
+			//$("#movieTitles").empty();
+			var key = $("myKey");
+			$.each(data.rows, function(index, movie) {
+				var title = movie.value.title;
+				var date = movie.value.date;
+				var genre = movie.value.genre;
+				var movietheater = movie.value.movietheater;
+				var friends = movie.value.friends;
+				var starrating = movie.value.starrating;
+				var favorite = movie.value.favorite;
+				var review = movie.value.review;
+				//console.log(urlData.indexOf(title));
+				//console.log(title[1]);
+				//console.log(urlData.indexOf(title[1]) != -1);
+						
+				if (urlData.indexOf(title[1] != -1)) {
+					console.log(title[1]);
+					$(''+
+						'<li>' + "Title: " + title[1] + '</li>' +
+						'<li>' + "Date: " + date[1] + '</li>' +
+						'<li>' + "Genre: " + genre[1] + '</li>' +
+						'<li>' + "Where Seen: " + movietheater[1] + '</li>' +
+						'<li>' + "Seen With: " + friends[1] + '</li>' +
+						'<li>' + "Rating: " + starrating[1] + '</li>' +
+						'<li>' + "Favorite?: " + favorite[1] + '</li>' +
+						'<li>' + "Review: " + review[1] + '</li>' +
+						//'<li><img src="" class="star" /></li>' +
+						'<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>' +
+						'<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>' +
+						'<br>'
+					).appendTo("#movieTitles");
+					/*if (starrating[1] === "onestar") {
+						$(".star").attr("src", "filledstar_03.gif")
+					}else if (starrating === "twostars") {
+						//movieData += '<li><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /></li>';
+					}else if (starrating === "threestars") {
+						//movieData += '<li><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /></li>';
+					}else if (starrating === "fourstars") {
+						//movieData += '<li><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /></li>';
+					}else if (starrating === "fivestars") {
+						//movieData += '<li><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /></li>';
+					}*/
+					$(".deleteLink").on("click", function(e) {
+						e.preventDefault();
+						key = $(this).data("key");
+						var rev = $(this).data("rev");
+						var doc = {};
+						doc._id = key;
+						doc._rev = rev; 
+						var ask = confirm("Are you sure you want to delete this movie?");
+						if (ask) {
+							console.log(doc);
+							$.couch.db("myhollywood").removeDoc(doc, {
+								success: function() {console.log("Moved Deleted");},
+								error: function() {console.log("Movie has NOT been deleted");}								 
+							})
+						//window.location.reload();
+						}else{
+							alert("This movie has not been deleted");
 						}
-						if (genre === "Comedy") {
-							$("#comedy").on("click", function(){
-								console.log(title);
-								$("#movieTitles").append(
-									$("<li>").append(
-										$("<a>").attr("href", "genres.html?genre=" + title)
-											.text(title)
-									)
-								);
-							});
-						}
-						if (genre === "Horror") {
-							$("#horror").on("click", function(){
-								console.log(title);
-								$("#movieTitles").append(
-									$("<li>").append(
-										$("<a>").attr("href", "genres.html?genre=" + title)
-											.text(title)
-									)
-								);
-							});
-						}
-						if (genre === "Romance") {
-							$("#romance").on("click", function(){
-								console.log(title);
-								$("#movieTitles").append(
-									$("<li>").append(
-										$("<a>").attr("href", "genres.html?genre=" + title)
-											.text(title)
-									)
-								);
-							});
-						}
-							if (genre === "Drama") {
-							$("#drama").on("click", function(){
-								console.log(title);
-								$("#movieTitles").append(
-									$("<li>").append(
-										$("<a>").attr("href", "genres.html?genre=" + title)
-											.text(title)
-									)
-								);
-							});
-						}
-						if (genre === "Other") {
-							$("#other").on("click", function(){
-								console.log(title);
-								$("#movieTitles").append(
-									$("<li>").append(
-										$("<a>").attr("href", "genres.html?genre=" + title)
-											.text(title)
-									)
-								);
-							});
-						}
-						/*$("#movieTitles").append(
-							$("<li>").append(
-								$("<a>").attr("href", "genres.html?genre=" + title)
-									.text(title)
-							)
-						);
-						$(''+
-                            '<div>' +
-                                '<ul>' +
-                                  '<li>' + "Title: " + title + '</li>' +
-                                  '<li>' + "Date: " + date + '</li>' +
-                                  '<li>' + "Genre: " + genre + '</li>' +
-                                  '<li>' + "Where Seen: " + movietheater + '</li>' +
-                                  '<li>' + "Seen With: " + friends + '</li>' +
-                                  '<li>' + "Rating: " + starrating + '</li>' +
-                                  '<li>' + "Favorite?: " + favorite + '</li>' +
-                                  '<li>' + "Review: " + review + '</li>' +
-                                '</ul>' +
-                            '</div>'
-                        ).appendTo("#movieItems");*/
 					});
-					$("#movieTitles").listview("refresh");
-				}	
-	});
-
-
-	
+				}
+			});
+		}
+	});			
 });
-	
+
+$(document).on("pageinit", "#displayPage",  function(){
+	$.couch.db("myhollywood").view("myhollywoodapp/New", {
+			success: function(data) {
+				//$("#displayPage").empty();
+				//console.log(myKey);
+				$.each(data.rows, function(index, movie) {
+					//console.log(myKey);
+					var key = $("myKey");
+					var title = movie.value.title;
+					var date = movie.value.date;
+					var genre = movie.value.genre;
+					var movietheater = movie.value.movietheater;
+					var friends = movie.value.friends;
+					var starrating = movie.value.starrating;
+					var favorite = movie.value.favorite;
+					var review = movie.value.review;
+					//console.log(title);
+					$("#movieDisplay").append(
+						$("<li>").append(
+							$("<a>").attr("href", "genres.html?title=" + title)
+								.text(title[1])
+								.attr("id", title)
+						)
+					);
+				});
+				$("#movieDisplay").listview("refresh");	
+			},
+			error: function() {alert("No movies to display");}
+	});
+});
