@@ -3,6 +3,8 @@ Author: Ariana Antonio
 Project 4
 ASD 1310
 */
+var obj = {};
+var itemKey = "";
 /*$('#search').on('pageinit', function(){
     var text = $("#searchInput").val();
     console.log(text);
@@ -56,18 +58,13 @@ $(document).on('pageinit', '#addItem', function(){
         }
     }
     
-    //storing data to local storage
+    //storing data to couch
     var storeData = function(key){
 		console.log("function working");
-        if ($("#myKey").val() === "") {
-            var randomId = Math.floor(Math.random()*1000001);
-            
-        }else{
-            randomId = $("#myKey").val();
-        }
+		
         //$("#myKey").val(randomId)
         getFavorite();
-        var obj = {};
+        //var obj = {};
             obj.title = ["Movie Title:", $("#movietitle").val()];
             obj.date = ["Date:", $("#dateseen").val()];
             obj.genre = ["Movie Genre:", $("#genre").val()];
@@ -78,6 +75,17 @@ $(document).on('pageinit', '#addItem', function(){
             obj.favorite = ["Favorite?", favoriteValue];
             obj.review = ["Review:", $("#review").val()];
             obj.myKey = ["key:", $("#myKey").val()];
+			var newId = ' ';
+			if (itemKey) {
+				newId = obj._id
+				//var randomId = Math.floor(Math.random()*1000001);
+            
+			}else{
+				var randomId = Math.floor(Math.random()*1000001);
+				//randomId = $("#myKey").val();
+				newId = "genre:" + obj.genre[1] + ":" + randomId;
+				obj._id = newId
+			}
 			//alert(obj);
 			//console.log(req.responseText);
 		$.couch.db("myhollywood").saveDoc(obj, {
@@ -375,13 +383,13 @@ $(document).on("pageinit", "#genrePage",  function(){
 					$.each(data.rows, function(index, genre) {
 						var title = genre.value.title;
 						var type = genre.value.type;
-						/*var date = movie.value.date;
+						var date = movie.value.date;
 						var genre = movie.value.genre;
 						var movietheater = movie.value.movietheater;
 						var friends = movie.value.friends;
 						var starrating = movie.value.starrating;
 						var favorite = movie.value.favorite;
-						var review = movie.value.review;*/
+						var review = movie.value.review;
 						//console.log("page working");
 						$("#genreslist").append(
 							$("<li>").append(
@@ -390,7 +398,7 @@ $(document).on("pageinit", "#genrePage",  function(){
 									.attr("id", type)
 							)
 						);
-						/*$(''+
+						$(''+
                             '<div>' +
                                 '<ul>' +
                                   '<li>' + "Title: " + title + '</li>' +
@@ -403,11 +411,11 @@ $(document).on("pageinit", "#genrePage",  function(){
                                   '<li>' + "Review: " + review + '</li>' +
                                 '</ul>' +
                             '</div>'
-                        ).appendTo("#dataContent");*/
+                        ).appendTo("#dataContent");
 					});
 					$("#genreslist").listview("refresh");
 				}
-			});   	
+			});  	
    		
    		/*
         $("#jsonData").on("click", function(){
@@ -436,8 +444,8 @@ $(document).on("pageinit", "#genrePage",  function(){
                     };    
                 }
             });
-        });
-        
+        });*/
+      /*  
     $("#xmlData").on("click", function(){
         $.ajax({
             url: "data.xml",
@@ -460,9 +468,9 @@ $(document).on("pageinit", "#genrePage",  function(){
                             '</div>'
                         ).appendTo("#dataContent");
                 });
-            }    
-        });	
-    });*/
+            }  
+        });	*/
+    });
 
 var urlVars = function() {	
 	var urlData = $($.mobile.activePage).data("url");
@@ -479,19 +487,34 @@ var urlVars = function() {
 };
 
 
-});
+
 $(document).on("pageinit", "#movie",  function(){
 	urlData = $(this).data("url");
 	//console.log(urlData);
 	//console.log(urlData.indexOf("title"));
 	//var movieTitle = urlVars()["genre"];
 	//console.log(movieTitle);
+	
 	$.couch.db("myhollywood").view("myhollywoodapp/New", {
 		success: function (data) {
+			/*var key = $(this).data("key");
+					var rev = $(this).data("rev");
+					var doc = {};
+					data._id = key;
+					data._rev = rev;
+					console.log(doc._id);*/
 			//$("#movieTitles").empty();
-			var key = $("myKey");
+			//var key = $("#myKey");
+			//var key = $(this).data("key");
+			//var rev = $(this).data("rev");
 			$.each(data.rows, function(index, movie) {
+				
+				//var rev = movie.rev;
+				//console.log(movie.id);
+				//console.log(movie.value._rev);
 				var title = movie.value.title;
+				//console.log(title);
+				//console.log(date);
 				var date = movie.value.date;
 				var genre = movie.value.genre;
 				var movietheater = movie.value.movietheater;
@@ -503,8 +526,8 @@ $(document).on("pageinit", "#movie",  function(){
 				//console.log(title[1]);
 				//console.log(urlData.indexOf(title[1]) != -1);
 						
-				if (urlData.indexOf(title[1] != -1)) {
-					console.log(title[1]);
+				//if (urlData.indexOf(title[1] != -1)) {
+					//console.log(title[1]);
 					$(''+
 						'<li>' + "Title: " + title[1] + '</li>' +
 						'<li>' + "Date: " + date[1] + '</li>' +
@@ -515,8 +538,8 @@ $(document).on("pageinit", "#movie",  function(){
 						'<li>' + "Favorite?: " + favorite[1] + '</li>' +
 						'<li>' + "Review: " + review[1] + '</li>' +
 						//'<li><img src="" class="star" /></li>' +
-						'<li><a href="#addItem" class="editLink" style="display: block" data-key="' + key + '">Edit Movie</a></li>' +
-						'<li><a class="deleteLink" href="#" style="display: block" data-key="' + key + '">Delete Movie</a></li>' +
+						'<li><a href="#addItem" class="editLink" style="display: block" data-key="' + movie.id + '" data-rev="">Edit Movie</a></li>' +
+						'<li><a class="deleteLink" href="#" style="display: block" data-key="' + movie.id + '" data-rev="">Delete Movie</a></li>' +
 						'<br>'
 					).appendTo("#movieTitles");
 					/*if (starrating[1] === "onestar") {
@@ -530,17 +553,38 @@ $(document).on("pageinit", "#movie",  function(){
 					}else if (starrating === "fivestars") {
 						//movieData += '<li><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /><img src="filledstar_03.gif" class="star" /></li>';
 					}*/
-					$(".deleteLink").on("click", function(e) {
-						e.preventDefault();
-						key = $(this).data("key");
+					$(".editLink").on("click", function(e){
+						//var userInput = data.rows[$(info.currentTarget).attr('#myKey')].value;
+                        //window.location.assign('#addItem');
+						//console.log(userInput);
+						//e.preventDefault();
+						var key = $(this).data("key");
 						var rev = $(this).data("rev");
 						var doc = {};
 						doc._id = key;
-						doc._rev = rev; 
+						doc._rev = rev;
+						console.log(doc);
+						$.couch.db("myhollywood").openDoc(key, {
+							success: function(info) {	
+							console.log(doc);
+							console.log(title[1]);
+							$("#movietitle").val(title[1]);
+							},	
+							error: function() {console.log("Movie not opened");}
+						})
+					});
+					$(".deleteLink").on("click", function(e) {
+						e.preventDefault();
+						//key = $(this).data("key");
+						//var rev = $(this).data("rev");
+						//var doc = movie.id;
+						//console.log(doc);
+						//doc._id = key;
+						//doc._rev = rev; 
 						var ask = confirm("Are you sure you want to delete this movie?");
 						if (ask) {
-							console.log(doc);
-							$.couch.db("myhollywood").removeDoc(doc, {
+							//console.log(doc);
+							$.couch.db("myhollywood").removeDoc(obj, {
 								success: function() {console.log("Moved Deleted");},
 								error: function() {console.log("Movie has NOT been deleted");}								 
 							})
@@ -549,7 +593,7 @@ $(document).on("pageinit", "#movie",  function(){
 							alert("This movie has not been deleted");
 						}
 					});
-				}
+				//}
 			});
 		}
 	});			
@@ -562,7 +606,7 @@ $(document).on("pageinit", "#displayPage",  function(){
 				//console.log(myKey);
 				$.each(data.rows, function(index, movie) {
 					//console.log(myKey);
-					var key = $("myKey");
+					//var key = $("myKey");
 					var title = movie.value.title;
 					var date = movie.value.date;
 					var genre = movie.value.genre;
@@ -585,3 +629,81 @@ $(document).on("pageinit", "#displayPage",  function(){
 			error: function() {alert("No movies to display");}
 	});
 });
+function editInput() {
+    key = $(this).data("key");
+	var rev = $(this).data("rev");
+	var doc = {};
+	doc._id = key;
+	doc._rev = rev;
+		
+        $("#movietitle").val(obj.title[1]);
+        $("#dateseen").val(obj.date[1]);
+        $("#genre").val(obj.genre[1]);
+        var whereSeen = document.forms["addItemForm"].where;
+        for (var i =0; i<whereSeen.length; i++) {
+            if ($(whereSeen[i]).val("Movie Theater") && obj.movietheater[1] == "Movie Theater") {
+                $("#movietheater").attr("checked", "checked");
+                //console.log($("#movietheater").attr());
+                console.log($("#movietheater").val());
+            } else if ($(whereSeen[i]).val("At Home") && obj.movietheater[1] == "At Home") {
+                $("#athome").attr("checked", "checked");
+            } else if ($(whereSeen[i]).val("Other") && obj.movietheater[1] == "Other") {
+                $("#other").attr("checked", "checked");
+            }
+        }
+        if (obj.favorite[1] == "Yes") {
+            //$('#favorite').prop('checked', true);    
+            $("#favorite").attr("checked", "checked")
+        }
+        if (obj.starrating[1] === "onestar") {
+            onestar.attr("src", "filledStar_03.gif");
+            twostar.attr("src", "emptystar_03.gif");
+            threestar.attr("src", "emptystar_03.gif");
+            fourstar.attr("src", "emptystar_03.gif");
+            fivestar.attr("src", "emptystar_03.gif");
+            ratingDiv.attr("value", "onestars");
+        }
+        if (obj.starrating[1] === "twostars") {
+            twostar.attr("src", "filledStar_03.gif");
+            onestar.attr("src", "filledStar_03.gif");
+            threestar.attr("src", "emptystar_03.gif");
+            fourstar.attr("src", "emptystar_03.gif");
+            fivestar.attr("src", "emptystar_03.gif");
+            ratingDiv.attr("value", "twostars");
+        }else if (obj.starrating[1] === "threestars") {
+            threestar.attr("src", "filledStar_03.gif");
+            onestar.attr("src", "filledStar_03.gif");
+            twostar.attr("src", "filledStar_03.gif");
+            fourstar.attr("src", "emptystar_03.gif");
+            fivestar.attr("src", "emptystar_03.gif");
+            ratingDiv.attr("value", "threestars");
+        }else if (obj.starrating[1] === "fourstars") {
+            fourstar.attr("src", "filledStar_03.gif");
+            onestar.attr("src", "filledStar_03.gif");
+            twostar.attr("src", "filledStar_03.gif");
+            threestar.attr("src", "filledStar_03.gif");
+            fivestar.attr("src", "emptystar_03.gif");
+            ratingDiv.attr("value", "fourstars");
+        }else if (obj.starrating[1] === "fivestars") {
+            fivestar.attr("src", "filledStar_03.gif");
+            onestar.attr("src", "filledStar_03.gif");
+            twostar.attr("src", "filledStar_03.gif");
+            threestar.attr("src", "filledStar_03.gif");
+            fourstar.attr("src", "filledStar_03.gif");
+            ratingDiv.attr("value", "fivestars");
+        }            
+        $("#seenwith").val(obj.friends[1]);
+        //obj.rating[1] = $("#rating").val();
+        $("#review").val(obj.review[1]);
+        $("#myKey").val(obj.myKey[1]);
+        //console.log($("#myKey").val());
+        /*saveMovie.on("click", function(){
+               $(this).data("key");
+               //saveMovie.key = this.key;
+        });*/
+        
+        //var editSave = $("#savemovie");
+        //console.log(editSave.val() + editSave.data());
+        //editSave.on("click", confirmData);
+        //editSave.key = this.key;
+    }
